@@ -10,42 +10,41 @@ footer: true
 redirect_from: /getting-started/basic/
 ---
 
-By default, Home Assistant will try to detect your location from IP address geolocation. Home Assistant will automatically select a temperature unit and time zone based on this location. You can overwrite this by adding the following information to your `configuration.yaml`:
+在默认情况下，HomeAssistant将试图通过你的IP地址来检测你的地理位置，并将基于你的地理位置，自动选择温度单位和时区。当然你也可以覆盖 `configuration.yaml` 中的以下内容，来指明你的位置信息:
 
 ```yaml
 homeassistant:
-  # Omitted values in this section will be auto detected using freegeoip.io
+  # 若非指明，此部分的缺省数据将通过freegeoip.io来自动获取
 
-  # Location required to calculate the time the sun rises and sets
+  # 经度和纬度数据，用来计算日出和日落时间
   latitude: 32.87336
   longitude: 117.22743
 
-  # Impacts weather/sunrise data (altitude above sea level in meters) 
+  # 影响天气和日出日落数据（海拔高度，单位：米）
   elevation: 430
 
-  # 'metric' for Metric, 'imperial' for Imperial
+  # 公制单位为：'metric'，英制单位为：'imperial'
   unit_system: metric
 
-  # Pick yours from here:
+  # 参考以下链接来选择你的时区:
   # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
   time_zone: America/Los_Angeles
 
-  # Name of the location where Home Assistant is running
+  # 运行HomeAssistant系统的地点，可自定义
   name: Home
 ```
 
 ### {% linkable_title Password protecting the web interface %}
 
-First, you'll want to add a password for the Home Assistant web interface. Use your favourite text editor to open `configuration.yaml` and edit the `http` section:
+首先，你需要为HomeAssistant的Web界面设置一个密码。使用你最喜欢的文本编辑工具打开 `configuration.yaml` 并且编辑其中的 `http` 部分:
 
 ```yaml
 http:
-  api_password: YOUR_PASSWORD
+  api_password: 你的密码
 ```
 
 <p class='note warning'>
-If you decide to expose your Home Assistant instance to the internet and forget to set a password, your installation could be accessed by everybody.
+如果你决定要暴露你的HomeAssistant界面到公网，并且忘记设置密码，那么所有人都将能访问你的HomeAssistant。
 </p>
 
-See the [HTTP component documentation](/components/http/) for more options, such as the use of HTTPS encryption.
-
+更多选项如HTTPS加密，请访问 [HTTP组件文档](/components/http/)。
