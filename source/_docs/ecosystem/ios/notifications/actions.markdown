@@ -10,61 +10,61 @@ footer: true
 redirect_from: /ecosystem/ios/notifications/actions/
 ---
 
-Actionable notifications allow you to attach 1-4 custom buttons to a notification. When one of the actions is selected Home Assistant will be notified which action was chosen. This allows you to build complex automations.
+交互式通知允许您将1-4个自定义按钮附加到通知中。 当选择其中一个动作时，Home Assistant将会被通知哪个动作被选择。 这允许您构建更复杂的自动化场景。
 
-Examples of actionable notifications:
+交互式通知示例：
 
-- A notification is sent whenever motion is detected in your home while you are away or asleep. You can add an action to Sound Alarm. When tapped, Home Assistant is notified that the `sound_alarm` action was selected. You can add an automation to sound the burglar alarm whenever this event is seen.
-- Someone rings your front door bell. You can send an action to lock or unlock your front door. When tapped, a notification is sent back to Home Assistant upon which you can build automations.
-- Send a notification whenever your garage door opens with actions to open and close the garage.
+- 当您在外出或者入睡后，如果在家中检测到了物体移动，手机将会接收到通知。 您可以添加一个动作（action）去触发警报。 当按下时，Home Assistant会被通知`响起警报(Sound Alarm)`动作被选中。 每当该事件被触发时，你可以添加一个自动化场景来响起防盗报警。
+- 当有人按你家的门铃时。 您可以发送一个动作来锁定或解锁您的屋门。 点击时，通知将发送到Home Assistant您可以以此来构建自动化场景。
+- 每当您的车库门打开时您可以发送一个通知，与此同时提供打开和关闭车库门的动作。
 
 <p class='img'>
   <img src='/images/ios/actions.png' />
-  Actionable notifications allow the user to send a command back to Home Assistant.
+  交互式通知允许用户将命令发送回Home Assistant。
 </p>
 
-## {% linkable_title Overview of how actionable notifications work %}
+## {% linkable_title 交互式通知如何工作的概述 %}
 
-In advance of sending a notification:
+在发送通知之前：
 
-1. Define a notification category in your Home Assistant configuration which contain 1-4 actions.
-2. At launch iOS app requests notification categories from Home Assistant (can also be done manually in notification settings).
+1. 在Home Assistant配置中需要定义一个包含1-4个操作的通知类别。
+2. 当iOS应用启动时，Home Assistant会请求开启推送通知（也可以在通知设置中手动启用）。
 
-When sending a notification:
+当发送通知时：
 
-1. Send a notification with `data.push.category` set to a pre-defined notification category identifer.
-2. Push notification delivered to device
-3. User opens notification.
-3. Action tapped
-4. Identifier of action sent back to HA as the `actionName` property of the event `ios.notification_action_fired`, along with other metadata such as the device and category name.
+1. 发送一个通知并将其中的`data.push.category`设置为一个预定的通知类别标识
+2. 推送通知被发送到设备
+3. 用户打开推送通知
+3. 用户点击相关动作
+4. 该操作标识以事件`ios.notification_action_fired`中的`actionName`属性与其他元数据（如设备和类别名称）被一起发送回HA。
 
 <p class='img'>
   <img src='/images/ios/NotificationActionFlow.png' />
-  How the iOS device and Home Assistant work together to enable actionable notifications.
+  iOS设备和Home Assistant协同工作实现交互式通知示例。
 </p>
 
-## {% linkable_title Definitions %}
-- Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions. A categories parameters include:
-- Action - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports. An actions parameters include:
+## {% linkable_title 定义 %}
+- 类别 - 类别表示应用可能收到的通知类型。 其可以被当做是一组独特的动作。 类别参数包括：
+- 动作 - 动作包含按钮标题以及iOS在选择动作时用以通知应用程序时所需的信息。 您可以为应用程序创建单独的操作对象以此来实现对不同操作的支持。 动作参数包括：
 
-## {% linkable_title Category parameters %}
+## {% linkable_title 类别参数 %}
 
-- **name** (*Required*): A friendly name for this category.
-- **identifier** (*Required*): A unique identifier for the category. Must be uppercase and have no special characters or spaces.
-- **action** (*Required*): A list of actions.
+- **name** (*必选*): 这个类别的易读名称。
+- **identifier** (*必选*): 该类别的唯一标识符。 必须是大写字母且没有特殊字符或空格。
+- **action** (*必选*): 动作清单
 
-## {% linkable_title Action parameters %}
+## {% linkable_title 动作参数 %}
 
-- **identifier** (*Required*): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.
-- **title** (*Required*): The text to display on the button. Keep it short.
-- **activationMode** (*Optional*): The mode in which to run the app when the action is performed. Setting this to `foreground` will make the app open after selecting. Default value is `background`.
-- **authenticationRequired** (*Optional*): If a truthy value (`true`, `True`, `yes`, etc.) the user must unlock the device before the action is performed.
-- **destructive** (*Optional*): When the value of this property is a truthy value, the system displays the corresponding button differently to indicate that the action is destructive (text color is red).
-- **behavior** (*Optional*): When `textInput` the system provides a way for the user to enter a text response to be included with the notification. The entered text will be sent back to Home Assistant. Default value is `default`.
-- **textInputButtonTitle** (*Optional*): The button label. *Required* if `behavior` is `textInput`.
-- **textInputPlaceholder** (*Optional*): The placeholder text to show in the text input field. Only used if `behavior` is `textInput` and the device runs iOS 10.
+- **identifier** (*必选*): 此动作的唯一标识符。 必须是大写字母且没有特殊字符或空格。只需要对该类别是唯一的，而不需要是全局唯一。
+- **title** (*必选*): 按钮上显示的文字。尽可能短一些。
+- **activationMode** (*可选*): 在动作被执行时，应用程序的运行模式。若设置为`foreground`将使应用程序在选择后打开。 默认值为`background`。
+- **authenticationRequired** (*可选*): 如果布尔类型（`true`，`True`，`yes`等），则在执行操作之前，用户必须解锁设备。
+- **destructive** (*可选*): 当该属性的值为布尔值时，系统将以不同的方式显示相应的按钮，以指示操作是需要注意的（其文本颜色为红色）。
+- **behavior** (*可选*): 当使用`textInput`时，系统为用户提供了一种在通知中的输入文本的回应方式。 输入的文字将被发送到Home Assistant。 默认值为`default`。
+- **textInputButtonTitle** (*可选*): 按钮标签。如果`behavior`设置为`textInput`则该参数为 *必选*
+- **textInputPlaceholder** (*可选*): 文本输入框中显示的占位符文本。 仅当`behavior`为`textInput`，且设备运行iOS 10时才可使用。
 
-Here's a fully built example configuration:
+以下是一个包括所有参数的配置示例：
 
 ```yaml
 ios:
@@ -89,8 +89,8 @@ ios:
             textInputPlaceholder: 'Placeholder'
 ```
 
-## {% linkable_title Building automations for notification actions %}
-Here is an example automation to send a notification with a category in the payload:
+## {% linkable_title 构建通知操作的自动化 %}
+以下是一个发送在数据体（payload）中包含类别（category）的通知的自动化示例：
 
 ```yaml
 automation:
@@ -105,13 +105,13 @@ automation:
           push:
             badge: 5
             sound: <SOUND FILE HERE>
-            category: "ALARM" # Needs to match the top level identifier you used in the ios configuration
-          action_data: # Anything passed in action_data will get echoed back to Home Assistant.
+            category: "ALARM" # 需要匹配在ios配置中所使用的顶级标识符
+          action_data: # 在action_data中传递的任何内容都会被回传给Home Assistant。
             entity_id: light.test
             my_custom_data: foo_bar
 ```
 
-When an action is selected an event named `ios.notification_action_fired` will be emitted on the Home Assistant event bus. Below is an example payload.
+当选择一个动作时，一个名为`ios.notification action fired`的事件将在Home Assistant事件总线（event bus）上被触发。 下面是一个数据体示例。
 
 ```json
 {
@@ -124,7 +124,8 @@ When an action is selected an event named `ios.notification_action_fired` will b
 }
 ```
 
-Here's an example automation for the given payload:
+以下是对于给定数据体的自动化示例：
+
 ```yaml
 automation:
   - alias: Sound the alarm
@@ -137,7 +138,7 @@ automation:
       ...
 ```
 
-Notes:
+注释：
 
-* `textInput` will only exist if `behavior` was set to `textInput`.
-* `actionData` is a dictionary with parameters passed in the `action_data` dictionary of the `push` dictionary in the original notification.
+* 只有当`behavior`设置为`textInput`时，`textInput`才会存在。
+* `actionData`是一个字典，其包括原始通知中`push`字典中`action_data`字典中所用的传递参数
