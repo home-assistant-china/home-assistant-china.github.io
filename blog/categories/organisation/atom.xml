@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Organisation | Home Assistant 中文网]]></title>
   <link href="http:///blog/categories/organisation/atom.xml" rel="self"/>
   <link href="http:///"/>
-  <updated>2017-09-22T19:28:10+08:00</updated>
+  <updated>2017-09-22T20:23:50+08:00</updated>
   <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
@@ -18,7 +18,7 @@
     <link href="http:///blog/2017/01/21/home-assistant-governance/"/>
     <updated>2017-01-22T07:05:00+08:00</updated>
     <id>http:///blog/2017/01/21/home-assistant-governance</id>
-    <content type="html"><![CDATA[### {% linkable_title UPDATE JAN 28, 2017 %}
+    <content type="html"><![CDATA[### <a class='title-link' name='update-jan-28-2017' href='#update-jan-28-2017'></a> UPDATE JAN 28, 2017 
 
 After feedback from the community we have updated [the CLA][cla] and the license that Home Assistant is distributed under. For the CLA, instead of enforcing requirements on the grants and code, we now require contributions to be licensed under the Apache 2.0 license. Special thanks to [Matthew Garrett][mjg59] for his feedback and advice.
 
@@ -31,7 +31,7 @@ The Home Assistant project and community has seen enormous growth in the last th
 Starting today we are announcing a few initiatives to help protect our users, contributors and community members.
 
 <!--more-->
-## {% linkable_title Code of Conduct %}
+## <a class='title-link' name='code-of-conduct' href='#code-of-conduct'></a> Code of Conduct 
 
 More people are getting to know and love Home Assistant every day and our community keeps growing. Our community consists of people from all over the world with different backgrounds and we want Home Assistant to be a place where everyone can feel at home. To help with this we're introducing a Code of Conduct. The Code of Conduct describes what type of behavior is unacceptable, how we will enforce it and where to report incidents.
 
@@ -41,7 +41,7 @@ Moving forward this Code of Conduct will be active for all projects within the H
 
 [coc]: /developers/code_of_conduct/
 
-## {% linkable_title Contributor License Agreement %}
+## <a class='title-link' name='contributor-license-agreement' href='#contributor-license-agreement'></a> Contributor License Agreement 
 
 Moving forward we will also require that all contributors to any project have electronically signed our [contributor license agreement (CLA)][cla]. ~~We have adopted the CLA that GitHub uses for their projects~~ (see update at the top). Currently we have no plans to retroactively require a CLA for previous contributions, only those going forward.
 
@@ -51,7 +51,7 @@ Until a signed CLA is on file your pull request will not be reviewed or accepted
 
 A CLA is difficult to describe but GitHub did an excellent job so this next section is taken from [https://cla.github.com][gh-cla]:
 
-### {% linkable_title What is a Contributor License Agreement? %}
+### <a class='title-link' name='what-is-a-contributor-license-agreement' href='#what-is-a-contributor-license-agreement'></a> What is a Contributor License Agreement? 
 
 A Contributor License Agreement, known as a CLA, asks contributors to confirm that:
 
@@ -60,48 +60,48 @@ A Contributor License Agreement, known as a CLA, asks contributors to confirm th
 
 The GitHub CLA helps ensure the smooth operation and usability of the open source projects that we maintain.
 
-### {% linkable_title Why is a CLA necessary? %}
+### <a class='title-link' name='why-is-a-cla-necessary' href='#why-is-a-cla-necessary'></a> Why is a CLA necessary? 
 
 It depends on the jurisdiction, but in the United States, contributions are owned by the author or their employer. When the contribution is accepted, the project becomes a bundle of derivative works. The agreement of all contributors are necessary to maintain distribution of the complete project and to any licensing agreement.
 
-### {% linkable_title Isn’t that the purpose of an open source license? %}
+### <a class='title-link' name='isnt-that-the-purpose-of-an-open-source-license' href='#isnt-that-the-purpose-of-an-open-source-license'></a> Isn’t that the purpose of an open source license? 
 
 Most open source licenses deal with use of the original code, and don’t refer to contributions, or derivatives of the original.
 
-### {% linkable_title How does a CLA protect a project? %}
+### <a class='title-link' name='how-does-a-cla-protect-a-project' href='#how-does-a-cla-protect-a-project'></a> How does a CLA protect a project? 
 
 If the owner of a contribution decides that they don’t want the contribution to be part of the project or in any given distribution, the law is on their side. The project, contributors, and users may be subject to legal action. This may require payment of damages and could prevent further usage or contributions until the matter is resolved.
 
 Even when there is no legal pursuit, too much ambiguity can jeopardize or doom a project by preventing those that can’t risk legal action from getting involved.
 
-### {% linkable_title Why does it seem like only "corporate" projects have a CLA? %}
+### <a class='title-link' name='why-does-it-seem-like-only-corporate-projects-have-a-cla' href='#why-does-it-seem-like-only-corporate-projects-have-a-cla'></a> Why does it seem like only "corporate" projects have a CLA? 
 
 There are many projects without corporate ownership that use a CLA or even a copyright assignment: jQuery and Eclipse, for example. However, it is true that projects with financial backing tend to be at a higher risk of becoming a target, so they may have a lower tolerance for legal ambiguity.
 
-## {% linkable_title Security requirements %}
+## <a class='title-link' name='security-requirements' href='#security-requirements'></a> Security requirements 
 
 With more collaborators involved with Home Assistant we are also exposing ourselves to more risk as more people have write access. As such we taking the following steps.
 
  1. As of November 3rd, 2016, all collaborators have been required to have 2 factor authentication (2FA) enabled on their GitHub account.
  2. Going forward, we will do an audit from time to time and strip collaborators from write access if they haven't contributed for a while. This is in no sense meant to boot people, and you are absolutely eligible to get it back in the future when you wish start contributing again.
 
-## {% linkable_title Licensing %}
+## <a class='title-link' name='licensing' href='#licensing'></a> Licensing 
 
 We will now ensure that a `LICENSE.md` file exists in all projects under the Home Assistant organization and is an [OSI approved open source license](https://opensource.org/licenses) or a [Creative Commons](https://creativecommons.org) license.
 
-### {% linkable_title Code License %}
+### <a class='title-link' name='code-license' href='#code-license'></a> Code License 
 
 The chosen license for all code projects under the Home Assistant organization is [the Apache 2.0 license][license].
 
-### {% linkable_title Documentation License %}
+### <a class='title-link' name='documentation-license' href='#documentation-license'></a> Documentation License 
 
 All content on home-assistant.io and all other documentation/asset projects under the Home Assistant organization will be licensed under the Creative Commons License, specifically the [Attribution-NonCommercial-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-nc-sa/4.0/) license.
 
-## {% linkable_title Crediting contributors %}
+## <a class='title-link' name='crediting-contributors' href='#crediting-contributors'></a> Crediting contributors 
 
 We have now mostly automated updating the [Credits](/developers/credits/) page so that contributors get their attribution more quickly.
 
-## {% linkable_title In closing %}
+## <a class='title-link' name='in-closing' href='#in-closing'></a> In closing 
 
 We hope you understand that our desire with these changes is only to help protect the amazing community that has been built around Home Assistant. If you have any questions, please contact us via email, [Twitter][twitter] or [Discord][discord].
 
@@ -122,10 +122,10 @@ We hope you understand that our desire with these changes is only to help protec
     <content type="html"><![CDATA[On Saturday, we released [Home Assistant 0.31][0.31] which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.
 
 <!--more-->
-## {% linkable_title Why we changed the updater %}
+## <a class='title-link' name='why-we-changed-the-updater' href='#why-we-changed-the-updater'></a> Why we changed the updater 
 This change was driven by two important factors.
 
-### {% linkable_title Improving the security of the users. %}
+### <a class='title-link' name='improving-the-security-of-the-users' href='#improving-the-security-of-the-users'></a> Improving the security of the users. 
 
 As a user, you will be able to be notified if you are running a Home Assistant version that includes components that have known security flaws.
 
@@ -133,7 +133,7 @@ Although we hope to not have to use this feature often, it is important for us t
 
 Please note that this functionality is not done yet but will be available in a future release.
 
-### {% linkable_title Focusing our resources where it matters %}
+### <a class='title-link' name='focusing-our-resources-where-it-matters' href='#focusing-our-resources-where-it-matters'></a> Focusing our resources where it matters 
 
 As developers of Home Assistant, we will be able to see in what kind of environments Home Assistant is running. Here’s a few data points we didn’t have until now:
 
@@ -144,19 +144,19 @@ As developers of Home Assistant, we will be able to see in what kind of environm
 * How popular is our new [Raspberry Pi image][rpi-image]?
 
 
-## {% linkable_title Why we look up your IP address with GeoIP %}
+## <a class='title-link' name='why-we-look-up-your-ip-address-with-geoip' href='#why-we-look-up-your-ip-address-with-geoip'></a> Why we look up your IP address with GeoIP 
 We store the city so that we can see where our users are from. This information will be used to give us a better insight in where our users are from. This will help us gather data to see if we should for example prioritize internationalization. In addition, we previously had a nasty bug with the `sun` component in which users above a certain latitude were having crashes multiple times a day. Had the updater component been in place we could have targeted a special priority update notification only to them.
 
 As stated in the release blog post, the location information is _not_ provided by your local Home Assistant installation but is instead gathered by comparing your IP address against the [GeoLite2 data created by MaxMind][geolite]. From their documentation:
 
 > IP geolocation is inherently imprecise. Locations are often near the center of the population. Any location provided by a GeoIP database should not be used to identify a particular address or household.
 
-## {% linkable_title Why is it enabled by default %}
+## <a class='title-link' name='why-is-it-enabled-by-default' href='#why-is-it-enabled-by-default'></a> Why is it enabled by default 
 We decided to have it enabled by default because we consider the information that is gathered not harmful. We understand that not everyone will agree with us and so we have provided [multiple ways to opt out][opt-out].
 
 It is in our short-term planning to add an option to control this to our frontend.
 
-## {% linkable_title Source Code %}
+## <a class='title-link' name='source-code' href='#source-code'></a> Source Code 
 The source code of our updater AWS Lambda function is now available [here][source].
 
 
@@ -215,7 +215,7 @@ Paulus
 The new logo follows Googles material design spec. It uses the blue color that Home Assistant uses in the interface and it comes in two versions: a high detailed version (for homescreen icon etc) and a simple version (for favicon etc).
 
 <p class='img'>
-<img src='{{site_root}}/images/blog/ha-logo-history.png' />
+<img src='/images/blog/ha-logo-history.png' />
 The old logo, the new detailed logo and the new simple logo.
 </p>
 ]]></content>

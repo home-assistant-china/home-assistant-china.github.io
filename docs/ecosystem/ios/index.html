@@ -76,41 +76,41 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The Home Assistant for iOS app offers a companion app for iOS which is deeply integrated into both Home Assistant and iOS. Its basic features include:</p>
+  <p>Home Assistant iOS应用为iOS提供了一个配套的应用程序。它深度融合了Home Assistant和iOS。 其基本功能包括：</p>
 <ul>
-  <li>Advanced push notifications</li>
-  <li>Location tracking</li>
-  <li>Basic control of all Home Assistant entities</li>
-  <li>Integration with third party apps</li>
+  <li>高级推送通知</li>
+  <li>位置追踪</li>
+  <li>所有Home Assistant实体的基本控制</li>
+  <li>第三方应用程序集成</li>
 </ul>
-<p>The app is available on the iOS App Store in every country that Apple supports.</p>
+<p>在苹果支持的各个国家/地区的iOS应用商店里，均可下载该应用程序。</p>
 <p style="text-align: center;"><a target="_blank" href="https://itunes.apple.com/us/app/home-assistant-open-source-home-automation/id1099568401?mt=8" style="display:inline-block;overflow:hidden;background:url(//linkmaker.itunes.apple.com/assets/shared/badges/en-us/appstore-lrg.svg) no-repeat;width:135px;height:40px;background-size:contain;"></a></p>
-<h2>Basic requirements</h2>
+<h2>基本要求</h2>
 <ul>
-  <li>iOS device running at least iOS 9, but iOS 10 is greatly preferred.</li>
-  <li>Home Assistant 0.42.4 or higher for push notification support.</li>
-  <li>SSL is strongly recommended. Self-signed SSL certificates will not work due to Apple’s limitations.</li>
+  <li>iOS设备至少运行iOS 9，但iOS 10更好。</li>
+  <li>Home Assistant 0.42.4或者以上，用以推送通知支持。</li>
+  <li>强烈建议使用SSL。由于苹果的限制，自签名的SSL证书将无法正常工作。</li>
 </ul>
-<p>The <code class="highlighter-rouge">ios</code> component is the companion component for the Home Assistant iOS app. While not required, adding the <code class="highlighter-rouge">ios</code> component to your setup will greatly enhance the iOS app with new notification, location and sensor functions not possible with a standalone app.</p>
-<p>Loading the <code class="highlighter-rouge">ios</code> component will also load the <a href="/components/device_tracker"><code class="highlighter-rouge">device_tracker</code></a>, <a href="/components/zeroconf"><code class="highlighter-rouge">zeroconf</code></a> and <a href="/components/notify"><code class="highlighter-rouge">notify</code></a> platforms.</p>
-<h2><a class="title-link" name="setup" href="#setup"></a> Setup</h2>
-<h3>Automated Setup</h3>
-<p>The <code class="highlighter-rouge">ios</code> component will automatically be loaded under the following circumstances:</p>
+<p><code class="highlighter-rouge">ios</code>组件是Home Assistant iOS应用的配套组件。虽然不是必须的，但是将<code class="highlighter-rouge">ios</code>组件添加到您的设置中将大大增强iOS应用程序的功能，其包括新的推送通知，以及不能被独立应用程序所使用的位置和传感器功能。</p>
+<p>加载<code class="highlighter-rouge">ios</code>组件会同时加载： <a href="/components/device_tracker"><code class="highlighter-rouge">device_tracker</code></a>, <a href="/components/zeroconf"><code class="highlighter-rouge">zeroconf</code></a> 和 <a href="/components/notify"><code class="highlighter-rouge">notify</code></a> 平台.</p>
+<h2><a class="title-link" name="" href="#"></a> 设置</h2>
+<h3>自动设置</h3>
+<p>在以下情况下，<code class="highlighter-rouge">ios</code>组件将会被自动加载：</p>
 <ol>
-  <li>The <a href="/components/discovery"><code class="highlighter-rouge">discovery</code></a> component is enabled.</li>
-  <li>You have just installed the app and are at the getting started screen.</li>
+  <li><a href="/components/discovery"><code class="highlighter-rouge">discovery</code></a>组件被启用</li>
+  <li>您刚刚安装了应用程序，且刚开始运行。</li>
 </ol>
-<p>Automated discovery and component loading only happens at first install of the app. You may need to wait a few minutes for the iOS component to load as the <code class="highlighter-rouge">discovery</code> component only scans the network every 5 minutes.</p>
-<p>After the first automated setup you need to add <code class="highlighter-rouge">ios:</code> to your configuration so that the component loads by default even after restarting Home Assistant.</p>
-<h3>Manual Setup</h3>
-<p>You may also manually load the <code class="highlighter-rouge">ios</code> component by adding the following to your configuration:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<p>自动发现和组件加载仅在首次安装应用程序时才会发生。因此您可能需要等待几分钟才能加载iOS组件，因为<code class="highlighter-rouge">discovery</code>组件只有每5分钟的时候才会扫描一次网络。</p>
+<p>第一次自动设置后，您需要在配置文件中添加<code class="highlighter-rouge">ios:</code>，以便以后重启Home Assistant后，该组件也会被默认加载。</p>
+<h3>手动设置</h3>
+<p>您还可以通过在配置文件中添加以下内容来手动加载<code class="highlighter-rouge">ios</code>组件：</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># configuration.yaml接入示例</span>
 <span class="s">ios</span><span class="pi">:</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
+<p>可配置变量:</p>
 <ul>
-  <li><strong>push</strong> (<em>Optional</em>): Actionable push notifications configuration. See the <a href="/docs/ecosystem/ios/notifications/actions/">actionable notifications documentation</a> for more information.</li>
+  <li><strong>push</strong> (<em>可选</em>): 交互式推送通知配置。详情见<a href="/docs/ecosystem/ios/notifications/actions/">交互式通知文件</a>。</li>
 </ul>
 </article>
         </div>

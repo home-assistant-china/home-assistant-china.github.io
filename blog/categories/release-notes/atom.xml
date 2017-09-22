@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Release-Notes | Home Assistant 中文网]]></title>
   <link href="http:///blog/categories/release-notes/atom.xml" rel="self"/>
   <link href="http:///"/>
-  <updated>2017-09-22T19:28:10+08:00</updated>
+  <updated>2017-09-22T20:23:50+08:00</updated>
   <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
@@ -79,10 +79,10 @@ This release ships a new KNX implementation thanks to @Julius2342. It will insta
 - Stable and asynchronous KNX library. ([@Julius2342] - [#8725]) ([knx docs]) ([binary_sensor.knx docs]) ([climate.knx docs]) ([cover.knx docs]) ([light.knx docs]) ([sensor.knx docs]) ([switch.knx docs]) (new-platform)
 - Adds the AirVisual air quality sensor platform ([@bachya] - [#9320]) ([sensor.airvisual docs]) (new-platform)
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
@@ -501,7 +501,7 @@ script: !include scripts.yaml
 - Add support for Prowl notifications. ([@mbrrg] - [#9028]) ([notify.prowl docs]) (new-platform)
 - Add worldtidesinfo sensor component ([@aetolus] - [#8860]) ([sensor.worldtidesinfo docs]) (new-platform)
 
-## {% linkable_title Release 0.52.1 - August 28 %}
+## <a class='title-link' name='release-0521---august-28' href='#release-0521---august-28'></a> Release 0.52.1 - August 28 
 
 - Close stream request once we end up with proxy ([@foxel] - [#9110])
 - Fix issue #9116 in pushbullet ([@danielhiversen] - [#9128]) ([notify.pushbullet docs])
@@ -512,10 +512,10 @@ script: !include scripts.yaml
 - Prevent iCloud exceptions in logfile ([@mjj4791] - [#9179]) ([device_tracker.icloud docs])
 - bump ecobee version to fix issue 9190 ([@nkgilley] - [#9191]) ([ecobee docs]) ([climate.ecobee docs])
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
@@ -865,13 +865,13 @@ usps:
 
 Release 0.51 is around the corner and it contains some really great updates.
 
-## {% linkable_title Database speed up %}
+## <a class='title-link' name='database-speed-up' href='#database-speed-up'></a> Database speed up 
 
 The first one is more amazing database updates [#8748] by [@OverloadUT]. Every query that has been tested executes in well under 1 second, even on a RPi using MySQL with 6 million rows and around 300 entities. This is true even when you're getting an unrealistically huge date range!
 
 Updating the database will take some time when you start Home Assistant. During that time, the Home Assistant frontend is not accessible. Please let it complete and do not turn Home Assistant off.
 
-## {% linkable_title Frontend update %}
+## <a class='title-link' name='frontend-update' href='#frontend-update'></a> Frontend update 
 
 We have finished the migration of our frontend to be powered by Polymer 2. This has given us a big speed boost on Safari/iOS devices and has fixed a wide range of bugs.
 
@@ -883,11 +883,11 @@ Another change to the frontend is that we have reorganized the panels. The Z-Wav
 <iframe src="https://www.youtube.com/embed/f3isVVpmiq4" frameborder="0" allowfullscreen></iframe>
 </div>
 
-## {% linkable_title Vacuum cleaners %}
+## <a class='title-link' name='vacuum-cleaners' href='#vacuum-cleaners'></a> Vacuum cleaners 
 
 As we have seen more vacuum cleaners land in Home Assistant, it was time to create an official component for them. That's why [@azogue] introduced the new vacuum cleaner component in  [#8623]. This allows first class integration of vacuum cleaners in Home Assistant. Out of the box we will have Dyson, Xiamo and Roomba as supported platforms.
 
-## {% linkable_title New Platforms %}
+## <a class='title-link' name='new-platforms' href='#new-platforms'></a> New Platforms 
 
 - Added Lutron Caseta Scene Support ([@809694+kfcook] - [#8690]) ([lutron_caseta docs]) ([scene.lutron_caseta docs]) (new-platform)
 - New media_player platform for Russound devices using the RIO protocol ([@wickerwaka] - [#8448]) ([media_player.russound_rio docs]) (new-platform)
@@ -903,11 +903,11 @@ As we have seen more vacuum cleaners land in Home Assistant, it was time to crea
 - Add new device tracker for Huawei Routers. ([@abmantis] - [#8488]) ([device_tracker.huawei_router docs]) (new-platform)
 - Add Shodan sensor ([@fabaff] - [#8902]) ([sensor.shodan docs]) (new-platform)
 
-## {% linkable_title Release 0.51.1 - August 12 %}
+## <a class='title-link' name='release-0511---august-12' href='#release-0511---august-12'></a> Release 0.51.1 - August 12 
 
  - Fixed a bug in the automation editor that would break if no conditions available in the config file. ([@balloob])
 
-## {% linkable_title Release 0.51.2 - August 14 %}
+## <a class='title-link' name='release-0512---august-14' href='#release-0512---august-14'></a> Release 0.51.2 - August 14 
 
 - Fix zwave power_consumption attribute ([@andrey-git] - [#8968]) ([zwave docs])
 - Turn foscam verbose mode off ([@andrey-git] - [#8967]) ([camera.foscam docs])
@@ -919,14 +919,14 @@ As we have seen more vacuum cleaners land in Home Assistant, it was time to crea
 - Add workaround for broken toggles in Safari  ([@balloob])
 - Fix weblink opening twice ([@azogue])
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking Changes 
 
 - Efergy sensors: change units from KW to W ([@emlt] - [#8761]) ([sensor.efergy docs]) (breaking change)
 - Xiaomi vacuum is now a platform of new `vacuum` component derived from ToggleEntity, and services ([@azogue] - [#8623]) (breaking change) (new-platform)
@@ -939,7 +939,7 @@ vacuum:
   token: !secret xiaomi_vacuum_robot_token
 ```
 
-## {% linkable_title All changes %}
+## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
 - Upgrade pushbullet.py to 0.11.0 ([@fabaff] - [#8691]) ([notify.pushbullet docs])
 - Upgrade mypy to 0.521 ([@fabaff] - [#8692])
@@ -1328,7 +1328,7 @@ The launch has been crazy successful. The [20 minute introduction video][hassio-
 
 Hass.io will be a great foundation for bigger and better integrated features. Stay tuned.
 
-### {% linkable_title Adding the power of voice to integrations %}
+### <a class='title-link' name='adding-the-power-of-voice-to-integrations' href='#adding-the-power-of-voice-to-integrations'></a> Adding the power of voice to integrations 
 
 But enough about Hass.io, let's not forget about Home Assistant. This release has completely revamped the way how we deal with voice integrations. We turned Home Assistant into a platform to write voice apps, no matter where the processing of the voice happens. This can be done by Alexa, Google Assistant or in the Home Assistant user interface.
 
@@ -1345,7 +1345,7 @@ To make testing these applications easier, we've updated the conversation compon
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Ij0zDF3qwmE" frameborder="0" allowfullscreen></iframe>
 </div>
 
-### {% linkable_title History improvements %}
+### <a class='title-link' name='history-improvements' href='#history-improvements'></a> History improvements 
 
 [@OverloadUT] has been recently spending a lot of time on optimizing the history database queries. This release includes PR [#8632], the first in a list of improvements that he is working on. This PR greatly improves requests for single entities by using an optimized query for this use case.
 
@@ -1353,19 +1353,19 @@ The performance change in some of his tests shows this change to be about 300x f
 
 [hassio-intro]: https://www.youtube.com/watch?v=XWPluWcYRMI&feature=youtu.be
 
-### {% linkable_title Xiaomi integration %}
+### <a class='title-link' name='xiaomi-integration' href='#xiaomi-integration'></a> Xiaomi integration 
 
 Yes, it has happened! After being in beta for a while, the Xiaomi support is now available to all. [@danielhiversen] did an amazing job and we now support sensors, switches, lights and covers.
 
-### {% linkable_title Velbus integration %}
+### <a class='title-link' name='velbus-integration' href='#velbus-integration'></a> Velbus integration 
 
 Another awesome integration is that of the Velbus home automation system which has been contributed by [@thomasdelaet]. It integrates their sensors, covers, fans, lights and switches.
 
-### {% linkable_title Manual alarm with MQTT control %}
+### <a class='title-link' name='manual-alarm-with-mqtt-control' href='#manual-alarm-with-mqtt-control'></a> Manual alarm with MQTT control 
 
 A new version of the manual alarm component is now available with full MQTT control thanks to [@colinodell]. Using this you can build your own control panel to remotely arm/disarm the alarm. For example, using a [Raspberry Pi to create an alarm](https://www.hackster.io/colinodell/diy-alarm-control-panel-for-home-assistant-ac1813).
 
-## {% linkable_title New Platforms %}
+## <a class='title-link' name='new-platforms' href='#new-platforms'></a> New Platforms 
 
 - Initial support for Google Wifi/OnHub ([@fronzbot] - [#8485]) ([sensor.google_wifi docs]) (new-platform)
 - Xiaomi gw support ([@danielhiversen] - [#8555]) ([xiaomi docs]) ([binary_sensor.xiaomi docs]) ([cover.xiaomi docs]) ([light.xiaomi docs]) ([sensor.xiaomi docs]) ([switch.xiaomi docs]) (new-platform)
@@ -1375,7 +1375,7 @@ A new version of the manual alarm component is now available with full MQTT cont
 - Velbus ([@thomasdelaet] - [#8076]) ([velbus docs]) ([binary_sensor.velbus docs]) ([light.velbus docs]) (new-platform)
 - Add uk_transport component. ([@robmarkcole] - [#8600]) ([sensor.uk_transport docs]) (new-platform)
 
-## {% linkable_title Release 0.50.2 - July 31 %}
+## <a class='title-link' name='release-0502---july-31' href='#release-0502---july-31'></a> Release 0.50.2 - July 31 
 
 Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
 
@@ -1391,14 +1391,14 @@ Straight to 0.50.2. We released 0.50 as 0.50.1 due to an upload error to PyPi.
 - Correctly discover GE Fan Controllers ([@armills] - [#8682]) ([zwave docs])
 - Fix Z-Wave barrier discovery for new API ([@armills] - [#8706]) ([zwave docs]) ([cover.zwave docs])
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking Changes 
 
 - Automations: The state trigger keyword `state` and the time trigger keyword `after` were deprecated in 0.46. They have now been removed. Use `to` and `at` instead. ([@amelchio] - [#8510]) ([automation.state docs]) ([automation.time docs]) (breaking change)
 - Wink: the component is no longer supporting the `access_token` in the config. Use the new OAuth authentication or add your username and password to the config. ([@w1ll1am23] - [#8208]) ([wink docs]) (breaking change)
@@ -1434,7 +1434,7 @@ conversation:
 - Yahoo Weather: no longer allow configuring forecasts but include all instead. ([@fanthos] - [#8626]) ([weather.yweather docs]) (breaking change)
 - The Home Assistant Z-Wave Cover implementation has been updated to support the latest development version of OpenZWave. If you are currently applying a workaround to your OpenZWave installation to support the barrier command class, you'll need to make sure you update your workaround to the latest development version of OpenZWave. ([@firstof9] - [#8574]) ([cover docs]) ([cover.zwave docs]) (breaking change)
 
-## {% linkable_title All changes %}
+## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
 - Make deps directory persistent over upgrades ([@MartinHjelmare] - [#7801])
 - Fix check for running inside venv ([@MartinHjelmare] - [#8481])
@@ -1741,7 +1741,7 @@ conversation:
     <id>http:///blog/2017/07/15/release-49</id>
     <content type="html"><![CDATA[<a href='/components/#version/0.49'><img src='/images/blog/2017-07-0.49/components.png' style='border: 0;box-shadow: none;'></a>
 
-# {% linkable_title WE HAVE THEMES 🎨👩‍🎨 %}
+# <a class='title-link' name='we-have-themes-' href='#we-have-themes-'></a> WE HAVE THEMES 🎨👩‍🎨 
 
 Our already amazing frontend just got even more amazing thanks to [@andrey-git]. With the new theme support you can be in control of the primary color, accent color and a whole bunch more.
 
@@ -1763,7 +1763,7 @@ Screenshot of a green dashboard
 
 Not all parts of the user interface are themable yet. Expect improvements in future releases.
 
-## {% linkable_title Kiosk mode %}
+## <a class='title-link' name='kiosk-mode' href='#kiosk-mode'></a> Kiosk mode 
 
 Another great new improvement for the frontend is the addition of a kiosk mode. When the frontend is viewed in kiosk mode, the tab bar will be hidden.
 
@@ -1771,7 +1771,7 @@ To activate kiosk mode, navigate to `https://hass.example.com:8123/kiosk/group.l
 
 This feature has also been brought to you by [@Andrey-git]! Big shout out to him for his continuous efforts to bring Home Assistant to the next level.
 
-## {% linkable_title New Platforms %}
+## <a class='title-link' name='new-platforms' href='#new-platforms'></a> New Platforms 
 
 - Add london_underground ([@robmarkcole] - [#8272]) ([sensor.london_underground docs]) (new-platform)
 - Add citybikes platform ([@aronsky] - [#8202]) ([sensor.citybikes docs]) (new-platform)
@@ -1785,7 +1785,7 @@ This feature has also been brought to you by [@Andrey-git]! Big shout out to him
 - Added media_extractor service ([@minchik] - [#8369]) ([media_extractor docs]) (new-platform)
 - Vizio SmartCast support ([@vkorn] - [#8260]) ([media_player.vizio docs]) (new-platform)
 
-## {% linkable_title Release 0.49.1 - July 24 %}
+## <a class='title-link' name='release-0491---july-24' href='#release-0491---july-24'></a> Release 0.49.1 - July 24 
 
 - Fix TP-Link device tracker regression since 0.49 ([@maikelwever] - [#8497]) ([device_tracker.tplink docs])
 - prometheus: Convert fahrenheit to celsius ([@rcloran] - [#8511]) ([prometheus docs])
@@ -1804,14 +1804,14 @@ This feature has also been brought to you by [@Andrey-git]! Big shout out to him
 - ubus: Make multiple instances work again ([@glance-] - [#8571]) ([device_tracker.ubus docs])
 - Properly slugify switch.flux update service name ([@jawilson] - [#8545]) ([switch.flux docs])
 
-## {% linkable_title If you need help... %}
+## <a class='title-link' name='if-you-need-help' href='#if-you-need-help'></a> If you need help... 
 ...don't hesitate to use our very active [forums][forum] or join us for a little [chat][discord]. The release notes have comments enabled but it's preferred if you use the former communication channels. Thanks.
 
-## {% linkable_title Reporting Issues %}
+## <a class='title-link' name='reporting-issues' href='#reporting-issues'></a> Reporting Issues 
 Experiencing issues introduced by this release? Please report them in our [issue tracker][issue]. Make sure to fill in all fields of the issue template.
 
 <!--more-->
-## {% linkable_title Breaking Changes %}
+## <a class='title-link' name='breaking-changes' href='#breaking-changes'></a> Breaking Changes 
 
 - UPC Connect component no longer needs a password passed into the configuration. ([@Flavien] - [#8335]) ([device_tracker.upc_connect docs]) (breaking change)
 - The Apple TV platform has been upgraded to a component and a remote platform has been added. This requires your Apple TV configuration to be moved to the new `apple_tv` component. ([@postlund] - [#8122]) ([media_player.apple_tv docs]) (breaking change)
@@ -1840,7 +1840,7 @@ amcrest:
       - ptz_preset
 ```
 
-## {% linkable_title All changes %}
+## <a class='title-link' name='all-changes' href='#all-changes'></a> All changes 
 
 - Version bump to 0.49.0.dev0 ([@fabaff] - [#8266])
 - Upgrade pyowm to 2.7.1 ([@fabaff] - [#8274]) ([sensor.openweathermap docs]) ([weather.openweathermap docs])

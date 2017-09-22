@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Announcements | Home Assistant 中文网]]></title>
   <link href="http:///blog/categories/announcements/atom.xml" rel="self"/>
   <link href="http:///"/>
-  <updated>2017-09-22T19:28:10+08:00</updated>
+  <updated>2017-09-22T20:23:50+08:00</updated>
   <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
@@ -55,27 +55,27 @@ Hass.io has been built by [Pascal Vizeli], the UI has been made by [Paulus Schou
 
 <!--more-->
 
-#### {% linkable_title Will Hass.io be the only way to run Home Assistant? %}
+#### <a class='title-link' name='will-hassio-be-the-only-way-to-run-home-assistant' href='#will-hassio-be-the-only-way-to-run-home-assistant'></a> Will Hass.io be the only way to run Home Assistant? 
 
 Hass.io is and will always be optional. You can still run Home Assistant wherever you can run Python.
 
-#### {% linkable_title Which devices are supported at launch? %}
+#### <a class='title-link' name='which-devices-are-supported-at-launch' href='#which-devices-are-supported-at-launch'></a> Which devices are supported at launch? 
 
 Initially we support the Raspberry Pi 1, 2, 3 and Intel NUC. Advanced users can also [install Hass.io on a Linux server][advanced-install].
 
-#### {% linkable_title Can I install packages or scripts on the machine? %}
+#### <a class='title-link' name='can-i-install-packages-or-scripts-on-the-machine' href='#can-i-install-packages-or-scripts-on-the-machine'></a> Can I install packages or scripts on the machine? 
 
 No, this is not possible as we're using stateless Docker containers. To install a package you'll have to write a local add-on that interacts with Home Assistant. See [our tutorial][run-local].
 
-#### {% linkable_title Can I restore a snapshot on a different device? %}
+#### <a class='title-link' name='can-i-restore-a-snapshot-on-a-different-device' href='#can-i-restore-a-snapshot-on-a-different-device'></a> Can I restore a snapshot on a different device? 
 
 Yes, any Hass.io snapshot can be restored on any device.
 
-#### {% linkable_title The Hass.io configuration panel contains powerful tools. Why is there no extra security besides the Home Assistant login? %}
+#### <a class='title-link' name='the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login' href='#the-hassio-configuration-panel-contains-powerful-tools-why-is-there-no-extra-security-besides-the-home-assistant-login'></a> The Hass.io configuration panel contains powerful tools. Why is there no extra security besides the Home Assistant login? 
 
 This is in the works. We have already implemented [the backend](https://github.com/home-assistant/hassio/pull/41) and plan to release the UI soon.
 
-#### {% linkable_title Is there a roadmap? %}
+#### <a class='title-link' name='is-there-a-roadmap' href='#is-there-a-roadmap'></a> Is there a roadmap? 
 
 We use [Pivotal Tracker] to track things that are in progress and what we might work on.
 
