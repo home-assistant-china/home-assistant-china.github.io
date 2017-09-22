@@ -10,11 +10,11 @@ footer: true
 redirect_from: /ecosystem/ios/notifications/content_extensions/
 ---
 
-With the new Content Extension feature found in iOS 10, dynamic content can now be displayed as part of a notification without opening an app.
+使用iOS 10中新的内容扩展功能，动态内容现在可以在不打开应用的情况下显示为通知的一部分。
 
-# Map
-Will show a map with a red tipped pin at the coordinates given.
-The map will be centered at the coordinates given.
+# 地图
+地图将在给定的坐标处显示带有红色大头针。
+地图将以给定的坐标为中心。
 
 ```yaml
 service: notify.ios_<your_device_id_here>
@@ -28,38 +28,37 @@ data:
       longitude: "-73.968285"
 ```
 
-## Showing a second pin
+## 显示第二个大头针
 
-You can use the following properties under `action_data` to display a second pin. If used, the first pin will be red and the second green.
+您可以使用 `action_data` 的以下属性来显示第二个大头针。 如果使用，第一个大头针为红色，第二个为绿色。
 
-- **second_latitude**: The latitude of the second pin. **Must be a string!**
-- **second_longitude**: The longitude of the second pin. **Must be a string!**
-- **shows_line_between_points**: A Boolean value indicating whether a line should be drawn between the first and second pin.
+- **second_latitude**: 第二个大头针的纬度。 **必须是字符串！**
+- **second_longitude**: 第二个大头针的经度。 **必须是字符串！**
+- **shows_line_between_points**: 布尔值，用以指示是否应在第一个和第二个大头针之间绘制一条线。
 
-## Extra configuration
+## 额外配置
 
-You can also pass the following properties under `action_data` to modify the map in various ways. All are expected to be boolean values unless otherwise noted:
+您还可以通过修改 `action_data` 中以下属性来修改地图。 除非另有说明，否则所有值都将为布尔值：
 
-- **shows_compass**: A Boolean indicating whether the map displays a compass control.
-- **shows_points_of_interest**: A Boolean indicating whether the map displays point-of-interest information.
-- **shows_scale**: A Boolean indicating whether the map shows scale information.
-- **shows_traffic**: A Boolean value indicating whether the map displays traffic information.
-- **shows_user_location**: A Boolean value indicating whether the map should try to display the user’s location.
+- **shows_compass**: 布尔值，地图是否显示罗盘。
+- **shows_points_of_interest**: 布尔值，地图是否显示兴趣点信息。
+- **shows_scale**: 布尔值，地图是否显示比例信息。
+- **shows_traffic**: 布尔值，地图是否显示交通信息。
+- **shows_user_location**: 布尔值，地图是否应尝试显示用户位置。
 
 <p class='img'>
   <img src='/images/ios/map.png' />
-  An example of the map dynamic content.
+  动态地图。
 </p>
 
 
-# Camera Stream
+# 摄像头直播
 
-The notification thumbnail will be a still image from the camera.
-The notification content is a real time MJPEG stream of a camera (assuming the camera supports it).
+通知的缩略图为来自摄像头的静态图像。通知内容是摄像头的实时MJPEG流（假设摄像头支持）。
 
-You can use the attachment parameters `content-type` and `hide-thumbnail` with camera.
+您可以使用附件参数中的`content-type`和`hide-thumbnail`对摄像头进行设置。
 
-You can view an example [here](https://www.youtube.com/watch?v=LmYwpxPKW0g).
+演示视频在[这里](https://www.youtube.com/watch?v=LmYwpxPKW0g).
 
 ```yaml
 service: notify.ios_<your_device_id_here>
@@ -75,10 +74,10 @@ data:
 <iframe width="560" height="315" src="https://www.youtube.com/embed/LmYwpxPKW0g" frameborder="0" allowfullscreen></iframe>
 </div>
 
-# Combining with actionable notifications
+# 结合交互式通知
 
-As you can see the `category` key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom [actions](/ecosystem/ios/notifications/actions/) to add actions to the content extension.
+如上所示，`category`键是用来告诉设备要使用什么类型的扩展内容。您可以在自定义的[交互式通知](/ecosystem/ios/notifications/actions/)中使用相同类别的标识符，用以向扩展内容中添加操作。
 
-# Troubleshooting
+# 故障排除
 
-If you are having problems with receiving these special notifications try restarting your phone first. The extensions somewhat often fail to register properly until a restart.
+ 如果您在接收这些特殊通知时遇到问题，请先尝试重启手机。扩展拆件有时在重新启动之前可能无法正确加载。

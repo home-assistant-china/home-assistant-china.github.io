@@ -10,9 +10,9 @@ footer: true
 redirect_from: /ecosystem/ios/notifications/sounds/
 ---
 
-Adding a custom sound to a notification allows you to easily identify the notification without even looking at your device. Home Assistant for iOS comes with some notification sounds pre-installed but you can also upload your own.
+为通知添加自定义铃声可让您轻松识别不同通知，而无需查看设备。Home Assistant iOS应用包含了一些预置的通知铃声，但您也可以上传自己的铃声。
 
-Here is an example notification that uses one of the pre-installed sounds.
+以下是一个使用预置铃声的通知示例。
 
 ```yaml
 - alias: Notify iOS app
@@ -27,32 +27,32 @@ Here is an example notification that uses one of the pre-installed sounds.
           sound: "US-EN-Morgan-Freeman-Roommate-Is-Arriving.wav"
 ```
 
-Notes:
-* You must use the full filename in the payload (including extension).
+注释：
+* 您必须在数据体中使用完整的文件名（包括后缀名）。
 
-## {% linkable_title Custom push notification sounds %}
-The app allows you to use your own custom sounds in push notifications. The sounds must be formatted following [Apple's requirements][sound-requirements]. You set the filename of the sound in the notification payload. To add sounds:
+## {% linkable_title 自定义推送通知铃声 %}
+该应用程序允许您在推送通知中使用自定义铃声。铃声必须符合[苹果的格式要求][sound-requirements]。您可以在通知的数据体中设置铃声文件名。 要添加声音：
 
-1. Connect the device to a PC or Mac running the latest version of iTunes.
-2. Go to the device in iTunes.
-3. Select "Apps" on the left sidebar.
-4. Scroll down until you see the section labeled "File Sharing".
-5. Select HomeAssistant.
-6. Drag and drop properly formatted sounds.
-7. Click Sync in the lower right.
-8. Once sync is complete, disconnect the device from the computer.
-9. On your iOS device, open the Home Assistant app.
-10. Go to Settings -> Notification Settings.
-11. Select "Import sounds from iTunes".
+1. 将设备连接到电脑，确保iTunes为最新版本。
+2. 在iTunes中选择设备。
+3. 在左侧选择 "应用"。
+4. 下拉后选择 "文件共享"。
+5. 选择 HomeAssistant。
+6. 拖放处理好的铃声文件。
+7. 点击右下角的同步。
+8. 同步完成后，断开与电脑的连接。
+9. 在iOS设备上打开Home Assistant应用.
+10. 选择 设置 -> 通知设置.
+11. 选择 "从iTunes导入铃声".
 
-Assuming that you correctly formatted the sounds they are now available to use in push notifications.
+假设您正确地格式化了声音，您现在可以在推送通知中使用它们了。
 
-Notes:
-* **Please note that due to a bug in iOS 10 you may need to restart your entire device before notification sounds can be played. This should hopefully be fixed by Apple soon.**
-* Uploading a file with the same name as an existing one will overwrite the original.
-* You can view what sounds are installed on each device by inspecting the `ios.conf` file in your configuration directory. They are listed in the `pushSounds` array.
+注释：
+* **请注意，由于在iOS 10的bug，在您重启设备之前，你可能无法播放导入的铃声。这个bug应该很快就会被苹果修复。**
+* 上传与现有文件同名的文件，将覆盖原始文件。
+* 您可以通过检查配置目录中的`ios.conf`文件来查看每个设备上安装的铃声。它们在`pushSounds`中。
 
-### {% linkable_title Preinstalled notification sounds %}
+### {% linkable_title 预置通知铃声 %}
 
 ```
 US-EN-Alexa-Back-Door-Opened.wav

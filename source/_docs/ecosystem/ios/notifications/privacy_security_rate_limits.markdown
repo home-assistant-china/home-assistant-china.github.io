@@ -10,14 +10,14 @@ footer: true
 redirect_from: /ecosystem/ios/notifications/privacy_security_rate_limits/
 ---
 
-## {% linkable_title Privacy %}
+## {% linkable_title 隐私 %}
 
-No notification content is stored on remote servers. Only the required push registration data and a simple counter of the total number of push notifications sent per day per device (for rate limiting purposes) is kept.
+远程服务器上不会存储通知内容。只有所需的推送注册数据和每台设备每天发送的推送通知的总数（用于数量限制）被保存。
 
-## {% linkable_title Rate limiting %}
+## {% linkable_title 数量限制 %}
 
-Currently, you are allowed to send a maximum of 150 push notifications per day per device. This is to ensure that the service remains cheap to maintain. In the future we may add support for upgrading to allow more notifications. The rate limit resets at midnight UTC daily. When a notification is sent your current rate limits (including sent notifications and notifications remaining for the day) will be output to your Home Assistant logs. If an error occurs while sending a notification your rate limit will not be affected.
+目前，每台设备每天最多可以发送150个推送通知。这是为了确保服务维护的低成本。将来我们可能会对此进行升级，以支持允许更多的通知。 数量限制在UTC时间的每天午夜重置。发送通知后，您当前数量限制信息（包括当天已发通知和剩余可发送通知）将被输出到您的Home Assistant日志。如果发送通知时发生了错误，将不会计入您的数量限制中。
 
-## {% linkable_title Security %}
+## {% linkable_title 安全 %}
 
-All traffic between your Home Assistant instance, the push infrastructure, and Apple, is encrypted with SSL.
+所有Home Assistant，推送服务器和Apple之间的数据都使用SSL加密。
