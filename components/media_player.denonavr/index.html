@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate Denon AVR Network Receivers into Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/media_player.denonavr/">
+    <link rel="canonical" href="https://home-assistant.io/components/media_player.denonavr/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Denon AVR Network Receivers">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/media_player.denonavr/">
+    <meta property="og:url" content="https://home-assistant.io/components/media_player.denonavr/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate Denon AVR Network Receivers into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -87,6 +87,7 @@
   <li>Marantz M-CR603</li>
   <li>Marantz M-RC610</li>
   <li>Marantz SR5008</li>
+  <li>Marantz SR6007 - SR6010</li>
   <li>Marantz NR1604</li>
   <li>Other Denon AVR receivers (untested)</li>
   <li>Marantz receivers (experimental)</li>
@@ -100,6 +101,7 @@ If you have something else using the IP controller for your Denon AVR 3808CI, su
     <span class="s">host</span><span class="pi">:</span> <span class="s">IP_ADDRESS</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
     <span class="s">show_all_sources</span><span class="pi">:</span> <span class="s">True / False</span>
+    <span class="s">timeout</span><span class="pi">:</span> <span class="s">POSITIVE INTEGER</span>
     <span class="s">zones</span><span class="pi">:</span>
       <span class="pi">-</span> <span class="s">zone</span><span class="pi">:</span> <span class="s">Zone2 / Zone3</span>
         <span class="s">name</span><span class="pi">:</span> <span class="s">NAME</span>
@@ -110,6 +112,7 @@ If you have something else using the IP controller for your Denon AVR 3808CI, su
   <li><strong>host</strong> (<em>Optional</em>): IP address of the device. Example: 192.168.1.32. If not set, auto discovery is used.</li>
   <li><strong>name</strong> (<em>Optional</em>): Name of the device. If not set, friendlyName of receiver is used.</li>
   <li><strong>show_all_sources</strong> (<em>Optional</em>): If True all sources are displayed in sources list even if they are marked as deleted in the receiver. If False deleted sources are not displayed (default). Some receivers have a bug that marks all sources as deleted in the interface. In this case this option could help.</li>
+  <li><strong>timeout</strong> (<em>Optional</em>): Timeout for HTTP requests to the receiver. Defaults to 2 seconds if not provided.</li>
   <li><strong>zones</strong> (<em>Optional</em>): List of additional zones to be activated. They are displayed as additional media players with the same functionality Main Zone of the device supports
     <ul>
       <li><strong>zone</strong>: Zone which should be activated. Valid options are Zone2 and Zone3</li>
@@ -282,6 +285,9 @@ If you have something else using the IP controller for your Denon AVR 3808CI, su
         </li>
         <li>
             <a href='/components/media_player.volumio/'>Volumio Media Player</a>
+        </li>
+        <li>
+            <a href='/components/media_player.yamaha_musiccast/'>Yamaha MusicCast Receivers</a>
         </li>
         <li>
             <a href='/components/media_player.yamaha/'>Yamaha Network Receivers</a>

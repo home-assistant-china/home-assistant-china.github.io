@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Presence-Detection | Home Assistant 中文网]]></title>
   <link href="http:///blog/categories/presence-detection/atom.xml" rel="self"/>
   <link href="http:///"/>
-  <updated>2017-08-30T15:26:51+08:00</updated>
+  <updated>2017-09-22T19:28:10+08:00</updated>
   <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
@@ -72,13 +72,13 @@ Once you’ve created the zone - you need to restart HA. The next step is:-
 8. Enter the `Minor` and `Major` numbers for your iBeacon - or leave them at 0 which will match all beacons with that `UUID`
 
 <p class='img'>
-  <img  width='200' border='2' src='http:/images/blog/2016-04-ibeacons/owntracks_beacon_setup.png'>
+  <img  width='200' border='2' src='/images/blog/2016-04-ibeacons/owntracks_beacon_setup.png'>
 </p>
 
 Once you’ve added the iBeacon - you should be able to see it on the OwnTracks region screen. If your phone can see the packets from that beacon, OwnTracks will turn the relevant Region red.
 
 <p class='img'>
-  <img width='200' src='http:/images/blog/2016-04-ibeacons/owntracks_red_beacon.png'>
+  <img width='200' src='/images/blog/2016-04-ibeacons/owntracks_red_beacon.png'>
 </p>
 
 When OwnTracks sees the beacon (and turns the region red), it also sends an MQTT packet to HA to say that you have entered that region.

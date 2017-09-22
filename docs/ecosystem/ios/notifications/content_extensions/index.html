@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Extend your notifications with dynamic content">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/ecosystem/ios/notifications/content_extensions/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/ios/notifications/content_extensions/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Dynamic content">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/ecosystem/ios/notifications/content_extensions/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/ios/notifications/content_extensions/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Extend your notifications with dynamic content">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -72,14 +72,14 @@
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/ecosystem/ios/notifications/content_extensions.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Dynamic Content
+      Dynamic content
     </h1>
   </header>
   <hr class="divider">
-  <p>With the new Content Extension feature found in iOS 10, dynamic content can now be displayed as part of a notification without opening an app.</p>
-<h1>Map</h1>
-<p>Will show a map with a red tipped pin at the coordinates given.
-The map will be centered at the coordinates given.</p>
+  <p>使用iOS 10中新的内容扩展功能，动态内容现在可以在不打开应用的情况下显示为通知的一部分。</p>
+<h1>地图</h1>
+<p>地图将在给定的坐标处显示带有红色大头针。
+地图将以给定的坐标为中心。</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">notify.ios_&lt;your_device_id_here&gt;</span>
 <span class="s">data</span><span class="pi">:</span>
   <span class="s">message</span><span class="pi">:</span> <span class="s">Something happened at home!</span>
@@ -91,31 +91,30 @@ The map will be centered at the coordinates given.</p>
       <span class="s">longitude</span><span class="pi">:</span> <span class="s2">"</span><span class="s">-73.968285"</span>
 </code></pre>
 </div>
-<h2>Showing a second pin</h2>
-<p>You can use the following properties under <code class="highlighter-rouge">action_data</code> to display a second pin. If used, the first pin will be red and the second green.</p>
+<h2>显示第二个大头针</h2>
+<p>您可以使用 <code class="highlighter-rouge">action_data</code> 的以下属性来显示第二个大头针。 如果使用，第一个大头针为红色，第二个为绿色。</p>
 <ul>
-  <li><strong>second_latitude</strong>: The latitude of the second pin. <strong>Must be a string!</strong></li>
-  <li><strong>second_longitude</strong>: The longitude of the second pin. <strong>Must be a string!</strong></li>
-  <li><strong>shows_line_between_points</strong>: A Boolean value indicating whether a line should be drawn between the first and second pin.</li>
+  <li><strong>second_latitude</strong>: 第二个大头针的纬度。 <strong>必须是字符串！</strong></li>
+  <li><strong>second_longitude</strong>: 第二个大头针的经度。 <strong>必须是字符串！</strong></li>
+  <li><strong>shows_line_between_points</strong>: 布尔值，用以指示是否应在第一个和第二个大头针之间绘制一条线。</li>
 </ul>
-<h2>Extra configuration</h2>
-<p>You can also pass the following properties under <code class="highlighter-rouge">action_data</code> to modify the map in various ways. All are expected to be boolean values unless otherwise noted:</p>
+<h2>额外配置</h2>
+<p>您还可以通过修改 <code class="highlighter-rouge">action_data</code> 中以下属性来修改地图。 除非另有说明，否则所有值都将为布尔值：</p>
 <ul>
-  <li><strong>shows_compass</strong>: A Boolean indicating whether the map displays a compass control.</li>
-  <li><strong>shows_points_of_interest</strong>: A Boolean indicating whether the map displays point-of-interest information.</li>
-  <li><strong>shows_scale</strong>: A Boolean indicating whether the map shows scale information.</li>
-  <li><strong>shows_traffic</strong>: A Boolean value indicating whether the map displays traffic information.</li>
-  <li><strong>shows_user_location</strong>: A Boolean value indicating whether the map should try to display the user’s location.</li>
+  <li><strong>shows_compass</strong>: 布尔值，地图是否显示罗盘。</li>
+  <li><strong>shows_points_of_interest</strong>: 布尔值，地图是否显示兴趣点信息。</li>
+  <li><strong>shows_scale</strong>: 布尔值，地图是否显示比例信息。</li>
+  <li><strong>shows_traffic</strong>: 布尔值，地图是否显示交通信息。</li>
+  <li><strong>shows_user_location</strong>: 布尔值，地图是否应尝试显示用户位置。</li>
 </ul>
 <p class="img">
   <img src="/images/ios/map.png" />
-  An example of the map dynamic content.
+  动态地图。
 </p>
-<h1>Camera Stream</h1>
-<p>The notification thumbnail will be a still image from the camera.
-The notification content is a real time MJPEG stream of a camera (assuming the camera supports it).</p>
-<p>You can use the attachment parameters <code class="highlighter-rouge">content-type</code> and <code class="highlighter-rouge">hide-thumbnail</code> with camera.</p>
-<p>You can view an example <a href="https://www.youtube.com/watch?v=LmYwpxPKW0g">here</a>.</p>
+<h1>摄像头直播</h1>
+<p>通知的缩略图为来自摄像头的静态图像。通知内容是摄像头的实时MJPEG流（假设摄像头支持）。</p>
+<p>您可以使用附件参数中的<code class="highlighter-rouge">content-type</code>和<code class="highlighter-rouge">hide-thumbnail</code>对摄像头进行设置。</p>
+<p>演示视频在<a href="https://www.youtube.com/watch?v=LmYwpxPKW0g">这里</a>.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">service</span><span class="pi">:</span> <span class="s">notify.ios_&lt;your_device_id_here&gt;</span>
 <span class="s">data</span><span class="pi">:</span>
   <span class="s">message</span><span class="pi">:</span> <span class="s">Motion detected in the Living Room</span>
@@ -128,10 +127,10 @@ The notification content is a real time MJPEG stream of a camera (assuming the c
 <div class="videoWrapper">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/LmYwpxPKW0g" frameborder="0" allowfullscreen=""></iframe>
 </div>
-<h1>Combining with actionable notifications</h1>
-<p>As you can see the <code class="highlighter-rouge">category</code> key is used to tell the device what kind of content extension to use. You can use the same category identifiers in your own custom <a href="/ecosystem/ios/notifications/actions/">actions</a> to add actions to the content extension.</p>
-<h1>Troubleshooting</h1>
-<p>If you are having problems with receiving these special notifications try restarting your phone first. The extensions somewhat often fail to register properly until a restart.</p>
+<h1>结合交互式通知</h1>
+<p>如上所示，<code class="highlighter-rouge">category</code>键是用来告诉设备要使用什么类型的扩展内容。您可以在自定义的<a href="/ecosystem/ios/notifications/actions/">交互式通知</a>中使用相同类别的标识符，用以向扩展内容中添加操作。</p>
+<h1>故障排除</h1>
+<p>如果您在接收这些特殊通知时遇到问题，请先尝试重启手机。扩展拆件有时在重新启动之前可能无法正确加载。</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -216,6 +215,7 @@ The notification content is a real time MJPEG stream of a camera (assuming the c
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -301,6 +301,7 @@ The notification content is a real time MJPEG stream of a camera (assuming the c
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>

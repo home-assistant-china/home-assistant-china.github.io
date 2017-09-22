@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="A breakdown of all the different ways to work with the asynchronous core of Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/developers/asyncio_working_with_async/">
+    <link rel="canonical" href="https://home-assistant.io/developers/asyncio_working_with_async/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Working with Async">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/developers/asyncio_working_with_async/">
+    <meta property="og:url" content="https://home-assistant.io/developers/asyncio_working_with_async/">
     <meta property="og:type" content="website">
     <meta property="og:description" content="A breakdown of all the different ways to work with the asynchronous core of Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -71,7 +71,7 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Working With Async
+      Working with Async
     </h1>
   </header>
   <hr class="divider">
@@ -108,7 +108,7 @@
     <span class="c"># Setup your platform inside of the event loop</span>
 </code></pre>
 </div>
-<p>The only difference with the original parameters is that the add_entities function has been replaced by the async friendly callback <code class="highlighter-rouge">async_add_entities</code>.</p>
+<p>The only difference with the original parameters is that the <code class="highlighter-rouge">add_entities</code> function has been replaced by the async friendly callback <code class="highlighter-rouge">async_add_entities</code>.</p>
 <h2><a class="title-link" name="implementing-an-async-entity" href="#implementing-an-async-entity"></a> Implementing an async entity</h2>
 <p>You can make your entity async friendly by converting your update method to be async. This requires the dependency of your entities to also be async friendly!</p>
 <div class="language-python highlighter-rouge"><pre class="highlight"><code><span class="k">class</span> <span class="nc">MyEntity</span><span class="p">(</span><span class="n">Entity</span><span class="p">):</span>

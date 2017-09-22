@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate Garadget covers within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/cover.garadget/">
+    <link rel="canonical" href="https://home-assistant.io/components/cover.garadget/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Garadget Cover">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/cover.garadget/">
+    <meta property="og:url" content="https://home-assistant.io/components/cover.garadget/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate Garadget covers within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -129,10 +129,10 @@
         <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.state</span><span class="nv"> </span><span class="s">}}'</span>
       <span class="s">garage_door_time_in_state</span><span class="pi">:</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Since'</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.attributes["time</span><span class="nv"> </span><span class="s">in</span><span class="nv"> </span><span class="s">state"]</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.attributes.time_in_state</span><span class="nv"> </span><span class="s">}}'</span>
       <span class="s">garage_door_wifi_signal_strength</span><span class="pi">:</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">WiFi</span><span class="nv"> </span><span class="s">strength'</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.attributes["wifi</span><span class="nv"> </span><span class="s">signal</span><span class="nv"> </span><span class="s">strength</span><span class="nv"> </span><span class="s">(dB)"]</span><span class="nv"> </span><span class="s">}}'</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">states.cover.garage_door.attributes.wifi_signal_strength</span><span class="nv"> </span><span class="s">}}'</span>
         <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s1">'</span><span class="s">dB'</span>
 
 <span class="s">group</span><span class="pi">:</span>
@@ -181,6 +181,9 @@
     <div class='section'>
     <h1 class="title delta">Category Cover</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/cover.abode/'>Abode Cover</a>
+        </li>
         <li>
             <a href='/components/cover.command_line/'>Command Line Cover</a>
         </li>

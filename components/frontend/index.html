@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Offers a frontend to Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/frontend/">
+    <link rel="canonical" href="https://home-assistant.io/components/frontend/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Frontend">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/frontend/">
+    <meta property="og:url" content="https://home-assistant.io/components/frontend/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Offers a frontend to Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -80,7 +80,7 @@
 <span class="s">frontend</span><span class="pi">:</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="themes" href="#themes"></a> Themes</h3>
+<h2><a class="title-link" name="themes" href="#themes"></a> Themes</h2>
 <p>Starting with version 0.49 you can define themes:</p>
 <p>Example:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
@@ -99,6 +99,7 @@
   <li><code class="highlighter-rouge">frontend.set_theme(name)</code>: sets backend-preferred theme name.</li>
 </ul>
 <p>Example in automation:</p>
+<p>Set a theme at the startup of Home Assistant:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Set</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">startup'</span>
     <span class="s">initial_state</span><span class="pi">:</span> <span class="s1">'</span><span class="s">on'</span>
@@ -111,6 +112,32 @@
         <span class="s">name</span><span class="pi">:</span> <span class="s">happy</span>
 </code></pre>
 </div>
+<p>To enable “night mode”:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Set</span><span class="nv"> </span><span class="s">dark</span><span class="nv"> </span><span class="s">theme</span><span class="nv"> </span><span class="s">for</span><span class="nv"> </span><span class="s">the</span><span class="nv"> </span><span class="s">night'</span>
+    <span class="s">initial_state</span><span class="pi">:</span> <span class="s">True</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">time</span>
+        <span class="s">at</span><span class="pi">:</span> <span class="s1">'</span><span class="s">21:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">frontend.set_theme</span>
+        <span class="s">data</span><span class="pi">:</span>
+          <span class="s">name</span><span class="pi">:</span> <span class="s">darkred</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="manual-theme-selection" href="#manual-theme-selection"></a> Manual Theme Selection</h3>
+<p>When themes are enabled in the <code class="highlighter-rouge">configuration.yaml</code> file, a new option will show up in the Configuration panel under <code class="highlighter-rouge">configuration.yaml</code> called “Set a theme.” You can then choose any installed theme from the dropdown list and it will be applied immediately.</p>
+<h2><a class="title-link" name="loading-extra-html" href="#loading-extra-html"></a> Loading extra HTML</h2>
+<p>Starting with version 0.53 you can specify extra HTML files to load.</p>
+<p>Example:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
+<span class="s">frontend</span><span class="pi">:</span>
+  <span class="s">extra_html_url</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="s">https://example.com/file1.html</span>
+    <span class="pi">-</span> <span class="s">/file2.html</span>
+</code></pre>
+</div>
+<p>Those will be loaded via <code class="highlighter-rouge">&lt;link rel='import' href='' async&gt;</code> on any page (states and panels)</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">

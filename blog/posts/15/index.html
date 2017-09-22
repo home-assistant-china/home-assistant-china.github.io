@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Home Assistant 是一个基于Python 3开发的开源家庭自动化平台。">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/blog/posts/15/">
+    <link rel="canonical" href="https://home-assistant.io/blog/posts/15/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Home Assistant 中文网">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/blog/posts/15/">
+    <meta property="og:url" content="https://home-assistant.io/blog/posts/15/">
     <meta property="og:type" content="website">
     <meta property="og:description" content="">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -68,6 +68,74 @@
     <div class="grid-wrapper">
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2015/01/04/hey-pushbullet-nice-talking-to-you/">Hello PushBullet, nice talking to you</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-01-05T05:29:07+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> January 4, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/01/04/hey-pushbullet-nice-talking-to-you/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>One of the things that was missing in Home Assistant for a while was a way to communicate with users. Wouldn’t it be nice to get a message when important events happen like the lights being turned on while no one is home? Since the Home Assistant frontend runs as a web application on the phone, we have no way to bring ourselves to the front. This is where the new notify component comes in, powered by PushBullet.</p>
+<p>The new notify component will take in messages and tells them to the user. For now this will be powered by the very awesome <a href="https://www.pushbullet.com/">PushBullet</a> but any other messaging platform can be easily added.</p>
+<p class="img">
+  <img src="/images/screenshots/pushbullet_moto360.png" />
+  A message triggered by the simple_alarm component is shown by PushBullet on the Moto360.
+</p>
+<p>Read on to learn how to enable the notify component and integrate it with other components.</p>
+      <a class="btn pull-right" href="/blog/2015/01/04/hey-pushbullet-nice-talking-to-you/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2014/12/26/home-control-home-automation-and-the-smart-home/">Home Control, Automation &amp; the Smart Home</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2014-12-27T02:23:13+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 26, 2014</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> four minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Internet-of-Things</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2014/12/26/home-control-home-automation-and-the-smart-home/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>The internet has been buzzing over the last year about home automation. A lot of different terms fly around like the internet of things, home automation and the smart home.
+This article will try to explain how they all relate.</p>
+<p>The first thing to introduce is the <strong>Internet of Things</strong> (IoT). This refers to a new generation of devices that cannot only be controlled by humans via buttons or remotes but also provide an interface to communicate with other devices and applications. For example, an IoT-capable coffee machine could receive commands to create different types of coffee and be able to broadcast the amount of water left in its resevoir.</p>
+<p>There is no widely adopted open standard for smart device communication. This prevents a lot of devices to communicate with one another. And even if they could, most devices are not designed to manage other devices. To solve this we need a device to be able to communicate with and manage all these connected devices. This device is called a <strong>hub</strong>.</p>
+<p>As a bare minimum a hub has to keep track of the state of each device and should be able to control them if possible. For example, it has to know which lights are on or off and offer a way to control the lights. For a sensor it only has to know the value. A hub with these capabilities offers <strong>home control</strong>.</p>
+<p class="img">
+  <a href="/images/screenshots/nexus_7_dashboard.png">
+    <img alt="Hub dashboard example" src="/images/screenshots/nexus_7_dashboard.png" />
+  </a>
+  Example of a hub’s dashboard. Showing the state of 2 persons, 4 lights and the sun.
+</p>
+      <a class="btn pull-right" href="/blog/2014/12/26/home-control-home-automation-and-the-smart-home/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
   <article class="listing">
     <header>
   <h1 class="beta">

@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Ask the device to send a location update remotely">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/ecosystem/ios/notifications/requesting_location_updates/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/ios/notifications/requesting_location_updates/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Requesting location updates">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/ecosystem/ios/notifications/requesting_location_updates/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/ios/notifications/requesting_location_updates/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Ask the device to send a location update remotely">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -72,14 +72,14 @@
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/ecosystem/ios/notifications/requesting_location_updates.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Requesting Location Updates
+      Requesting location updates
     </h1>
   </header>
   <hr class="divider">
   <p class="note warning">
-<strong>Do not rely on this functionality due to the time limits mentioned below.</strong>
+<strong>由于下述时间限制，请不要依赖此功能。</strong>
 </p>
-<p>You can force a device to attempt to report its location by sending a special notification.</p>
+<p>您可以通过发送特殊通知来强制设备尝试报告其位置。</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span>
   <span class="s">- alias</span><span class="pi">:</span> <span class="s">Notify iOS app</span>
     <span class="s">trigger</span><span class="pi">:</span>
@@ -90,7 +90,7 @@
         <span class="s">message</span><span class="pi">:</span> <span class="s2">"</span><span class="s">request_location_update"</span>
 </code></pre>
 </div>
-<p>Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.</p>
+<p>假设设备收到通知，它将尝试在5秒内获取位置更新并将其报告给Home Assistant。这个有点看运气，因为苹果加强了对应用程序处理通知所用最大时间的限制，而位置更新受诸多因素影响，有时会花费很长时间获取位置，比如在等待GPS信号。</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -175,6 +175,7 @@
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -260,6 +261,7 @@
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>

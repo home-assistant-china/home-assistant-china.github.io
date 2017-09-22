@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to setup the ISY994 controller within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/isy994/">
+    <link rel="canonical" href="https://home-assistant.io/components/isy994/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="ISY994 Controller">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/isy994/">
+    <meta property="og:url" content="https://home-assistant.io/components/isy994/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup the ISY994 controller within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -143,7 +143,7 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
   <li><em>HA.lock</em> will create a lock</li>
   <li><em>HA.switch</em> will create a switch</li>
 </ul>
-<p>A program, named <em>status</em>, is required under the program device directory. A program, named <em>actions</em>, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored.</p>
+<p>A program, named <em>status</em>, is required under the program device directory. A program, named <em>actions</em>, is required for all program devices except for binary_sensor. Any other programs in these device directories will be ignored. The <em>status</em> program requires that you create a variable with the name of your choice. This variable will store the actual status of the new device and will be updated by the <em>action</em> program.</p>
 <p class="img">
   <img src="/images/isy994/isy994_CoverExample.png" />
 </p>
@@ -371,6 +371,9 @@ The ISY994 controller is manufactured by <a href="https://www.universal-devices.
         </li>
         <li>
             <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

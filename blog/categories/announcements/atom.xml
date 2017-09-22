@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Announcements | Home Assistant 中文网]]></title>
   <link href="http:///blog/categories/announcements/atom.xml" rel="self"/>
   <link href="http:///"/>
-  <updated>2017-08-30T15:26:51+08:00</updated>
+  <updated>2017-09-22T19:28:10+08:00</updated>
   <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
@@ -31,7 +31,7 @@ So we decided to take a step back from day-to-day Home Assistant development and
 And this is how [Pascal Vizeli] came up with Hass.io, an operating system based on [ResinOS] and [Docker]. Hass.io will take care of installing and updating Home Assistant, is managed from the Home Assistant UI, allows taking/restoring snapshots of your configuration and can easily be extended using [Hass.io add-ons][addons].
 
 <p class='img'>
-<img src='http:/images/hassio/screenshots/dashboard.png'>
+<img src='/images/hassio/screenshots/dashboard.png'>
 Hass.io dashboard
 </p>
 

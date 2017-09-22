@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate MySensors sensors into Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/mysensors/">
+    <link rel="canonical" href="https://home-assistant.io/components/mysensors/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="MySensors">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/mysensors/">
+    <meta property="og:url" content="https://home-assistant.io/components/mysensors/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate MySensors sensors into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -84,6 +84,11 @@
     <span class="pi">-</span> <span class="s">device</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/dev/ttyUSB0'</span>
       <span class="s">persistence_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">path/mysensors.json'</span>
       <span class="s">baud_rate</span><span class="pi">:</span> <span class="s">38400</span>
+      <span class="s">nodes</span><span class="pi">:</span>
+        <span class="s">1</span><span class="pi">:</span> 
+          <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">kitchen'</span>
+        <span class="s">3</span><span class="pi">:</span> 
+          <span class="s">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">living_room'</span>
     <span class="pi">-</span> <span class="s">device</span><span class="pi">:</span> <span class="s1">'</span><span class="s">/dev/ttyACM0'</span>
       <span class="s">persistence_file</span><span class="pi">:</span> <span class="s1">'</span><span class="s">path/mysensors2.json'</span>
       <span class="s">baud_rate</span><span class="pi">:</span> <span class="s">115200</span>
@@ -97,7 +102,7 @@
   <span class="s">optimistic</span><span class="pi">:</span> <span class="s">false</span>
   <span class="s">persistence</span><span class="pi">:</span> <span class="s">true</span>
   <span class="s">retain</span><span class="pi">:</span> <span class="s">true</span>
-  <span class="s">version</span><span class="pi">:</span> <span class="s">2.0</span>
+  <span class="s">version</span><span class="pi">:</span> <span class="s1">'</span><span class="s">2.0'</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
@@ -113,6 +118,11 @@
   <li><strong>version</strong> (<em>Optional</em>): Specifies the MySensors protocol version to use. Supports 1.4, 1.5 and 2.0. Default is 1.4.</li>
   <li><strong>optimistic</strong> (<em>Optional</em>): Enable or disable optimistic mode for actuators (switch/light). Default is false. Set this to true if no state feedback from actuators is possible. Home Assistant will assume that the command succeeded and change state.</li>
   <li><strong>retain</strong> (<em>Optional</em>): Enable or disable retain flag for published messages from Home Assistant when using the MQTT gateway. Default is true.</li>
+  <li><strong>nodes</strong> (<em>Optional</em>): Nodes that need a custom name.
+    <ul>
+      <li><strong>name</strong> (<em>Optional</em>): The name the node will be renamed to. This nodename becomes part of the entity_id. Default the entity_id is [sketch_name]_[node_id]_[child_id] and when this name is set, the entity_id becomes [name]_[child_id].</li>
+    </ul>
+  </li>
 </ul>
 <p class="note">
 Not all features of MySensors 2.0 are yet supported by Home Assistant. As more features are added, they will be described here in the documentation. Go to the MySensors platform pages under “related components” to see what message types are currently supported.
@@ -225,6 +235,18 @@ The MQTT gateway requires MySensors version 2.0 and only the MQTT client gateway
 </div>
 <h3><a class="title-link" name="heartbeats" href="#heartbeats"></a> Heartbeats</h3>
 <p>Sending a heartbeat from the MySensors device to Home Assistant activates the SmartSleep functionality in Home Assistant. This means that messages are buffered and only sent to the device upon receiving a heartbeat from the device. State changes are stored so that only the last requested state change is sent to the device. Other types of messages are queued in a FIFO queue. SmartSleep is useful for battery powered actuators that are waiting for commands.  See the MySensors library API for information on how to send heartbeats and sleep device.</p>
+<h3><a class="title-link" name="message-validation" href="#message-validation"></a> Message validation</h3>
+<p>Messages sent to or from Home Assistant from or to a MySensors device will be validated according to the MySensors <a href="https://www.mysensors.org/download/serial_api_20">serial API</a>. If a message doesn’t pass validation, it will be dropped and not be passed forward either to or from home assistant. Make sure you follow the serial API for your version of MySensors when writing your Arduino sketch.</p>
+<p>If you experience dropped messages or that a device is not added to Home Assistant, please turn on debug logging for the <code class="highlighter-rouge">mysensors</code> component and the <code class="highlighter-rouge">mysensors</code> package.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">logger</span><span class="pi">:</span>
+  <span class="s">default</span><span class="pi">:</span> <span class="s">info</span>
+  <span class="s">logs</span><span class="pi">:</span>
+    <span class="s">homeassistant.components.mysensors</span><span class="pi">:</span> <span class="s">debug</span>
+    <span class="s">mysensors</span><span class="pi">:</span> <span class="s">debug</span>
+</code></pre>
+</div>
+<p>The log should inform you of messages that failed validation or if a child value is missing that is required for a certain child type. Note that the log will log all possible combinations of platforms for a child type that failed validation. It is normal to see some platforms fail validation if the child type supports multiple platforms and your sketch doesn’t send all corresponding value types. Eg. the S_BARO child type supports both V_PRESSURE and V_FORECAST value types. If you only send a V_PRESSURE value, an S_BARO entity with V_PRESSURE value will be set up for the sensor platform. But the log will inform of a sensor platform that failed validation due to missing V_FORECAST value type for the S_BARO child. Home Assistant will log failed validations of child values at warning level if one required value type for a platform has been received, but other required value types are missing. Most failed validations are logged at debug level.</p>
+<p>Message validation was introduced in version 0.52 of Home Assistant.</p>
 <p>Visit the <a href="http://www.mysensors.org/download">library api</a> of MySensors for more information.</p>
 </article>
         </div>
@@ -428,6 +450,9 @@ The MQTT gateway requires MySensors version 2.0 and only the MQTT client gateway
         </li>
         <li>
             <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

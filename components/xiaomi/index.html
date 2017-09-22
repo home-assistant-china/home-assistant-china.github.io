@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/xiaomi/">
+    <link rel="canonical" href="https://home-assistant.io/components/xiaomi/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Xiaomi Gateway">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/xiaomi/">
+    <meta property="og:url" content="https://home-assistant.io/components/xiaomi/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate your Xiaomi Gateway within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -75,10 +75,10 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>小米平台 <code class="highlighter-rouge">xiaomi_gw</code> 允许你在 HA 中接入小米的 Zigbee 智能家居设备。支持的设备包括：</p>
+  <p>小米平台 <code class="highlighter-rouge">xiaomi_gw</code> 允许你在 HA 中接入<a href="http://www.mi.com/en/">小米</a>的 Zigbee 智能家居设备。支持的设备包括：</p>
 <ul>
   <li>温度湿度传感器（新旧版）</li>
-  <li>人体传感器 （新旧版）</li>
+  <li>人体运动传感器 （新旧版）</li>
   <li>门窗传感器 （新旧版）</li>
   <li>无线开关 （新旧版）</li>
   <li>智能插座 Zigbee 版本 （反馈耗电、电力负载、通电、开关状态）</li>
@@ -86,25 +86,26 @@
   <li>绿米（Aqara）全系列墙壁开关，包括单、双键；单、零火；</li>
   <li>绿米 （Aqara）无线开关单、双键</li>
   <li>魔方控制器</li>
-  <li>天然气传感器 (反馈警报和浓度信息）</li>
+  <li>天然气泄漏传感器 (反馈警报和浓度信息）</li>
   <li>烟雾报警器 (反馈警报和浓度信息)</li>
   <li>多功能网关 (支持网关灯、亮度传感器及铃声播放)</li>
   <li>绿米智能窗帘器</li>
+  <li>浸水传感器</li>
   <li>各设备电量</li>
 </ul>
 <p>不支持：</p>
 <ul>
   <li>网关广播</li>
-  <li>网关案件</li>
-  <li>水浸传感器</li>
+  <li>网关按键</li>
   <li>绿米及米家空调伴侣</li>
   <li>墙壁开关独立使用状态</li>
   <li>烟雾及天然气报警器的其他警报事件，包括：模拟警报、电池错误警报、灵敏度警报及 I2C 通信失败警报。</li>
 </ul>
-<p>请在手机中安装米家 app 并获取多功能网关的通信密码。</p>
+<p>Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following <a href="https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832">this tutorial</a></p>
+<h3><a class="title-link" name="" href="#"></a> 单个网关</h3>
+<p>请查看该<a href="/xiaomi/#retrieving-the-access-token">章节</a>以获取API token。</p>
 <p>（译者注：请在米家 app 中与网关配对，之后进入网关页，点选右上角“……” —— 关于 —— 空白处点多下 —— 局域网通信协议 —— 打开并获取密码）</p>
 <p>之后在 <code class="highlighter-rouge">configuration.yaml</code> 文件中填入如下配置：</p>
-<p>单个网关</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 使用单网关前提下，可不填 mac</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">gateways</span><span class="pi">:</span>
@@ -112,7 +113,7 @@
      <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p>多个网关</p>
+<h3><a class="title-link" name="" href="#"></a> 多个网关</h3>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 多个网关必须填入 mac</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">gateways</span><span class="pi">:</span>
@@ -122,8 +123,8 @@
       <span class="s">key</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxxxxxx</span>
 </code></pre>
 </div>
-<p>搜寻固定 IP 的网关</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1">#  mac 必须填写</span>
+<h3><a class="title-link" name="-ip-" href="#-ip-"></a> 搜寻固定 IP 的网关</h3>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 12 字符 MAC地址可以从网关获取</span>
 <span class="s">xiaomi</span><span class="pi">:</span>
   <span class="s">interface</span><span class="pi">:</span> <span class="s1">'</span><span class="s">192.168.0.1'</span>
   <span class="s">gateways</span><span class="pi">:</span>
@@ -144,7 +145,7 @@
   <li>alarm ringtones [0-8]</li>
   <li>doorbell ring [10-13]</li>
   <li>alarm clock [20-29]</li>
-  <li>custom ringtones (uploaded by mi home app) starting from 10001</li>
+  <li>custom ringtones (uploaded by the Mi Home app) starting from 10001</li>
 </ul>
 <p>（译者注：中文对应名称大家可前往米家 app 中查询）</p>
 <p>自动化示例</p>
@@ -175,6 +176,81 @@
       <span class="s">gw_mac</span><span class="pi">:</span> <span class="s">xxxxxxxxxxxx</span>
 </code></pre>
 </div>
+<h3><a class="title-link" name="troubleshooting" href="#troubleshooting"></a> Troubleshooting</h3>
+<p><strong>Connection problem</strong></p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>2017-08-20 16:51:19 ERROR <span class="o">(</span>SyncWorker_0<span class="o">)</span> <span class="o">[</span>homeassistant.components.xiaomi] No gateway discovered
+2017-08-20 16:51:20 ERROR <span class="o">(</span>MainThread<span class="o">)</span> <span class="o">[</span>homeassistant.setup] Setup failed <span class="k">for </span>xiaomi: Component failed to initialize.
+</code></pre>
+</div>
+<p>That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.</p>
+<ul>
+  <li>Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832</li>
+  <li>Turn off the firewall on the system where Home Assistant is running</li>
+  <li>Try to leave the MAC address <code class="highlighter-rouge">mac:</code> blank.</li>
+  <li>Try to set <code class="highlighter-rouge">discovery_retry: 10</code></li>
+  <li>Try to disable and then enable LAN access</li>
+</ul>
+<h3><a class="title-link" name="retrieving-the-access-token" href="#retrieving-the-access-token"></a> Retrieving the Access Token</h3>
+<p>Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various <code class="highlighter-rouge">xiaomi_*</code> platforms.</p>
+<p>Before you begin you need to install <code class="highlighter-rouge">libffi-dev</code> by running the command below. This is needed for <code class="highlighter-rouge">python-mirobi</code> to be installed correctly.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libffi-dev
+</code></pre>
+</div>
+<p>If your Home Assistant installation is running in a <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>, make sure you activate it by running the commands below.</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
+<span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
+</code></pre>
+</div>
+<p>To fetch the token follow these instructions depending on your mobile phone platform.</p>
+<h4><a class="title-link" name="windows-and-android" href="#windows-and-android"></a> Windows and Android</h4>
+<ol>
+  <li>Configure the robot with the Mi-Home app.</li>
+  <li>Enable developer mode and USB debugging on the Android phone and plug it into the computer.</li>
+  <li>Get and install the <a href="https://developer.android.com/studio/releases/platform-tools.html">ADB tool for Windows</a>.</li>
+  <li>Create a backup of the application <code class="highlighter-rouge">com.xiaomi.smarthome</code>:
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb backup -noapk com.xiaomi.smarthome -f backup.ab
+</code></pre>
+    </div>
+  </li>
+  <li>If you have this message: “More than one device or emulator”, use this command to list all devices:
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb devices
+</code></pre>
+    </div>
+    <p>and execute this command:</p>
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab <span class="c"># (with DEVICEID the device id from the previous command)</span>
+</code></pre>
+    </div>
+  </li>
+  <li>On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.</li>
+  <li>Get and install <a href="https://sourceforge.net/projects/adbextractor/">ADB Backup Extractor</a>.</li>
+  <li>Extract All files from the backup:
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar <span class="s2">""</span>
+</code></pre>
+    </div>
+  </li>
+  <li>Unzip the “.tar” file.</li>
+  <li>Open the SQLite database <code class="highlighter-rouge">miio2.db</code> with a tool like SQLite Manager extension for FireFox.</li>
+  <li>Get the token from “devicerecord” table.</li>
+</ol>
+<h4><a class="title-link" name="linux-and-android-rooted" href="#linux-and-android-rooted"></a> Linux and Android (rooted!)</h4>
+<ol>
+  <li>Configure the light with the Mi-Home app.</li>
+  <li>Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.</li>
+  <li>Get ADB f.e. <code class="highlighter-rouge">apt-get install android-tools-adb</code></li>
+  <li><code class="highlighter-rouge">adb devices</code> should list your device</li>
+  <li><code class="highlighter-rouge">adb root</code> (does work for development builds only: ones with <code class="highlighter-rouge">ro.debuggable=1</code>)</li>
+  <li><code class="highlighter-rouge">adb shell</code></li>
+  <li><code class="highlighter-rouge">echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db</code> returns a list of all registered devices including IP address and token.</li>
+</ol>
+<h4><a class="title-link" name="macos-and-ios" href="#macos-and-ios"></a> macOS and iOS</h4>
+<ol>
+  <li>Setup iOS device with the Mi-Home app.</li>
+  <li>Create an unencrypted backup of the device using iTunes.</li>
+  <li>Install <a href="http://www.imactools.com/iphonebackupviewer/">iBackup Viewer</a>.</li>
+  <li>Extract this file: <strong><code class="highlighter-rouge">/raw data/com.xiami.mihome/1234567_mihome.sqlite</code></strong> to your computer, where <code class="highlighter-rouge">_1234567_</code> is any string of numbers.</li>
+  <li>Open the SQLite database with a tool like SQLite Manager extension for FireFox or DB Browser. You will then see the list of all the devices in your account with their token. The token you need is in the column <strong><code class="highlighter-rouge">ZToken</code></strong> and looks like <strong><code class="highlighter-rouge">123a1234567b12345c1d123456789e12</code></strong>.
+(Location of SQLite files directly on iOS devices <strong>/private/var/mobile/Containers/Data/Application/A80CE9E4-AD2E-4649-8C28-801C96B16BD7/Documents/</strong>)</li>
+</ol>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -185,7 +261,7 @@
       <img src='/images/supported_brands/xiaomi.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
     </div>
     <div class='section'>
     Introduced in release: 0.50
@@ -377,6 +453,9 @@
         </li>
         <li>
             <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

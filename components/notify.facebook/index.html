@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to add Facebook user notifications to Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/notify.facebook/">
+    <link rel="canonical" href="https://home-assistant.io/components/notify.facebook/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Facebook Messenger">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/notify.facebook/">
+    <meta property="og:url" content="https://home-assistant.io/components/notify.facebook/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to add Facebook user notifications to Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -86,12 +86,12 @@
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>page_access_token</strong> (<em>Required</em>): Access token for your facebook page. Checkout <a href="https://developers.facebook.com/docs/messenger-platform/guides/setup">Facebook Messenger Platform</a> for more information.</li>
+  <li><strong>page_access_token</strong> (<em>Required</em>): Access token for your Facebook page. Checkout <a href="https://developers.facebook.com/docs/messenger-platform/guides/setup">Facebook Messenger Platform</a> for more information.</li>
   <li><strong>name</strong> (<em>Optional</em>): Setting the optional parameter <code class="highlighter-rouge">name</code> allows multiple notifiers to be created. The default value is <code class="highlighter-rouge">notify</code>. The notifier will bind to the service <code class="highlighter-rouge">notify.NOTIFIER_NAME</code>.</li>
 </ul>
 <h3><a class="title-link" name="usage" href="#usage"></a> Usage</h3>
-<p>With Facebook notify service, you can send your notifications to your facebook messenger with help of your facebook page. You have to create a <a href="https://developers.facebook.com/docs/messenger-platform/guides/quick-start">Facebook Page and App</a> for this service. You can control it by calling the notify service <a href="/components/notify/">as described here</a>. It will send a message on messenger to user specified by <strong>target</strong> on behalf of your page. See the <a href="https://developers.facebook.com/docs/messenger-platform/guides/quick-start">quick start</a> guide for more information.
-The phone number used in <strong>target</strong> should be registered with facebook messenger. Phone number of the recipient should be in  +1(212)555-2368 format. If your app is not approved by facebook then the recipient should by either admin, developer or tester for your facebook app. <a href="https://developers.facebook.com/docs/messenger-platform/send-api-reference#phone_number">More…</a></p>
+<p>With Facebook notify service, you can send your notifications to your Facebook messenger with help of your Facebook page. You have to create a <a href="https://developers.facebook.com/docs/messenger-platform/guides/quick-start">Facebook Page and App</a> for this service. You can control it by calling the notify service <a href="/components/notify/">as described here</a>. It will send a message on messenger to user specified by <strong>target</strong> on behalf of your page. See the <a href="https://developers.facebook.com/docs/messenger-platform/guides/quick-start">quick start</a> guide for more information.
+The phone number used in <strong>target</strong> should be registered with Facebook messenger. Phone number of the recipient should be in +1(212)555-2368 format. If your app is not approved by Facebook then the recipient should by either admin, developer or tester for your Facebook app. <a href="https://developers.facebook.com/docs/messenger-platform/send-api-reference#phone_number">More information</a> about the phone number.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example automation notification entry</span>
 <span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Evening Greeting</span>
@@ -230,6 +230,9 @@ The phone number used in <strong>target</strong> should be registered with faceb
         </li>
         <li>
             <a href='/components/notify.mysensors/'>MySensors Notify</a>
+        </li>
+        <li>
+            <a href='/components/notify.mycroft/'>Mycroft AI</a>
         </li>
         <li>
             <a href='/components/notify.nfandroidtv/'>Notifications for Android TV / FireTV</a>

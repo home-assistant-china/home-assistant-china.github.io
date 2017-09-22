@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to add One-Time Password (OTP) sensors into Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/sensor.otp/">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.otp/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="OTP Sensor">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/sensor.otp/">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.otp/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to add One-Time Password (OTP) sensors into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -90,8 +90,13 @@
 </ul>
 <h2>Generating a token</h2>
 <p>A simple way to generate a <code class="highlighter-rouge">token</code> for a new sensor is to run this snippet of python code in your Home Assistant virtual environment:</p>
-<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip install pyotp
-<span class="gp">$ </span>python -c <span class="s1">'import pyotp; print("Token: " + pyotp.random_base32())'</span>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>pip3 install pyotp
+<span class="gp">$ </span>python3 -c <span class="s1">'import pyotp; print("Token:", pyotp.random_base32())'</span>
+Token: IHEDPEBEVA2WVHB7
+</code></pre>
+</div>
+<p>To run in a Docker container:</p>
+<div class="language-shell highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>docker <span class="nb">exec</span> -it home-assistant python -c <span class="s1">'import pyotp; print("Token:", pyotp.random_base32())'</span>
 Token: IHEDPEBEVA2WVHB7
 </code></pre>
 </div>
@@ -265,6 +270,9 @@ It is vital that your system clock is correct both on your Home Assistant server
             <a href='/components/sensor.mold_indicator/'>Mold Indicator</a>
         </li>
         <li>
+            <a href='/components/sensor.mopar/'>Mopar</a>
+        </li>
+        <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
         </li>
         <li>
@@ -322,6 +330,9 @@ It is vital that your system clock is correct both on your Home Assistant server
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.season/'>Season Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.sensehat/'>Sense HAT</a>
         </li>
         <li>
@@ -349,6 +360,9 @@ It is vital that your system clock is correct both on your Home Assistant server
             <a href='/components/sensor.tado/'>Tado Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.tank_utility/'>Tank Utility Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.tellstick/'>TellStick Sensor</a>
         </li>
         <li>
@@ -356,6 +370,9 @@ It is vital that your system clock is correct both on your Home Assistant server
         </li>
         <li>
             <a href='/components/sensor.template/'>Template Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tesla/'>Tesla Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>

@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="NGINX Home Assistant SSL proxy.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/addons/nginx_proxy/">
+    <link rel="canonical" href="https://home-assistant.io/addons/nginx_proxy/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="NGINX SSL proxy">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/addons/nginx_proxy/">
+    <meta property="og:url" content="https://home-assistant.io/addons/nginx_proxy/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="NGINX Home Assistant SSL proxy.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -72,7 +72,7 @@
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_addons/nginx_proxy.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      NGINX SSL Proxy
+      NGINX SSL proxy
     </h1>
   </header>
   <hr class="divider">
@@ -87,8 +87,7 @@
   <li><strong>domain</strong> (<em>Required</em>): Domain they will proxy run with it.</li>
 </ul>
 <p class="note">
-It is possible to deactive port 80 if you need this for things like <code class="highlighter-rouge">emulate_hue</code>. It exists a the moment no UI function for that, so you need call Hass.io API with SSH addon:
-<code class="highlighter-rouge">curl -d '{"network": {"443/tcp": 443}}' http://172.17.0.2/addons/core_nginx_proxy/options</code>
+It is possible to deactive port 80 if you need this for things like <code class="highlighter-rouge">emulate_hue</code>. Remove the host port from Network option of this add-on.
 </p>
 </article>
         </div>

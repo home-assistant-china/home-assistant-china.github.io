@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="A categorization of functions to work with the asynchronous core of Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/developers/asyncio_categorizing_functions/">
+    <link rel="canonical" href="https://home-assistant.io/developers/asyncio_categorizing_functions/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Categorizing Functions">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/developers/asyncio_categorizing_functions/">
+    <meta property="og:url" content="https://home-assistant.io/developers/asyncio_categorizing_functions/">
     <meta property="og:type" content="website">
     <meta property="og:description" content="A categorization of functions to work with the asynchronous core of Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -89,7 +89,7 @@
     <span class="k">if</span> <span class="n">result</span><span class="p">:</span>
         <span class="k">print</span><span class="p">(</span><span class="s">"hello {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target</span><span class="p">))</span>
 
-<span class="n">hass</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">async_look_my_coroutine</span><span class="p">(</span><span class="s">"world"</span><span class="p">)</span>
+<span class="n">hass</span><span class="o">.</span><span class="n">loop</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">async_look_my_coroutine</span><span class="p">(</span><span class="s">"world"</span><span class="p">))</span>
 </code></pre>
 </div>
 <p>In this example, we schedule the coroutine by calling <code class="highlighter-rouge">hass.loop.create_task</code>. This will add the coroutine to the queue of tasks to be run. When the event loop is running <code class="highlighter-rouge">async_look_my_coroutine</code> it will suspend the task when <code class="highlighter-rouge">yield from entity.async_turn_on()</code> is called. At that point a new task will be scheduled to execute <code class="highlighter-rouge">entity.async_turn_on()</code>. When that job has been executed, <code class="highlighter-rouge">async_look_my_coroutine</code> will resume.</p>

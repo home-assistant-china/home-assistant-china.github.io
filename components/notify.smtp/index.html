@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to add e-mail notifications to Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/notify.smtp/">
+    <link rel="canonical" href="https://home-assistant.io/components/notify.smtp/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="SMTP">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/notify.smtp/">
+    <meta property="og:url" content="https://home-assistant.io/components/notify.smtp/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to add e-mail notifications to Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -117,7 +117,7 @@
     <span class="s">sender_name</span><span class="pi">:</span> <span class="s">My Home Assistant</span>
 </code></pre>
 </div>
-<p>Keep in mind that Google has some extra layers of protection which need special attention (Hint: ‘Less secure apps’).</p>
+<p>Keep in mind that Google has some extra layers of protection which need special attention (Hint: ‘Less secure apps’). If you have 2-step verification enabled on your Google account, you’ll need to use <a href="https://support.google.com/mail/answer/185833?hl=en">an application-specific password</a>.</p>
 <p>To use the SMTP notification, refer to it in an automation or script like in this example:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">burglar</span><span class="pi">:</span>
     <span class="s">alias</span><span class="pi">:</span> <span class="s">Burglar Alarm</span>
@@ -309,6 +309,9 @@ which need special attention. By default, the usage by external applications, es
         </li>
         <li>
             <a href='/components/notify.mysensors/'>MySensors Notify</a>
+        </li>
+        <li>
+            <a href='/components/notify.mycroft/'>Mycroft AI</a>
         </li>
         <li>
             <a href='/components/notify.nfandroidtv/'>Notifications for Android TV / FireTV</a>

@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate your Zigbee Home Automation within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/zha/">
+    <link rel="canonical" href="https://home-assistant.io/components/zha/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Zigbee Home Automation">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/zha/">
+    <meta property="og:url" content="https://home-assistant.io/components/zha/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate your Zigbee Home Automation within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -101,7 +101,7 @@ and the path to the serial device for the radio and path to the database which w
   <li><strong>usb_path</strong> (<em>Required</em>): Path to the serial device for the radio.</li>
   <li><strong>database_path</strong> (<em>Required</em>): Path to the database which will keep persistent network data.</li>
 </ul>
-<p>To add new devices to the network, call the <code class="highlighter-rouge">permit</code> service on the <code class="highlighter-rouge">zha</code> domain, and then follow the device instructions.</p>
+<p>To add new devices to the network, call the <code class="highlighter-rouge">permit</code> service on the <code class="highlighter-rouge">zha</code> domain, and then follow the device instructions for doing a scan or factory reset. In case you want to add Philips Hue bulbs that have previously been added to another bridge, have a look at: <a href="https://github.com/vanviegen/hue-thief/">https://github.com/vanviegen/hue-thief/</a></p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -295,6 +295,9 @@ and the path to the serial device for the radio and path to the database which w
         </li>
         <li>
             <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

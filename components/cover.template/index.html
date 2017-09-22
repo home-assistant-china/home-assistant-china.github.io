@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate Template covers into Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/cover.template/">
+    <link rel="canonical" href="https://home-assistant.io/components/cover.template/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Template Cover">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/cover.template/">
+    <meta property="og:url" content="https://home-assistant.io/components/cover.template/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate Template covers into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -83,7 +83,7 @@
     <span class="s">covers</span><span class="pi">:</span>
       <span class="s">garage_door</span><span class="pi">:</span>
         <span class="s">friendly_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Garage</span><span class="nv"> </span><span class="s">Door"</span>
-        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{is_state('sensor.garage_door</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0'}}"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">'{{is_state('sensor.garage_door</span><span class="nv"> </span><span class="s">&gt;</span><span class="nv"> </span><span class="s">0'}}'"</span>
         <span class="s">open_cover</span><span class="pi">:</span>
           <span class="s">service</span><span class="pi">:</span> <span class="s">script.open_garage_door</span>
         <span class="s">close_cover</span><span class="pi">:</span>
@@ -101,19 +101,25 @@
       <li><strong>stop_cover</strong> (<em>Optional</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover is stopped.</li>
       <li><strong>set_cover_position</strong> (<em>Optional</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover is set to a specific value (between 0 and 100).</li>
       <li><strong>set_cover_tilt_position</strong> (<em>Optional</em>): Defines an <a href="/getting-started/automation/">action</a> to run when the cover tilt is set to a specific value (between 0 and 100).</li>
-      <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the frontend.</li>
-      <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to get the state of the cover. Valid values are open/true or closed/false. Either <code class="highlighter-rouge">value_template</code> or <code class="highlighter-rouge">position_template</code> must be specified.</li>
-      <li><strong>position_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to get the state of the cover. Legal values are numbers between 0 (closed) and 100 (open). Either <code class="highlighter-rouge">value_template</code> or <code class="highlighter-rouge">position_template</code> must be specified.</li>
+      <li><strong>value_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to get the state of the cover. Valid values are open/true or closed/false. <code class="highlighter-rouge">value_template</code> and <code class="highlighter-rouge">position_template</code> cannot be specified concurrently.</li>
+      <li><strong>position_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to get the state of the cover. Legal values are numbers between 0 (closed) and 100 (open). <code class="highlighter-rouge">value_template</code> and <code class="highlighter-rouge">position_template</code> cannot be specified concurrently.</li>
+      <li><strong>tilt_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to get the tilt state of the cover. Legal values are numbers between 0 (closed) and 100 (open).</li>
+      <li><strong>optimistic</strong> (<em>Optional</em>): Force cover position to use optimistic mode.  Value is either <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>.  <a href="#optimistic-mode">See below</a> for more details.</li>
+      <li><strong>tilt_optimistic</strong> (<em>Optional</em>): Force cover tilt position to use optimistic mode.  Value is either <code class="highlighter-rouge">true</code> or <code class="highlighter-rouge">false</code>.  <a href="#optimistic mode">See below</a> for more details.</li>
       <li><strong>icon_template</strong> (<em>Optional</em>): Defines a <a href="/topics/templating/">template</a> to specify which icon to use. Either <code class="highlighter-rouge">value_template</code> or <code class="highlighter-rouge">position_template</code> must be specified.</li>
+      <li><strong>friendly_name</strong> (<em>Optional</em>): Name to use in the frontend.</li>
       <li><strong>entity_id</strong> (<em>Optional</em>): Add a list of entity IDs so the switch only reacts to state changes of these entities. This will reduce the number of times the cover will try to update it’s state.</li>
     </ul>
   </li>
 </ul>
+<h2><a class="title-link" name="optitmistic-mode" href="#optitmistic-mode"></a> Optitmistic Mode</h2>
+<p>In optmistic mode, the cover position state is maintained internally.  This mode is automatically enabled if neither <code class="highlighter-rouge">value_template</code> or <code class="highlighter-rouge">position_template</code> are sepcified.  Note that this is unlikely to be very reliable without some feedback mechanism, since there is otherwise no way to know if the cover is moving properly.  The cover can be forced into optimistic mode by using the <code class="highlighter-rouge">optimistic</code> attribute.  There is an equivalent mode for tilt-position that is enabled when <code class="highlighter-rouge">tilt_template</code> is not specified or when the <code class="highlighter-rouge">tilt-optimistic</code> attribute is used.</p>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <p>In this section you will find some real life examples of how to use this cover.</p>
 <h3><a class="title-link" name="garage-door" href="#garage-door"></a> Garage Door</h3>
 <p>This example converts a garage door with a controllable switch and position sensor into a cover.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">cover</span><span class="pi">:</span>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="s">cover</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
     <span class="s">covers</span><span class="pi">:</span>
       <span class="s">garage_door</span><span class="pi">:</span>
@@ -129,7 +135,107 @@
           <span class="s">service</span><span class="pi">:</span> <span class="s">switch.turn_on</span>
           <span class="s">entity_id</span><span class="pi">:</span> <span class="s">switch.garage_door</span>
         <span class="s">icon_template</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{%</span><span class="nv"> </span><span class="s">if</span><span class="nv"> </span><span class="s">not</span><span class="nv"> </span><span class="s">is_state('sensor.garage_door',</span><span class="nv"> </span><span class="s">'on')</span><span class="nv"> </span><span class="s">%}mdi:garage-open{%</span><span class="nv"> </span><span class="s">else</span><span class="nv"> </span><span class="s">%}mdi:garage{%</span><span class="nv"> </span><span class="s">endif</span><span class="nv"> </span><span class="s">%}"</span>
+</code></pre>
+</div>
+<h3><a class="title-link" name="multi-covers" href="#multi-covers"></a> Multi Covers</h3>
+<p>This example allows you to control two or more covers at once.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code>
+<span class="s">homeassistant</span><span class="pi">:</span>
+  <span class="s">customize</span><span class="pi">:</span>
+    <span class="s">all_covers</span><span class="pi">:</span>
+      <span class="s">assume_state</span><span class="pi">:</span> <span class="s">true</span>
 
+<span class="s">cover</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">covers</span><span class="pi">:</span>
+      <span class="s">all_covers</span><span class="pi">:</span>
+        <span class="s">friendly_name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">All</span><span class="nv"> </span><span class="s">Covers'</span>
+        <span class="s">open_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_all_open</span>
+        <span class="s">close_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_all_close</span>
+        <span class="s">stop_cover</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_all_stop</span>
+        <span class="s">set_cover_position</span><span class="pi">:</span>
+          <span class="s">service</span><span class="pi">:</span> <span class="s">script.cover_all_set_position</span>
+          <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">position</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">position</span><span class="nv"> </span><span class="s">}}"</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{% if is_state('sensor.all_covers', 'open') %}</span>
+            <span class="no">open</span>
+          <span class="no">{% else %}</span>
+            <span class="no">closed</span>
+          <span class="no">{% endif %}</span>
+
+        <span class="s">icon_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{% if is_state('sensor.all_covers', 'open') %}</span>
+            <span class="no">mdi:window-open</span>
+          <span class="no">{% else %}</span>
+            <span class="no">mdi:window-closed</span>
+          <span class="no">{% endif %}</span>
+
+        <span class="s">entity_id</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">cover.bedroom</span>
+          <span class="pi">-</span> <span class="s">cover.livingroom</span>
+
+<span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">template</span>
+    <span class="s">sensors</span><span class="pi">:</span>
+      <span class="s">all_covers</span><span class="pi">:</span>
+        <span class="s">value_template</span><span class="pi">:</span> <span class="pi">&gt;</span>
+          <span class="no">{% if is_state('cover.bedroom', 'open') %}</span>
+            <span class="no">open</span>
+          <span class="no">{% elif is_state('cover.livingroom', 'open') %}</span>
+            <span class="no">open</span>
+          <span class="no">{% else %}</span>
+            <span class="no">closed</span>
+          <span class="no">{% endif %}</span>
+
+        <span class="s">entity_id</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">cover.bedroom</span>
+          <span class="pi">-</span> <span class="s">cover.livingroom</span>
+
+<span class="s">script</span><span class="pi">:</span>
+  <span class="s">cover_all_open</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.open_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.bedroom</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.open_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.livingroom</span>
+  <span class="s">cover_all_stop</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.stop_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.bedroom</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.stop_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.livingroom</span>
+  <span class="s">cover_all_close</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.close_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.bedroom</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.close_cover</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.livingroom</span>
+  <span class="s">cover_all_set_position</span><span class="pi">:</span>
+    <span class="s">sequence</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_position</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.bedroom</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">position</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">position</span><span class="nv"> </span><span class="s">}}"</span>
+      <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_position</span>
+        <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.livingroom</span>
+        <span class="s">data_template</span><span class="pi">:</span>
+          <span class="s">position</span><span class="pi">:</span> <span class="s2">"</span><span class="s">{{</span><span class="nv"> </span><span class="s">position</span><span class="nv"> </span><span class="s">}}"</span>
+
+<span class="s">automation</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Close</span><span class="nv"> </span><span class="s">covers</span><span class="nv"> </span><span class="s">at</span><span class="nv"> </span><span class="s">night'</span>
+    <span class="s">trigger</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">sun</span>
+        <span class="s">event</span><span class="pi">:</span> <span class="s">sunset</span>
+        <span class="s">offset</span><span class="pi">:</span> <span class="s1">'</span><span class="s">+00:30:00'</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">cover.set_cover_position</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">cover.all_covers</span>
+      <span class="s">data_template</span><span class="pi">:</span>
+        <span class="s">position</span><span class="pi">:</span> <span class="s">25</span>
 </code></pre>
 </div>
 </article>
@@ -171,6 +277,9 @@
     <div class='section'>
     <h1 class="title delta">Category Cover</h1>
     <ul class='divided'>
+        <li>
+            <a href='/components/cover.abode/'>Abode Cover</a>
+        </li>
         <li>
             <a href='/components/cover.command_line/'>Command Line Cover</a>
         </li>

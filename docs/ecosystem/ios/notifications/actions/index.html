@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Making push notifications a two way system">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/ecosystem/ios/notifications/actions/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/ios/notifications/actions/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Actionable notifications">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/ecosystem/ios/notifications/actions/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/ios/notifications/actions/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Making push notifications a two way system">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -72,62 +72,62 @@
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/ecosystem/ios/notifications/actions.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Actionable Notifications
+      Actionable notifications
     </h1>
   </header>
   <hr class="divider">
-  <p>Actionable notifications allow you to attach 1-4 custom buttons to a notification. When one of the actions is selected Home Assistant will be notified which action was chosen. This allows you to build complex automations.</p>
-<p>Examples of actionable notifications:</p>
+  <p>交互式通知允许您将1-4个自定义按钮附加到通知中。 当选择其中一个动作时，Home Assistant将会被通知哪个动作被选择。 这允许您构建更复杂的自动化场景。</p>
+<p>交互式通知示例：</p>
 <ul>
-  <li>A notification is sent whenever motion is detected in your home while you are away or asleep. You can add an action to Sound Alarm. When tapped, Home Assistant is notified that the <code class="highlighter-rouge">sound_alarm</code> action was selected. You can add an automation to sound the burglar alarm whenever this event is seen.</li>
-  <li>Someone rings your front door bell. You can send an action to lock or unlock your front door. When tapped, a notification is sent back to Home Assistant upon which you can build automations.</li>
-  <li>Send a notification whenever your garage door opens with actions to open and close the garage.</li>
+  <li>当您在外出或者入睡后，如果在家中检测到了物体移动，手机将会接收到通知。 您可以添加一个动作（action）去触发警报。 当按下时，Home Assistant会被通知<code class="highlighter-rouge">响起警报(Sound Alarm)</code>动作被选中。 每当该事件被触发时，你可以添加一个自动化场景来响起防盗报警。</li>
+  <li>当有人按你家的门铃时。 您可以发送一个动作来锁定或解锁您的屋门。 点击时，通知将发送到Home Assistant您可以以此来构建自动化场景。</li>
+  <li>每当您的车库门打开时您可以发送一个通知，与此同时提供打开和关闭车库门的动作。</li>
 </ul>
 <p class="img">
   <img src="/images/ios/actions.png" />
-  Actionable notifications allow the user to send a command back to Home Assistant.
+  交互式通知允许用户将命令发送回Home Assistant。
 </p>
-<h2><a class="title-link" name="overview-of-how-actionable-notifications-work" href="#overview-of-how-actionable-notifications-work"></a> Overview of how actionable notifications work</h2>
-<p>In advance of sending a notification:</p>
+<h2><a class="title-link" name="" href="#"></a> 交互式通知如何工作的概述</h2>
+<p>在发送通知之前：</p>
 <ol>
-  <li>Define a notification category in your Home Assistant configuration which contain 1-4 actions.</li>
-  <li>At launch iOS app requests notification categories from Home Assistant (can also be done manually in notification settings).</li>
+  <li>在Home Assistant配置中需要定义一个包含1-4个操作的通知类别。</li>
+  <li>当iOS应用启动时，Home Assistant会请求开启推送通知（也可以在通知设置中手动启用）。</li>
 </ol>
-<p>When sending a notification:</p>
+<p>当发送通知时：</p>
 <ol>
-  <li>Send a notification with <code class="highlighter-rouge">data.push.category</code> set to a pre-defined notification category identifer.</li>
-  <li>Push notification delivered to device</li>
-  <li>User opens notification.</li>
-  <li>Action tapped</li>
-  <li>Identifier of action sent back to HA as the <code class="highlighter-rouge">actionName</code> property of the event <code class="highlighter-rouge">ios.notification_action_fired</code>, along with other metadata such as the device and category name.</li>
+  <li>发送一个通知并将其中的<code class="highlighter-rouge">data.push.category</code>设置为一个预定的通知类别标识</li>
+  <li>推送通知被发送到设备</li>
+  <li>用户打开推送通知</li>
+  <li>用户点击相关动作</li>
+  <li>该操作标识以事件<code class="highlighter-rouge">ios.notification_action_fired</code>中的<code class="highlighter-rouge">actionName</code>属性与其他元数据（如设备和类别名称）被一起发送回HA。</li>
 </ol>
 <p class="img">
   <img src="/images/ios/NotificationActionFlow.png" />
-  How the iOS device and Home Assistant work together to enable actionable notifications.
+  iOS设备和Home Assistant协同工作实现交互式通知示例。
 </p>
-<h2><a class="title-link" name="definitions" href="#definitions"></a> Definitions</h2>
+<h2><a class="title-link" name="" href="#"></a> 定义</h2>
 <ul>
-  <li>Category - A category represents a type of notification that the app might receive. Think of it as a unique group of actions. A categories parameters include:</li>
-  <li>Action - An action consists of a button title and the information that iOS needs to notify the app when the action is selected. You create separate action objects for distinct action your app supports. An actions parameters include:</li>
+  <li>类别 - 类别表示应用可能收到的通知类型。 其可以被当做是一组独特的动作。 类别参数包括：</li>
+  <li>动作 - 动作包含按钮标题以及iOS在选择动作时用以通知应用程序时所需的信息。 您可以为应用程序创建单独的操作对象以此来实现对不同操作的支持。 动作参数包括：</li>
 </ul>
-<h2><a class="title-link" name="category-parameters" href="#category-parameters"></a> Category parameters</h2>
+<h2><a class="title-link" name="" href="#"></a> 类别参数</h2>
 <ul>
-  <li><strong>name</strong> (<em>Required</em>): A friendly name for this category.</li>
-  <li><strong>identifier</strong> (<em>Required</em>): A unique identifier for the category. Must be uppercase and have no special characters or spaces.</li>
-  <li><strong>action</strong> (<em>Required</em>): A list of actions.</li>
+  <li><strong>name</strong> (<em>必选</em>): 这个类别的易读名称。</li>
+  <li><strong>identifier</strong> (<em>必选</em>): 该类别的唯一标识符。 必须是大写字母且没有特殊字符或空格。</li>
+  <li><strong>action</strong> (<em>必选</em>): 动作清单</li>
 </ul>
-<h2><a class="title-link" name="action-parameters" href="#action-parameters"></a> Action parameters</h2>
+<h2><a class="title-link" name="" href="#"></a> 动作参数</h2>
 <ul>
-  <li><strong>identifier</strong> (<em>Required</em>): A unique identifier for this action. Must be uppercase and have no special characters or spaces. Only needs to be unique to the category, not unique globally.</li>
-  <li><strong>title</strong> (<em>Required</em>): The text to display on the button. Keep it short.</li>
-  <li><strong>activationMode</strong> (<em>Optional</em>): The mode in which to run the app when the action is performed. Setting this to <code class="highlighter-rouge">foreground</code> will make the app open after selecting. Default value is <code class="highlighter-rouge">background</code>.</li>
-  <li><strong>authenticationRequired</strong> (<em>Optional</em>): If a truthy value (<code class="highlighter-rouge">true</code>, <code class="highlighter-rouge">True</code>, <code class="highlighter-rouge">yes</code>, etc.) the user must unlock the device before the action is performed.</li>
-  <li><strong>destructive</strong> (<em>Optional</em>): When the value of this property is a truthy value, the system displays the corresponding button differently to indicate that the action is destructive (text color is red).</li>
-  <li><strong>behavior</strong> (<em>Optional</em>): When <code class="highlighter-rouge">textInput</code> the system provides a way for the user to enter a text response to be included with the notification. The entered text will be sent back to Home Assistant. Default value is <code class="highlighter-rouge">default</code>.</li>
-  <li><strong>textInputButtonTitle</strong> (<em>Optional</em>): The button label. <em>Required</em> if <code class="highlighter-rouge">behavior</code> is <code class="highlighter-rouge">textInput</code>.</li>
-  <li><strong>textInputPlaceholder</strong> (<em>Optional</em>): The placeholder text to show in the text input field. Only used if <code class="highlighter-rouge">behavior</code> is <code class="highlighter-rouge">textInput</code> and the device runs iOS 10.</li>
+  <li><strong>identifier</strong> (<em>必选</em>): 此动作的唯一标识符。 必须是大写字母且没有特殊字符或空格。只需要对该类别是唯一的，而不需要是全局唯一。</li>
+  <li><strong>title</strong> (<em>必选</em>): 按钮上显示的文字。尽可能短一些。</li>
+  <li><strong>activationMode</strong> (<em>可选</em>): 在动作被执行时，应用程序的运行模式。若设置为<code class="highlighter-rouge">foreground</code>将使应用程序在选择后打开。 默认值为<code class="highlighter-rouge">background</code>。</li>
+  <li><strong>authenticationRequired</strong> (<em>可选</em>): 如果布尔类型（<code class="highlighter-rouge">true</code>，<code class="highlighter-rouge">True</code>，<code class="highlighter-rouge">yes</code>等），则在执行操作之前，用户必须解锁设备。</li>
+  <li><strong>destructive</strong> (<em>可选</em>): 当该属性的值为布尔值时，系统将以不同的方式显示相应的按钮，以指示操作是需要注意的（其文本颜色为红色）。</li>
+  <li><strong>behavior</strong> (<em>可选</em>): 当使用<code class="highlighter-rouge">textInput</code>时，系统为用户提供了一种在通知中的输入文本的回应方式。 输入的文字将被发送到Home Assistant。 默认值为<code class="highlighter-rouge">default</code>。</li>
+  <li><strong>textInputButtonTitle</strong> (<em>可选</em>): 按钮标签。如果<code class="highlighter-rouge">behavior</code>设置为<code class="highlighter-rouge">textInput</code>则该参数为 <em>必选</em></li>
+  <li><strong>textInputPlaceholder</strong> (<em>可选</em>): 文本输入框中显示的占位符文本。 仅当<code class="highlighter-rouge">behavior</code>为<code class="highlighter-rouge">textInput</code>，且设备运行iOS 10时才可使用。</li>
 </ul>
-<p>Here’s a fully built example configuration:</p>
+<p>以下是一个包括所有参数的配置示例：</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">ios</span><span class="pi">:</span>
   <span class="s">push</span><span class="pi">:</span>
     <span class="s">categories</span><span class="pi">:</span>
@@ -150,8 +150,8 @@
             <span class="s">textInputPlaceholder</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Placeholder'</span>
 </code></pre>
 </div>
-<h2><a class="title-link" name="building-automations-for-notification-actions" href="#building-automations-for-notification-actions"></a> Building automations for notification actions</h2>
-<p>Here is an example automation to send a notification with a category in the payload:</p>
+<h2><a class="title-link" name="" href="#"></a> 构建通知操作的自动化</h2>
+<p>以下是一个发送在数据体（payload）中包含类别（category）的通知的自动化示例：</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Notify iOS app</span>
     <span class="s">trigger</span><span class="pi">:</span>
@@ -164,13 +164,13 @@
           <span class="s">push</span><span class="pi">:</span>
             <span class="s">badge</span><span class="pi">:</span> <span class="s">5</span>
             <span class="s">sound</span><span class="pi">:</span> <span class="s">&lt;SOUND FILE HERE&gt;</span>
-            <span class="s">category</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ALARM"</span> <span class="c1"># Needs to match the top level identifier you used in the ios configuration</span>
-          <span class="s">action_data</span><span class="pi">:</span> <span class="c1"># Anything passed in action_data will get echoed back to Home Assistant.</span>
+            <span class="s">category</span><span class="pi">:</span> <span class="s2">"</span><span class="s">ALARM"</span> <span class="c1"># 需要匹配在ios配置中所使用的顶级标识符</span>
+          <span class="s">action_data</span><span class="pi">:</span> <span class="c1"># 在action_data中传递的任何内容都会被回传给Home Assistant。</span>
             <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.test</span>
             <span class="s">my_custom_data</span><span class="pi">:</span> <span class="s">foo_bar</span>
 </code></pre>
 </div>
-<p>When an action is selected an event named <code class="highlighter-rouge">ios.notification_action_fired</code> will be emitted on the Home Assistant event bus. Below is an example payload.</p>
+<p>当选择一个动作时，一个名为<code class="highlighter-rouge">ios.notification action fired</code>的事件将在Home Assistant事件总线（event bus）上被触发。 下面是一个数据体示例。</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"sourceDeviceName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Robbie's iPhone 7 Plus"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"sourceDeviceID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"robbies_iphone_7_plus"</span><span class="p">,</span><span class="w">
@@ -181,7 +181,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 </div>
-<p>Here’s an example automation for the given payload:</p>
+<p>以下是对于给定数据体的自动化示例：</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Sound the alarm</span>
     <span class="s">trigger</span><span class="pi">:</span>
@@ -193,10 +193,10 @@
       <span class="s">...</span>
 </code></pre>
 </div>
-<p>Notes:</p>
+<p>注释：</p>
 <ul>
-  <li><code class="highlighter-rouge">textInput</code> will only exist if <code class="highlighter-rouge">behavior</code> was set to <code class="highlighter-rouge">textInput</code>.</li>
-  <li><code class="highlighter-rouge">actionData</code> is a dictionary with parameters passed in the <code class="highlighter-rouge">action_data</code> dictionary of the <code class="highlighter-rouge">push</code> dictionary in the original notification.</li>
+  <li>只有当<code class="highlighter-rouge">behavior</code>设置为<code class="highlighter-rouge">textInput</code>时，<code class="highlighter-rouge">textInput</code>才会存在。</li>
+  <li><code class="highlighter-rouge">actionData</code>是一个字典，其包括原始通知中<code class="highlighter-rouge">push</code>字典中<code class="highlighter-rouge">action_data</code>字典中所用的传递参数</li>
 </ul>
 </article>
         </div>
@@ -282,6 +282,7 @@
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -367,6 +368,7 @@
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>

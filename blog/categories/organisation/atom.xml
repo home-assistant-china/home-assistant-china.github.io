@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Organisation | Home Assistant 中文网]]></title>
   <link href="http:///blog/categories/organisation/atom.xml" rel="self"/>
   <link href="http:///"/>
-  <updated>2017-08-30T15:26:51+08:00</updated>
+  <updated>2017-09-22T19:28:10+08:00</updated>
   <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Home Assistant Governance [updated]]]></title>
-    <link href="http:///blog/2017/01/22/home-assistant-governance/"/>
+    <link href="http:///blog/2017/01/21/home-assistant-governance/"/>
     <updated>2017-01-22T07:05:00+08:00</updated>
-    <id>http:///blog/2017/01/22/home-assistant-governance</id>
+    <id>http:///blog/2017/01/21/home-assistant-governance</id>
     <content type="html"><![CDATA[### {% linkable_title UPDATE JAN 28, 2017 %}
 
 After feedback from the community we have updated [the CLA][cla] and the license that Home Assistant is distributed under. For the CLA, instead of enforcing requirements on the grants and code, we now require contributions to be licensed under the Apache 2.0 license. Special thanks to [Matthew Garrett][mjg59] for his feedback and advice.
@@ -116,9 +116,9 @@ We hope you understand that our desire with these changes is only to help protec
   
   <entry>
     <title type="html"><![CDATA[Explaining the Updater]]></title>
-    <link href="http:///blog/2016/10/25/explaining-the-updater/"/>
-    <updated>2016-10-25T12:30:00+08:00</updated>
-    <id>http:///blog/2016/10/25/explaining-the-updater</id>
+    <link href="http:///blog/2016/10/26/explaining-the-updater/"/>
+    <updated>2016-10-26T05:30:00+08:00</updated>
+    <id>http:///blog/2016/10/26/explaining-the-updater</id>
     <content type="html"><![CDATA[On Saturday, we released [Home Assistant 0.31][0.31] which includes an improved updater component that checks for new versions using the Home Assistant servers. We wanted to update the community on its rollout and answer some questions that have come up. As part of the update check anonymous information about your operating system and Python version is submitted to Home Assistant servers unless you have opted out.
 
 <!--more-->
@@ -170,9 +170,9 @@ The source code of our updater AWS Lambda function is now available [here][sourc
   
   <entry>
     <title type="html"><![CDATA[To Infinity and Beyond 🚀]]></title>
-    <link href="http:///blog/2016/04/19/to-infinity-and-beyond/"/>
-    <updated>2016-04-19T13:44:00+08:00</updated>
-    <id>http:///blog/2016/04/19/to-infinity-and-beyond</id>
+    <link href="http:///blog/2016/04/20/to-infinity-and-beyond/"/>
+    <updated>2016-04-20T06:44:00+08:00</updated>
+    <id>http:///blog/2016/04/20/to-infinity-and-beyond</id>
     <content type="html"><![CDATA[After 2.5 years I think we can proudly say: Home Assistant is a success. I write _we_ because Home Assistant is no longer a one-person side project. It has become the side project of many people who spend countless hours on making Home Assistant the best home automation software out there. To acknowledge this we migrated the repositories from being under my name to be under our own [organisation on GitHub][gh-ha].
 
 On our journey we've reached many noteworthy milestones:

@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate Netatmo component into Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/netatmo/">
+    <link rel="canonical" href="https://home-assistant.io/components/netatmo/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Netatmo">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/netatmo/">
+    <meta property="og:url" content="https://home-assistant.io/components/netatmo/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate Netatmo component into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -79,22 +79,22 @@
 <p>To enable the Netatmo component, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">netatmo</span><span class="pi">:</span>
-  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_API_KEY</span>
-  <span class="s">secret_key</span><span class="pi">:</span> <span class="s">YOUR_SECRET_KEY</span>
+  <span class="s">api_key</span><span class="pi">:</span> <span class="s">YOUR_CLIENT_ID</span>
+  <span class="s">secret_key</span><span class="pi">:</span> <span class="s">YOUR_CLIENT_SECRET</span>
   <span class="s">username</span><span class="pi">:</span> <span class="s">YOUR_USERNAME</span>
   <span class="s">password</span><span class="pi">:</span> <span class="s">YOUR_PASSWORD</span>
 </code></pre>
 </div>
 <p>Configuration variables:</p>
 <ul>
-  <li><strong>api_key</strong> (<em>Required</em>): The API key for your Netatmo account.</li>
-  <li><strong>secret_key</strong> (<em>Required</em>): Your Netatmo secret key</li>
+  <li><strong>api_key</strong> (<em>Required</em>): The <code class="highlighter-rouge">client id</code> form your Netatmo app.</li>
+  <li><strong>secret_key</strong> (<em>Required</em>): The <code class="highlighter-rouge">client secret</code> form your Netatmo app.</li>
   <li><strong>username</strong> (<em>Required</em>): Username for the Netatmo account.</li>
   <li><strong>password</strong> (<em>Required</em>): Password for the Netatmo account.</li>
   <li><strong>discovery</strong> (<em>Optional)</em>: Whether to discover Netatmo devices. Set it to False, if you want to choose which Netatmo device you want to add (default True).</li>
 </ul>
 <h3><a class="title-link" name="get-api-and-secret-key" href="#get-api-and-secret-key"></a> Get API and Secret Key</h3>
-<p>To get your API credentials, you have to declare a new application in the <a href="https://dev.netatmo.com/">NetAtmo Developer Page</a>. Sign in using your username and password from your regular Netatmo account.
+<p>To get your API credentials, you have to declare a new application in the <a href="https://dev.netatmo.com/">Netatmo Developer Page</a>. Sign in using your username and password from your regular Netatmo account.
 Click on ‘Create an App’ at the top of the page.</p>
 <p class="img">
 <img src="/images/screenshots/netatmo_create.png" />
@@ -103,7 +103,7 @@ Click on ‘Create an App’ at the top of the page.</p>
 <p class="img">
 <img src="/images/screenshots/netatmo_app.png" />
 </p>
-<p>That’s it. You can copy and paste your new API and secret keys in your Home Assistant configuration file just as said above.</p>
+<p>That’s it. You can copy and paste your new <code class="highlighter-rouge">client id</code> and <code class="highlighter-rouge">client secret</code> in your Home Assistant configuration file just as described above, in the configuration example.</p>
 <p class="img">
 <img src="/images/screenshots/netatmo_api.png" />
 </p>
@@ -303,6 +303,9 @@ The Home Assistant Netatmo platform has only be tested with the classic indoor, 
         </li>
         <li>
             <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

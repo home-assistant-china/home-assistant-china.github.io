@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Home Assistant 是一个基于Python 3开发的开源家庭自动化平台。">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/blog/posts/9/">
+    <link rel="canonical" href="https://home-assistant.io/blog/posts/9/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Home Assistant 中文网">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/blog/posts/9/">
+    <meta property="og:url" content="https://home-assistant.io/blog/posts/9/">
     <meta property="og:type" content="website">
     <meta property="og:description" content="">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -71,7 +71,78 @@
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2016/05/22/release-020/">0.20: Roku, Last.fm, AWS, Twilio</a>
+    <a href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/">iBeacons: How to track things that can’t track themselves (part II)</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-05-26T19:06:12+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 26, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Greg Dowling</span>
+    <span><i class='icon-time'></i> eight minutes reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>iBeacons</li>
+        <li>Device-Tracking</li>
+        <li>OwnTracks</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p><em>This post is by Home Assistant contributor <a href="https://github.com/pavoni">Greg Dowling</a>.</em></p>
+<p>In <a href="/blog/2016/04/30/ibeacons-part-1-making-presence-detection-work-better">Part 1</a> I talked about using iBeacons to improve presence tracking. In part 2 I’ll talk about how to track things like keys that can’t track themselves by using iBeacons.</p>
+<h3><a class="title-link" name="tracking-things-using-ibeacons" href="#tracking-things-using-ibeacons"></a> Tracking things using iBeacons</h3>
+<p>In the first part I mentioned that iBeacons just send out <em>I’m here</em> packets, and we used this to trigger an update when your phone came close to a fixed beacon.</p>
+<p>But beacons don’t have to be fixed.</p>
+<p>Your phone knows roughly where it is located (based on mobile phone masts, Wi-Fi networks or GPS). If your phone sees an <em>I’m here</em> message then it knows the beacon is close.</p>
+<p>If your phone can remember (or tell a server) where it was when it last saw the iBeacon - then it knows where the beacon was. So the result of this is that you can track where an iBeacon was - even though the iBeacon doesn’t have any tracking technology itself.</p>
+<p>So if you put an iBeacon on your keys or in your car - then you can track them.</p>
+<p class="img">
+  <img width="200" src="/images/blog/2016-05-ibeacons/keys_with_beacon.jpg" />
+  Here are my keys - with a Estimote Nearable iBeacon stuck to them. Ugly but effective!
+</p>
+      <a class="btn pull-right" href="/blog/2016/05/26/ibeacons-how-to-track-things-that-cant-track-themselves-part-ii/#read-more">Read on &rarr;</a>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2016/05/22/get-started-with-all-in-one-installer/">Raspberry Pi all-in-one installer</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-05-23T00:06:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 22, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Video</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/05/22/get-started-with-all-in-one-installer/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That’s why <a href="https://github.com/jbags81">@jbags81</a> recently introduced the <a href="/getting-started/installation-raspberry-pi-all-in-one/">all-in-one installer</a>. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:</p>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>wget -Nnv https://raw.githubusercontent.com/home-assistant/fabric-home-assistant/master/hass_rpi_installer.sh <span class="o">&amp;&amp;</span> bash hass_rpi_installer.sh;
+</code></pre>
+</div>
+<p>This feature wouldn’t be complete if it wasn’t accompanied by a new video by Ben from <a href="http://www.bruhautomation.com">BRUH Automation</a>. The video shows how to install Raspbian Jessie on your Raspberry Pi and use the new installation script to get a full Home Assistant system up and running.</p>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/VGl3KTrYo6s" frameborder="0" allowfullscreen=""></iframe>
+</div>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2016/05/21/release-020/">0.20: Roku, Last.fm, AWS, Twilio</a>
   </h1>
   <div class="meta clearfix">
     <time datetime="2016-05-22T02:06:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 21, 2016</time>
@@ -84,7 +155,7 @@
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2016/05/22/release-020/#disqus_thread"
+         href="/blog/2016/05/21/release-020/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -188,7 +259,7 @@
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2016/05/08/empowering-scripts-and-alexa/">0.19: Empowering scripts and Alexa</a>
+    <a href="/blog/2016/05/07/empowering-scripts-and-alexa/">0.19: Empowering scripts and Alexa</a>
   </h1>
   <div class="meta clearfix">
     <time datetime="2016-05-08T02:06:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> May 7, 2016</time>
@@ -201,7 +272,7 @@
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2016/05/08/empowering-scripts-and-alexa/#disqus_thread"
+         href="/blog/2016/05/07/empowering-scripts-and-alexa/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -329,9 +400,9 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li>OwnTracks</li>
-        <li>Presence-Detection</li>
         <li>iBeacons</li>
+        <li>Presence-Detection</li>
+        <li>OwnTracks</li>
     </ul>
   </span>
       <a class='comments'
@@ -353,10 +424,10 @@
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/">0.18: Bluetooth, LG WebOS TVs and Roombas.</a>
+    <a href="/blog/2016/04/21/bluetooth-lg-webos-tvs-and-roombas/">0.18: Bluetooth, LG WebOS TVs and Roombas.</a>
   </h1>
   <div class="meta clearfix">
-    <time datetime="2016-04-20T14:10:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 21, 2016</time>
+    <time datetime="2016-04-21T07:10:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 20, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
     <span><i class='icon-time'></i> three minutes reading time</span>
     <span>
@@ -366,7 +437,7 @@
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2016/04/20/bluetooth-lg-webos-tvs-and-roombas/#disqus_thread"
+         href="/blog/2016/04/21/bluetooth-lg-webos-tvs-and-roombas/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -416,10 +487,10 @@
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2016/04/19/to-infinity-and-beyond/">To Infinity and Beyond 🚀</a>
+    <a href="/blog/2016/04/20/to-infinity-and-beyond/">To Infinity and Beyond 🚀</a>
   </h1>
   <div class="meta clearfix">
-    <time datetime="2016-04-19T13:44:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 19, 2016</time>
+    <time datetime="2016-04-20T06:44:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 19, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
     <span><i class='icon-time'></i> two minutes reading time</span>
     <span>
@@ -429,7 +500,7 @@
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2016/04/19/to-infinity-and-beyond/#disqus_thread"
+         href="/blog/2016/04/20/to-infinity-and-beyond/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -451,78 +522,6 @@
 <p>I would like to put out a big thank you to all our contributors who make Home Assistant what it is today. It doesn’t matter if it is form of code, documentation or giving support in our <a href="https://discord.gg/c5DvZ4e">chat room</a> or <a href="https://community.home-assistant.io/">forums</a>. You. all. rock.</p>
 <p>Cheers to the future!</p>
 <p>Paulus</p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2016/04/17/updated-documentation/">Updated documentation</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2016-04-17T14:09:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 17, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Website</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2016/04/17/updated-documentation/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>One of the main complaints that we receive is something along the lines “I read that X is possible yet I am unable to find it on the website.”. This post is to announce that we have taken the first steps to improve it by revamping the <a href="/getting-started/">getting started</a> and <a href="/developers/">developers</a> sections. It’s still a work in progress but we now have a solid foundation to build on for the future 👍.</p>
-<p>Our documentation has been going through various phases. Initially it was just the README in our GitHub repository. I discovered Jekyll and GitHub pages in December 2014 and created home-assistant.io. I more or less broke the README in 5 pages and <a href="/blog/2014/12/18/website-launched/">called it a website</a>. Back then we had a whopping <a href="https://github.com/home-assistant/home-assistant.io/blob/86bb2df430ce267ab2123d51592d3f068ae509b5/source/components/index.markdown">11 components</a>.</p>
-<p>As Home Assistant grew, so did our documentation. <a href="https://github.com/fabaff">Fabian Affolter</a> does an amazing job in making sure there is at least a documentation stub for each new feature that lands. And that’s quite a feat given our <a href="https://home-assistant.io/blog/categories/release-notes/">frequent releases</a>! But despite all the efforts, the documentation outgrew our existing documentation organisation.</p>
-<p>Today it has been almost 1.5 years since we started the website. We now have <a href="/components/">264 components and platforms</a> under our belt and have been honored with 1.5 million page views ✨. And hopefully we now also have documentation that our community deserves.</p>
-<p>Finally, if you see some content that could use more clarifcation or is outdated, don’t hesitate to use the ‘Edit in GitHub’ link that is present on each page.</p>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/">0.17: Onkyo, Panasonic, GTFS and config validation</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2016-04-09T14:10:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 9, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> 1 minute reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2016/04/09/onkyo-panasonic-gtfs-and-config-validation/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we’ve been hard at work to introduce config validation! Especially huge thanks to <a href="https://github.com/jaharkes/">@jaharkes</a> for his hard work on this. Config validation is still in it’s early stages. More common platforms and components have been added but we didn’t do everything yet.</p>
-<p>When we encounter an invalid config we will now write a warning to your logs. You can see those in the frontend by clicking on the last developer tool. We’re looking into options to make it more clear - it is a work in progress.</p>
-<p>Another big thing is the addition of GTFS support. You probably don’t know it, but GTFS is the standard that public transit companies all over the world use to distribute their schedule. This means that you can now have the time of the next bus/train/etc right in your frontend.</p>
-<p><img src="/images/supported_brands/onkyo.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/loop.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/panasonic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
-<ul>
-  <li>Config validation (<a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/jaharkes/">@jaharkes</a>)</li>
-  <li>Sensor: <a href="/components/sensor.gtfs/">GTFS</a> support (public transit open standard) (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
-  <li>Camera: <a href="/components/camera.rpi_camera/">Raspberry PI</a> support added (<a href="https://github.com/LucaSoldi/">@LucaSoldi</a>)</li>
-  <li>Z-Wave: improved startup reliability (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
-  <li>Media Player: <a href="/components/media_player.onkyo/">Onkyo receiver</a> now supported (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
-  <li>Sensor: <a href="/components/sensor.loop_energy/">Loop Energy</a> now supported (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
-  <li>Thermostat: <a href="/components/thermostat.zwave/">Z-Wave</a> now supported (<a href="https://github.com/coteyr/">@coteyr</a>, <a href="https://github.com/turbokongen/">@turbokongen</a>, <a href="https://github.com/luxus/">@luxus</a>)</li>
-  <li>Sensor: <a href="/components/sensor.nzbget/">NZBGet</a> now supported (<a href="https://github.com/justyns/">@justyns</a>)</li>
-  <li>Media Player: <a href="/components/media_player.panasonic_viera/">Panasonic Viera TV</a> now supported (<a href="https://github.com/florianholzapfel/">@florianholzapfel</a>)</li>
-  <li>Thermostats: Use whole degrees if user uses Fahrenheit (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
-  <li>Frontend: more material love (<a href="https://github.com/balloob/">@balloob</a>)</li>
-</ul>
-<h3>Breaking changes</h3>
-<p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code class="highlighter-rouge">execute_service</code> in their script configs. This should be <code class="highlighter-rouge">service</code>.</p>
   </div>
   </article>
   <hr>

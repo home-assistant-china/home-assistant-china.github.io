@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Updating AppDaemon">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/ecosystem/appdaemon/updating/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/appdaemon/updating/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Updating AppDaemon">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/ecosystem/appdaemon/updating/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/appdaemon/updating/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Updating AppDaemon">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -77,15 +77,10 @@
   </header>
   <hr class="divider">
   <p>To update AppDaemon after I have released new code, just run the following command to update your copy:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>git pull origin
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo pip3 install --upgrade appdaemon
 </code></pre>
 </div>
-<p>If you are using pip3 for the install do this:</p>
-<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo pip3 uninstall appdaemon
-<span class="gp">$ </span>sudo pip3 install .
-</code></pre>
-</div>
-<p>If you are using docker, rerun the steps to create a new docker image.</p>
+<p>If you are using docker, rerun the steps to grab the latestdocker image.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -170,6 +165,7 @@
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -255,6 +251,7 @@
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>

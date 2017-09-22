@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Examples of how Home Assistant for iOS can be integrated with other apps">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/ecosystem/ios/integration/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/ios/integration/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Integration">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/ecosystem/ios/integration/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/ios/integration/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Examples of how Home Assistant for iOS can be integrated with other apps">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -76,15 +76,15 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Home Assistant for iOS supports opening from other apps via URL.</p>
-<p>Query parameters are passed as a dictionary in the call.</p>
-<h2>Call service</h2>
-<p>Example: <code class="highlighter-rouge">homeassistant://call_service/device_tracker.see?entity_id=device_tracker.entity</code></p>
-<h2>Fire event</h2>
-<p>You can create an <a href="https://home-assistant.io/docs/automation/trigger/#event-trigger">event trigger</a> and fire the event.</p>
-<p>Example: <code class="highlighter-rouge">homeassistant://fire_event/custom_event?entity_id=MY_CUSTOM_EVENT</code></p>
-<h2>Send one shot location</h2>
-<p>Example: <code class="highlighter-rouge">homeassistant://send_location/</code></p>
+  <p>Home Assistant通过URL打开其他应用程序已实现对iOS设备的支持。</p>
+<p>调用时查询参数以字典的方式被传入。</p>
+<h2>调用服务</h2>
+<p>示例: <code class="highlighter-rouge">homeassistant://call_service/device_tracker.see?entity_id=device_tracker.entity</code></p>
+<h2>触发事件</h2>
+<p>您可以创建一个<a href="https://home-assistant.io/docs/automation/trigger/#event-trigger">事件触发器</a> 然后触发该事件</p>
+<p>示例: <code class="highlighter-rouge">homeassistant://fire_event/custom_event?entity_id=MY_CUSTOM_EVENT</code></p>
+<h2>发送位置</h2>
+<p>示例: <code class="highlighter-rouge">homeassistant://send_location/</code></p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -169,6 +169,7 @@
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -254,6 +255,7 @@
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>

@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Adding attachments to iOS push notifications">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/ecosystem/ios/notifications/attachments/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/ios/notifications/attachments/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Notification attachments">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/ecosystem/ios/notifications/attachments/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/ios/notifications/attachments/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Adding attachments to iOS push notifications">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -72,13 +72,13 @@
     <div class='edit-github'><a href='https://github.com/home-assistant/home-assistant.github.io/tree/current/source/_docs/ecosystem/ios/notifications/attachments.markdown'>Edit this page on GitHub</a></div>
   <header>
     <h1 class="title indent">
-      Notification Attachments
+      Notification attachments
     </h1>
   </header>
   <hr class="divider">
-  <p>iOS 10 adds <em>attachments</em> to notifications. An attachment is an image, video, or audio file which is downloaded to the device when a notification is received and shown alongside the notification. A thumbnail is shown when the notification is not expanded. The full size attachment is shown when the notification is expanded.</p>
+  <p>iOS 10在通知中添加了 <em>附件</em>。 附件是当收到通知，下载到设备的图像，视频或音频文件，其将在通知旁边显示。 当通知未展开时，将显示其缩略图。 当扩展通知时，将显示全尺寸附件。</p>
 <p class="note">
-To expand a notification on 3D Touch devices simply force touch any notification. On non-3D Touch devices swipe and tap the “View” button.
+要在3D Touch设备上展开通知，只需重触任何通知。 在非3D触摸设备上则需滑动并点按“查看”按钮。
 </p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Notify iOS app</span>
     <span class="s">trigger</span><span class="pi">:</span>
@@ -94,37 +94,37 @@ To expand a notification on 3D Touch devices simply force touch any notification
             <span class="s">hide-thumbnail:</span><span class="nv"> </span><span class="s">false</span>
 </code></pre>
 </div>
-<p>Notes:</p>
+<p>注释：</p>
 <ul>
-  <li>The thumbnail of the notification will be the media at the <code class="highlighter-rouge">url</code>.</li>
-  <li>The notification content is the media at the <code class="highlighter-rouge">url</code>.</li>
-  <li>Attachment can be used with custom push notification categories.</li>
+  <li>通知的缩略图为<code class="highlighter-rouge">url</code>所指向的媒体。</li>
+  <li>通知内容为<code class="highlighter-rouge">url</code>所包含的媒体。</li>
+  <li>附件可用于自定义推送通知类别。</li>
 </ul>
-<h2>Example</h2>
+<h2>示例</h2>
 <p class="img">
   <img src="/images/ios/attachment.png" />
-  An unexpanded push notification with an attachment.
+  带有附件的未展开推送通知。
 </p>
 <p class="img">
   <img src="/images/ios/expanded_attachment.png" />
-  The same notification but expanded to show the full size attachment
+  同样的通知，扩展后显示为全尺寸附件
 </p>
-<h2>Supported media types</h2>
-<p>If the attachment does not appear please ensure it is in one of the following formats:</p>
-<h3>Audio attachments</h3>
-<p>Maximum file size: 5 MB</p>
-<p>Allowed Formats: AIFF, WAV, MP3, MPEG4 Audio</p>
-<h3>Image attachments</h3>
-<p>Maximum file size: 10 MB</p>
-<p>Allowed Formats: JPEG, GIF, PNG</p>
-<h3>Video attachments</h3>
-<p>Maximum file size: 50 MB</p>
-<p>Allowed Formats: MPEG, MPEG2, MPEG4, AVI</p>
-<h2>Configuration</h2>
+<h2>支持的媒体类型</h2>
+<p>如果附件没有出现，请确保它属于以下格式之一：</p>
+<h3>音频附件</h3>
+<p>最大文件尺寸: 5 MB</p>
+<p>支持格式: AIFF, WAV, MP3, MPEG4 Audio</p>
+<h3>图片附件</h3>
+<p>最大文件尺寸: 10 MB</p>
+<p>支持格式: JPEG, GIF, PNG</p>
+<h3>视频附件</h3>
+<p>最大文件尺寸: 50 MB</p>
+<p>支持格式: MPEG, MPEG2, MPEG4, AVI</p>
+<h2>配置</h2>
 <ul>
-  <li><strong>url</strong> (<em>Required</em>): The URL of content to use as the attachment. This URL <em>must</em> be accessible from the Internet, or the receiving device must be on the same network as the hosted content.</li>
-  <li><strong>content-type</strong> (<em>Optional</em>): By default, the extension of the URL will be checked to determine the filetype. If there is no extension/it can’t be determined you can manually provide a file extension.</li>
-  <li><strong>hide-thumbnail</strong> (<em>Optional</em>): If set to <code class="highlighter-rouge">true</code> the thumbnail will not show on the notification. The content will only be viewable by expanding.</li>
+  <li><strong>url</strong> (<em>必选</em>): 要用作附件内容的URL。 该URL <em>必须</em> 可以从互联网访问，或者接收设备必须与托管内容位于同一网络上。</li>
+  <li><strong>content-type</strong> (<em>可选</em>): 默认情况下，URL的后缀名将被检查以确定文件类型。 如果没有后缀/无法确定，您可以手动提供文件后缀名。</li>
+  <li><strong>hide-thumbnail</strong> (<em>可选</em>): 如果设置为 <code class="highlighter-rouge">true</code>，则缩略图将不会被显示在通知上。其内容只能展开后才能看到。</li>
 </ul>
 </article>
         </div>
@@ -210,6 +210,7 @@ To expand a notification on 3D Touch devices simply force touch any notification
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -295,6 +296,7 @@ To expand a notification on 3D Touch devices simply force touch any notification
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>

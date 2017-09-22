@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to add user notifications to Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/notify/">
+    <link rel="canonical" href="https://home-assistant.io/components/notify/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Notifications">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/notify/">
+    <meta property="og:url" content="https://home-assistant.io/components/notify/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to add user notifications to Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -128,7 +128,7 @@
 </code></pre>
 </div>
 <h3><a class="title-link" name="test-if-it-works" href="#test-if-it-works"></a> Test if it works</h3>
-<p>A simple way to test if you have set up your notify platform correctly is to use <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong>. Choose your service (<em>notify/xyz</em>) from the list of <strong>Available services:</strong> and enter something like the sample below into  the <strong>Service Data</strong> field and hit <strong>CALL SERVICE</strong>.</p>
+<p>A simple way to test if you have set up your notify platform correctly, is to use <img src="/images/screenshots/developer-tool-services-icon.png" alt="service developer tool icon" class="no-shadow" height="38" /> <strong>Services</strong> from the <strong>Developer Tools</strong>. Choose your service from the dropdown menu <strong>Service</strong>, enter something like the sample below into the <strong>Service Data</strong> field, and hit <strong>CALL SERVICE</strong>.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The sun is {% if is_state('sun.sun', 'above_horizon') %}up{% else %}down{% endif %}!"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -216,6 +216,9 @@
           <li><a href='/components/notify.joaoapps_join/'>
             Join Notify
           </a></li>
+          <li><a href='/components/notify.knx/'>
+            KNX Notify
+          </a></li>
           <li><a href='/components/notify.kodi/'>
             Kodi
           </a></li>
@@ -245,6 +248,9 @@
           </a></li>
           <li><a href='/components/notify.mysensors/'>
             MySensors Notify
+          </a></li>
+          <li><a href='/components/notify.mycroft/'>
+            Mycroft AI
           </a></li>
           <li><a href='/components/notify.nfandroidtv/'>
             Notifications for Android TV / FireTV

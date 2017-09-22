@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="All the different ways how automations can be triggered.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/automation/trigger/">
+    <link rel="canonical" href="https://home-assistant.io/docs/automation/trigger/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Automation Trigger">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/automation/trigger/">
+    <meta property="og:url" content="https://home-assistant.io/docs/automation/trigger/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="All the different ways how automations can be triggered.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -122,8 +122,18 @@
     <span class="c1"># At least one of the following required</span>
     <span class="s">above</span><span class="pi">:</span> <span class="s">17</span>
     <span class="s">below</span><span class="pi">:</span> <span class="s">25</span>
+
+    <span class="c1"># If given, will trigger when condition has been for X time.</span>
+    <span class="s">for</span><span class="pi">:</span>
+      <span class="s">hours</span><span class="pi">:</span> <span class="s">1</span>
+      <span class="s">minutes</span><span class="pi">:</span> <span class="s">10</span>
+      <span class="s">seconds</span><span class="pi">:</span> <span class="s">5</span>
 </code></pre>
 </div>
+<p class="note">
+Listing above and below together means the numeric_state has to be between the two values.
+In the example above, a numeric_state that is 17.1-24.9 would fire this trigger.
+</p>
 <h3><a class="title-link" name="state-trigger" href="#state-trigger"></a> State trigger</h3>
 <p>Triggers when the state of tracked entities change. If only entity_id given will match all state changes, even if only state attributes change.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
@@ -219,7 +229,7 @@ With template triggers you can also evaluate attribute changes by using is_state
 </code></pre>
 </div>
 <h3><a class="title-link" name="multiple-triggers" href="#multiple-triggers"></a> Multiple triggers</h3>
-<p>When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the lines following accordingly. Whenever one of the triggers fires, your rule is executed.</p>
+<p>When your want your automation rule to have multiple triggers, just prefix the first line of each trigger with a dash (-) and indent the next lines accordingly. Whenever one of the triggers fires, your rule is executed.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="s">trigger</span><span class="pi">:</span>
       <span class="c1"># first trigger</span>
@@ -315,6 +325,7 @@ With template triggers you can also evaluate attribute changes by using is_state
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -400,6 +411,7 @@ With template triggers you can also evaluate attribute changes by using is_state
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>

@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to use the templating feature of Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/configuration/templating/">
+    <link rel="canonical" href="https://home-assistant.io/docs/configuration/templating/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Templating">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/configuration/templating/">
+    <meta property="og:url" content="https://home-assistant.io/docs/configuration/templating/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to use the templating feature of Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -135,9 +135,14 @@ The frontend has a template editor developer tool to help develop and debug temp
   <li>Filter <code class="highlighter-rouge">max</code> will obtain the larget item in a sequence.</li>
   <li>Filter <code class="highlighter-rouge">min</code> will obtain the smallest item in a sequence.</li>
 </ul>
-<p class="note warning">
+<p class="note">
 If your template uses an <code class="highlighter-rouge">entity_id</code> that begins with a number (example: <code class="highlighter-rouge">states.device_tracker.2008_gmc</code>) you must use a bracket syntax to avoid errors caused by rendering the <code class="highlighter-rouge">entity_id</code> improperly. In the example given, the correct syntax for the device tracker would be: <code class="highlighter-rouge">states.device_tracker['2008_gmc']</code>
 </p>
+<h2><a class="title-link" name="home-assistant-template-extensions" href="#home-assistant-template-extensions"></a> Home Assistant template extensions</h2>
+<p>In templates, besides the normal <a href="/topics/state_object/">state object methods and properties</a>, there are also some extra things available:</p>
+<ul>
+  <li><code class="highlighter-rouge">states.sensor.temperature.state_with_unit</code> will print the state of the entity and, if available, the unit.</li>
+</ul>
 <h2><a class="title-link" name="examples" href="#examples"></a> Examples</h2>
 <h3><a class="title-link" name="states" href="#states"></a> States</h3>
 <p>The next two statements result in same value if state exists. The second one will result in an error if state does not exist.</p>
@@ -375,6 +380,7 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -460,6 +466,7 @@ Closest to an entity: {{ closest(states.zone.school, 'group.children') }}
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>

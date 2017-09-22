@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Steps to configure the binary workday sensor.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/binary_sensor.workday/">
+    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.workday/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Workday Binary Sensor">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/binary_sensor.workday/">
+    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.workday/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Steps to configure the binary workday sensor.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -89,6 +89,7 @@
   <li><strong>province</strong> (<em>Optional</em>): Province code according to <a href="https://pypi.python.org/pypi/holidays/0.8.1">holidays</a> notation. Defaults to None.</li>
   <li><strong>workdays</strong> (<em>Optional</em>): List of workdays. Defaults to <code class="highlighter-rouge">mon</code>, <code class="highlighter-rouge">tue</code>, <code class="highlighter-rouge">wed</code>, <code class="highlighter-rouge">thu</code>, <code class="highlighter-rouge">fri</code>.</li>
   <li><strong>excludes</strong> (<em>Optional</em>): List of workday excludes. Defaults to <code class="highlighter-rouge">sat</code>, <code class="highlighter-rouge">sun</code>, <code class="highlighter-rouge">holiday</code>.</li>
+  <li><strong>days_offset</strong> (<em>Optional</em>): Set days offset. Defaults to <code class="highlighter-rouge">0</code>.</li>
 </ul>
 <p>Days are specified as follows: <code class="highlighter-rouge">mon</code>, <code class="highlighter-rouge">tue</code>, <code class="highlighter-rouge">wed</code>, <code class="highlighter-rouge">thu</code>, <code class="highlighter-rouge">fri</code>, <code class="highlighter-rouge">sat</code>, <code class="highlighter-rouge">sun</code>. The keyword <code class="highlighter-rouge">holiday</code> is used for public holidays identified by the holidays module.</p>
 <p class="note warning">
@@ -145,6 +146,9 @@ If you use the sensor for Canada (<code class="highlighter-rouge">CA</code>) wit
         </li>
         <li>
             <a href='/components/binary_sensor.axis/'>Axis Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bayesian/'>Bayesian Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>
@@ -262,6 +266,9 @@ If you use the sensor for Canada (<code class="highlighter-rouge">CA</code>) wit
         </li>
         <li>
             <a href='/components/binary_sensor.template/'>Template Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tesla/'>Tesla Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.threshold/'>Threshold Binary Sensor</a>

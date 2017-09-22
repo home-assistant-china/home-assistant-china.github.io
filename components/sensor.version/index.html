@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate a version sensor into Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/sensor.version/">
+    <link rel="canonical" href="https://home-assistant.io/components/sensor.version/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Version Sensor">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/sensor.version/">
+    <meta property="og:url" content="https://home-assistant.io/components/sensor.version/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate a version sensor into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -106,7 +106,7 @@
     <span class="s">command</span><span class="pi">:</span> <span class="s2">"</span><span class="s">cat</span><span class="nv"> </span><span class="s">/home/homeassistant/.homeassistant/.HA_VERSION"</span>
 </code></pre>
 </div>
-<p>You might think that a <a href="/components/sensor.rest/"><code class="highlighter-rouge">rest</code> sensor</a> could work to but it will not as Home Assistant is not ready when the sensor get initialized.</p>
+<p>You might think that a <a href="/components/sensor.rest/"><code class="highlighter-rouge">rest</code> sensor</a> could work, too, but it will not as Home Assistant is not ready when the sensor get initialized.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">rest</span>
     <span class="s">resource</span><span class="pi">:</span> <span class="s">http://IP_ADDRESS:8123/api/config</span>
@@ -280,6 +280,9 @@
             <a href='/components/sensor.mold_indicator/'>Mold Indicator</a>
         </li>
         <li>
+            <a href='/components/sensor.mopar/'>Mopar</a>
+        </li>
+        <li>
             <a href='/components/sensor.mysensors/'>MySensors Sensor</a>
         </li>
         <li>
@@ -337,6 +340,9 @@
             <a href='/components/sensor.scrape/'>Scrape Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.season/'>Season Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.sensehat/'>Sense HAT</a>
         </li>
         <li>
@@ -364,6 +370,9 @@
             <a href='/components/sensor.tado/'>Tado Sensor</a>
         </li>
         <li>
+            <a href='/components/sensor.tank_utility/'>Tank Utility Sensor</a>
+        </li>
+        <li>
             <a href='/components/sensor.tellstick/'>TellStick Sensor</a>
         </li>
         <li>
@@ -371,6 +380,9 @@
         </li>
         <li>
             <a href='/components/sensor.template/'>Template Sensor</a>
+        </li>
+        <li>
+            <a href='/components/sensor.tesla/'>Tesla Sensor</a>
         </li>
         <li>
             <a href='/components/sensor.thinkingcleaner/'>Thinking Cleaner sensor</a>

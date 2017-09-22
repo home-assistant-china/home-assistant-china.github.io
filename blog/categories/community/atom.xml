@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Community | Home Assistant 中文网]]></title>
   <link href="http:///blog/categories/community/atom.xml" rel="self"/>
   <link href="http:///"/>
-  <updated>2017-08-30T15:26:51+08:00</updated>
+  <updated>2017-09-22T19:28:10+08:00</updated>
   <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Home Assistant is moving to Discord]]></title>
-    <link href="http:///blog/2017/07/04/home-assistant-is-moving-to-discord/"/>
+    <link href="http:///blog/2017/07/03/home-assistant-is-moving-to-discord/"/>
     <updated>2017-07-04T07:28:01+08:00</updated>
-    <id>http:///blog/2017/07/04/home-assistant-is-moving-to-discord</id>
+    <id>http:///blog/2017/07/03/home-assistant-is-moving-to-discord</id>
     <content type="html"><![CDATA[Communities grow, things change. We understand that some people don't like change, and that is why we are trying to make our chat transition from Gitter to [Discord][discord] as smooth as possible for everyone. Join us now with [just a click][discord]!
 
 Click `Read on →` to find out more about why we're moving.
@@ -164,7 +164,7 @@ End of the voting period: April, 30 2017 - 23.59 UTC
 
 I would like to thanks all contributors. Your endless effort made this possible.
 
-<img src='http:/images/blog/2017-04-award/award.jpg' style='border: 0;box-shadow: none;'>
+<img src='/images/blog/2017-04-award/award.jpg' style='border: 0;box-shadow: none;'>
 
 The prize beside the very nice trophy contains hardware and we want to give that hardware partically away. We won four [Low Energy Server v2 (LES)][LES] units with an Intel Celeron N2930, 8 GB of RAM, and a mSATA of 128 GB (one unit with 64 GB). We were thinking about to keep one of those units in Europe and one in North America for testing and to use during workshops and events. But the other two will go to interested parties.
 

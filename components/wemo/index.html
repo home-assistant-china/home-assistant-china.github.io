@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate Belkin WeMo devices into Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/wemo/">
+    <link rel="canonical" href="https://home-assistant.io/components/wemo/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Belkin WeMo">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/wemo/">
+    <meta property="og:url" content="https://home-assistant.io/components/wemo/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate Belkin WeMo devices into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -76,12 +76,12 @@
   </header>
   <hr class="divider">
   <p>The <code class="highlighter-rouge">wemo</code> component is the main component to integrate various <a href="http://www.belkin.com/us/Products/home-automation/c/wemo-home-automation/">Belkin WeMo</a> devices with Home Assistant.</p>
-<p>Supported devices will be automatically discovered if the discovery component is enabled. If you are not using the discovery component, loading the <code class="highlighter-rouge">wemo</code> component will scan for WeMo devices on the local network.</p>
+<p>Supported devices will be automatically discovered if the discovery component is enabled. Loading the <code class="highlighter-rouge">wemo</code> component will scan the local network for WeMo devices, even if you are not using the discovery component</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">wemo</span><span class="pi">:</span>
 </code></pre>
 </div>
-<p>Alternately, WeMo devices that are not discoverable can be statically configured. If you have WeMo devices on subnets other than where Home Assistant is running, and/or devices in a remote location reachable over a VPN, you will need to manually configure them. This is also useful if you wish to disable discovery for some wemos, even if they are local. Example static configuration:</p>
+<p>Alternately, WeMo devices that are not discoverable can be statically configured. If you have WeMo devices on subnets other than where Home Assistant is running, or devices in a remote location reachable over a VPN, you will need to configure them manually. This is also useful if you wish to disable discovery for some WeMo’s, even if they are local. Example static configuration:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">wemo</span><span class="pi">:</span>
   <span class="s">static</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">192.168.1.23</span>
@@ -89,8 +89,8 @@
 </code></pre>
 </div>
 <p>Any WeMo devices that are not statically configured but reachable via discovery will still be added automatically.</p>
-<p>Note that if you use this, you may want to configure your router (or whatever runs your DHCP server) to force your WeMo devices to use a static IP address. Check the DHCP section of your router configuration for this ability.</p>
-<p>If the device doesn’t seem to work and all you see is the state “unavailable” on your dashboard, check that your firewall doesn’t block incoming request on port 8989 since this is the address to which the WeMo devices sends their update.</p>
+<p>Note that if you use this, you may want to set up your router (or whatever runs your DHCP server) to force your WeMo devices to use a static IP address. Check the DHCP section of your router configuration for this ability.</p>
+<p>If the device doesn’t seem to work and all you see is the state “unavailable” on your dashboard, check that your firewall doesn’t block incoming request on port 8989 since this is the address to which the WeMo devices send their update.</p>
 </article>
         </div>
         <aside id="sidebar" class="grid__item one-third lap-one-whole palm-one-whole">
@@ -275,6 +275,9 @@
         </li>
         <li>
             <a href='/components/tellduslive/'>Telldus Live</a>
+        </li>
+        <li>
+            <a href='/components/tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/twilio/'>Twilio</a>

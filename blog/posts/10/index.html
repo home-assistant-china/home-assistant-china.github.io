@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Home Assistant 是一个基于Python 3开发的开源家庭自动化平台。">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/blog/posts/10/">
+    <link rel="canonical" href="https://home-assistant.io/blog/posts/10/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Home Assistant 中文网">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/blog/posts/10/">
+    <meta property="og:url" content="https://home-assistant.io/blog/posts/10/">
     <meta property="og:type" content="website">
     <meta property="og:description" content="">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -71,6 +71,78 @@
   <article class="listing">
     <header>
   <h1 class="beta">
+    <a href="/blog/2016/04/18/updated-documentation/">Updated documentation</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-04-18T07:09:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 17, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Website</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/04/18/updated-documentation/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>One of the main complaints that we receive is something along the lines “I read that X is possible yet I am unable to find it on the website.”. This post is to announce that we have taken the first steps to improve it by revamping the <a href="/getting-started/">getting started</a> and <a href="/developers/">developers</a> sections. It’s still a work in progress but we now have a solid foundation to build on for the future 👍.</p>
+<p>Our documentation has been going through various phases. Initially it was just the README in our GitHub repository. I discovered Jekyll and GitHub pages in December 2014 and created home-assistant.io. I more or less broke the README in 5 pages and <a href="/blog/2014/12/18/website-launched/">called it a website</a>. Back then we had a whopping <a href="https://github.com/home-assistant/home-assistant.io/blob/86bb2df430ce267ab2123d51592d3f068ae509b5/source/components/index.markdown">11 components</a>.</p>
+<p>As Home Assistant grew, so did our documentation. <a href="https://github.com/fabaff">Fabian Affolter</a> does an amazing job in making sure there is at least a documentation stub for each new feature that lands. And that’s quite a feat given our <a href="https://home-assistant.io/blog/categories/release-notes/">frequent releases</a>! But despite all the efforts, the documentation outgrew our existing documentation organisation.</p>
+<p>Today it has been almost 1.5 years since we started the website. We now have <a href="/components/">264 components and platforms</a> under our belt and have been honored with 1.5 million page views ✨. And hopefully we now also have documentation that our community deserves.</p>
+<p>Finally, if you see some content that could use more clarifcation or is outdated, don’t hesitate to use the ‘Edit in GitHub’ link that is present on each page.</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2016/04/10/onkyo-panasonic-gtfs-and-config-validation/">0.17: Onkyo, Panasonic, GTFS and config validation</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2016-04-10T07:10:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 9, 2016</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> 1 minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2016/04/10/onkyo-panasonic-gtfs-and-config-validation/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>Another awesome release ready to hit your homes. YAML can be hard for beginners and more experienced automators. So to help catch those pesky errors that sneak into your files we’ve been hard at work to introduce config validation! Especially huge thanks to <a href="https://github.com/jaharkes/">@jaharkes</a> for his hard work on this. Config validation is still in it’s early stages. More common platforms and components have been added but we didn’t do everything yet.</p>
+<p>When we encounter an invalid config we will now write a warning to your logs. You can see those in the frontend by clicking on the last developer tool. We’re looking into options to make it more clear - it is a work in progress.</p>
+<p>Another big thing is the addition of GTFS support. You probably don’t know it, but GTFS is the standard that public transit companies all over the world use to distribute their schedule. This means that you can now have the time of the next bus/train/etc right in your frontend.</p>
+<p><img src="/images/supported_brands/onkyo.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/loop.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /><img src="/images/supported_brands/panasonic.png" style="clear: right; margin-left: 5px; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="150" /></p>
+<ul>
+  <li>Config validation (<a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/jaharkes/">@jaharkes</a>)</li>
+  <li>Sensor: <a href="/components/sensor.gtfs/">GTFS</a> support (public transit open standard) (<a href="https://github.com/robbiet480/">@robbiet480</a>)</li>
+  <li>Camera: <a href="/components/camera.rpi_camera/">Raspberry PI</a> support added (<a href="https://github.com/LucaSoldi/">@LucaSoldi</a>)</li>
+  <li>Z-Wave: improved startup reliability (<a href="https://github.com/srcLurker/">@srcLurker</a>)</li>
+  <li>Media Player: <a href="/components/media_player.onkyo/">Onkyo receiver</a> now supported (<a href="https://github.com/danieljkemp/">@danieljkemp</a>)</li>
+  <li>Sensor: <a href="/components/sensor.loop_energy/">Loop Energy</a> now supported (<a href="https://github.com/pavoni/">@pavoni</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.zwave/">Z-Wave</a> now supported (<a href="https://github.com/coteyr/">@coteyr</a>, <a href="https://github.com/turbokongen/">@turbokongen</a>, <a href="https://github.com/luxus/">@luxus</a>)</li>
+  <li>Sensor: <a href="/components/sensor.nzbget/">NZBGet</a> now supported (<a href="https://github.com/justyns/">@justyns</a>)</li>
+  <li>Media Player: <a href="/components/media_player.panasonic_viera/">Panasonic Viera TV</a> now supported (<a href="https://github.com/florianholzapfel/">@florianholzapfel</a>)</li>
+  <li>Thermostats: Use whole degrees if user uses Fahrenheit (<a href="https://github.com/JshWright/">@JshWright</a>)</li>
+  <li>Frontend: more material love (<a href="https://github.com/balloob/">@balloob</a>)</li>
+</ul>
+<h3>Breaking changes</h3>
+<p>As of now we are not aware of any breaking changes. However, it might be that Home Assistant will not start for you because of an invalid configuration. A common mistake that people are making is that they are still referring to <code class="highlighter-rouge">execute_service</code> in their script configs. This should be <code class="highlighter-rouge">service</code>.</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
     <a href="/blog/2016/04/07/static-website/">Static website</a>
   </h1>
   <div class="meta clearfix">
@@ -101,10 +173,10 @@
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2016/04/05/your-hub-should-be-local-and-open/">Your hub should be local and open</a>
+    <a href="/blog/2016/04/06/your-hub-should-be-local-and-open/">Your hub should be local and open</a>
   </h1>
   <div class="meta clearfix">
-    <time datetime="2016-04-05T12:11:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 5, 2016</time>
+    <time datetime="2016-04-06T05:11:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> April 5, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
     <span><i class='icon-time'></i> 1 minute reading time</span>
     <span>
@@ -114,7 +186,7 @@
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2016/04/05/your-hub-should-be-local-and-open/#disqus_thread"
+         href="/blog/2016/04/06/your-hub-should-be-local-and-open/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -203,7 +275,7 @@
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2016/03/13/z-wave-pep257-templated-service-calls/">0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.</a>
+    <a href="/blog/2016/03/12/z-wave-pep257-templated-service-calls/">0.15: Unforked Open Z-Wave, templated service calls, extended scene support and PEP257 compliance.</a>
   </h1>
   <div class="meta clearfix">
     <time datetime="2016-03-13T02:55:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> March 12, 2016</time>
@@ -216,7 +288,7 @@
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2016/03/13/z-wave-pep257-templated-service-calls/#disqus_thread"
+         href="/blog/2016/03/12/z-wave-pep257-templated-service-calls/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -266,7 +338,7 @@ player state attributes. This change affects automations, scripts and scenes.</l
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2016/02/28/steam-d-link-smart-plugs-and-neurio-energy-sensors/">0.14: Steam, D-Link smart plugs and Neurio Energy Sensors</a>
+    <a href="/blog/2016/02/27/steam-d-link-smart-plugs-and-neurio-energy-sensors/">0.14: Steam, D-Link smart plugs and Neurio Energy Sensors</a>
   </h1>
   <div class="meta clearfix">
     <time datetime="2016-02-28T06:15:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 28, 2016</time>
@@ -279,7 +351,7 @@ player state attributes. This change affects automations, scripts and scenes.</l
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2016/02/28/steam-d-link-smart-plugs-and-neurio-energy-sensors/#disqus_thread"
+         href="/blog/2016/02/27/steam-d-link-smart-plugs-and-neurio-energy-sensors/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -421,10 +493,10 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors/">0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors</a>
+    <a href="/blog/2016/02/14/speedtest-bloomsky-splunk-and-garage-doors/">0.13: Speedtest.net, Bloomsky, Splunk and Garage Doors</a>
   </h1>
   <div class="meta clearfix">
-    <time datetime="2016-02-13T14:15:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 13, 2016</time>
+    <time datetime="2016-02-14T06:15:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 13, 2016</time>
     <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
     <span><i class='icon-time'></i> two minutes reading time</span>
     <span>
@@ -434,7 +506,7 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2016/02/13/speedtest-bloomsky-splunk-and-garage-doors/#disqus_thread"
+         href="/blog/2016/02/14/speedtest-bloomsky-splunk-and-garage-doors/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -478,113 +550,6 @@ Hold your NFC tag against the belly of Garfield to unlock the alarm.
   <li>Z-Wave: Allow <a href="/components/zwave/#configuration">configuring polling</a> and <a href="/components/zwave/#events">support scenes</a> (<a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>)</li>
   <li>Bug fixes and improvements by <a href="https://github.com/persandstrom/">@persandstrom</a>, <a href="https://github.com/fabaff/">@fabaff</a>, <a href="https://github.com/balloob/">@balloob</a>, <a href="https://github.com/pavoni/">@pavoni</a>, <a href="https://github.com/philipbl/">@philipbl</a>, <a href="https://github.com/MartinHjelmare/">@MartinHjelmare</a>, <a href="https://github.com/rmkraus/">@rmkraus</a>, <a href="https://github.com/molobrakos/">@molobrakos</a>, <a href="https://github.com/lukas-hetzenecker/">@lukas-hetzenecker</a>, <a href="https://github.com/TangoAlpha/">@TangoAlpha</a>, <a href="https://github.com/deisi/">@deisi</a>, <a href="https://github.com/Danielhiversen/">@Danielhiversen</a>, <a href="https://github.com/roqeer/">@roqeer</a>, <a href="https://github.com/jaharkes/">@jaharkes</a></li>
 </ul>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2016/02/12/classifying-the-internet-of-things/">Classifying the Internet of Things</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2016-02-12T14:31:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 12, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> seven minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>Internet-of-Things</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2016/02/12/classifying-the-internet-of-things/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>The core of home automation is knowing what’s going on. The faster we know about a state change, the better we can serve the user. If you want to have your lights to turn on when you arrive at home, it doesn’t help if it only knows about it after you’ve already opened the door and manually (!!) turned on the light.</p>
-<p>Each smart device consists of the ‘normal’ device and the piece that makes it ‘smart’: the connectivity. The connectivity part of a device can consists of either control, state or both.</p>
-<p>State describes what a device is up to right now. For example, a light can be on with a red color and a medium brightness.</p>
-<p>Control is about controlling the smart device by sending commands via an API. These commands can vary from configuring how a device works till mimicking how a user would interact with a device. A media player can allow skipping to the next track and a sensor could allow to configure its sensitivity or polling interval.</p>
-<p>The Home Assistant APIs are setup to be as convenient as possible. However, a network is always as weak as it’s weakest link. In our case these are the integrations. Take for example controlling a light that does not report state. The only state Home Assistant can report on after sending a command is the assumed state: what do we expect the state of the light to be if the command worked.</p>
-<p>We want our users to get the best home automation experience out there and this starts with making sure they have devices that work well with Home Assistant. That’s why we will start applying the following classifiers to our integrations:</p>
-<p><a name="classifiers"></a></p>
-<table>
-  <tr>
-    <th colspan="2">Classifier</th>
-    <th>Description</th>
-  </tr>
-  <tr>
-    <td><i class="icon-adjust"></i></td>
-    <td style="white-space: nowrap;">Assumed State</td>
-    <td>
-      We are unable to get the state of the device. Best we can do is to assume the state based on our last command.
-    </td>
-  </tr>
-  <tr>
-    <td><i class="icon-cloud-upload"></i></td>
-    <td>Cloud Polling</td>
-    <td>
-      Integration of this device happens via the cloud and requires an active internet connection. Polling the state means that an update might be noticed later.
-    </td>
-  </tr>
-  <tr>
-    <td><i class="icon-cloud-download"></i></td>
-    <td>Cloud Push</td>
-    <td>
-      Integration of this device happens via the cloud and requires an active internet connection. Home Assistant will be notified as soon as a new state is available.
-    </td>
-  </tr>
-  <tr>
-    <td><i class="icon-download-alt"></i></td>
-    <td>Local Polling</td>
-    <td>
-      Offers direct communication with device. Polling the state means that an update might be noticed later.
-    </td>
-  </tr>
-  <tr>
-    <td><i class="icon-upload-alt"></i></td>
-    <td>Local Push</td>
-    <td>
-      Offers direct communication with device. Home Assistant will be notified as soon as a new state is available.
-    </td>
-  </tr>
-</table>
-<p>The background to how we got to these classifiers can be read after the break.</p>
-      <a class="btn pull-right" href="/blog/2016/02/12/classifying-the-internet-of-things/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/">Smarter SmartThings with MQTT and Home Assistant</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2016-02-09T15:44:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> February 09, 2016</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Jeremiah Wuenschel and St. John Johnson</span>
-    <span><i class='icon-time'></i> nine minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>How-To</li>
-        <li>MQTT</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p><em>This is a guest post by Home Assistant users <a href="https://github.com/jer">Jeremiah Wuenschel</a> and <a href="https://github.com/stjohnjohnson">St. John Johnson</a>.</em></p>
-<p>So you own a <a href="http://smartthings.com">SmartThings</a> Hub. You probably bought it when you were looking to get into the whole Home Automation hobby because it worked with pretty much everything and offered you the ability to automate <strong>anything.</strong> After a week of ownership, you realized that building dashboards and automating required writing way more Groovy then you expected. Then one day you were browsing <a href="https://www.reddit.com/r/homeautomation">reddit</a> and discovered the amazingness that is Home Assistant! A solution that offered dashboards, graphs, working support for Nest, and REAL EASY automation!</p>
-<p>You spent your weekend getting everything set up, showing it off to your significant other, but in the end you got stumped when it came to integrating with all your existing SmartThings toys. What do I do now? Should I buy another hub? Should I just buy a Z-Wave stick?</p>
-<p>That’s where we came in. We wanted a solution that can bridge the awesomeness of Home Assistant with the SmartThings hub that works with almost everything.</p>
-<p class="img">
-  <img src="/images/blog/2016-02-smartthings/splash.png" />
-</p>
-      <a class="btn pull-right" href="/blog/2016/02/09/Smarter-Smart-Things-with-MQTT-and-Home-Assistant/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

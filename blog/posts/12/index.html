@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Home Assistant 是一个基于Python 3开发的开源家庭自动化平台。">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/blog/posts/12/">
+    <link rel="canonical" href="https://home-assistant.io/blog/posts/12/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Home Assistant 中文网">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/blog/posts/12/">
+    <meta property="og:url" content="https://home-assistant.io/blog/posts/12/">
     <meta property="og:type" content="website">
     <meta property="og:description" content="">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -68,6 +68,78 @@
     <div class="grid-wrapper">
       <div class="grid grid-center">
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2015/12/06/locks-rollershutters-binary-sensors-and-influxdb-support/">0.9: Rollershutters, locks, binary sensors and InfluxDB</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-12-07T03:29:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 6, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Release-Notes</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/12/06/locks-rollershutters-binary-sensors-and-influxdb-support/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>It’s been a few weeks but we managed to polish a nice new release of Home Assistant for y’all!</p>
+<p><img src="/images/supported_brands/homematic.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="238" /><img src="/images/supported_brands/ecobee.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="238" /><img src="/images/supported_brands/influxdb.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 16px;" width="238" /></p>
+<ul>
+  <li>New <a href="/components/lock/">lock component</a> including <a href="/components/lock.wink/">Wink</a> support (<a href="https://github.com/miniconfig">@miniconfig</a>)</li>
+  <li>New <a href="/components/binary_sensor/">binary sensor component</a> including <a href="/components/binary_sensor.arest/">aRest</a> and <a href="/components/binary_sensor.mqtt/">MQTT</a> support (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>New <a href="/components/rollershutter/">rollershutter component</a> including <a href="/components/rollershutter.mqtt/">MQTT</a> support (<a href="https://github.com/sfam">@sfam</a>)</li>
+  <li>New <a href="/components/influxdb/">InfluxDB component</a> to store data in InfluxDB (<a href="https://github.com/fabaff">@fabaff</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.ecobee/">Ecobee</a> now supported (<a href="https://github.com/nkgilley">@nkgilley</a>)</li>
+  <li>Thermostat: <a href="/components/thermostat.homematic/">Homematic</a> now supported (<a href="https://github.com/goir">@goir</a>)</li>
+  <li>Support for <a href="/components/mqtt/#processing-json">parsing JSON values</a> received over MQTT (<a href="https://github.com/mcdeck">@mcdeck</a>)</li>
+  <li>Bunch of bug fixes and optimizations</li>
+</ul>
+<p>To update, run <code class="highlighter-rouge">pip3 install --upgrade homeassistant</code>.</p>
+<p class="img">
+<img src="/images/screenshots/lock-and-rollershutter-card.png" />
+</p>
+  </div>
+  </article>
+  <hr>
+  <article class="listing">
+    <header>
+  <h1 class="beta">
+    <a href="/blog/2015/12/05/community-highlights/">Community Highlights</a>
+  </h1>
+  <div class="meta clearfix">
+    <time datetime="2015-12-05T23:39:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> December 5, 2015</time>
+    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
+    <span><i class='icon-time'></i> Less than one minute reading time</span>
+    <span>
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+        <li>Community</li>
+        <li>Video</li>
+    </ul>
+  </span>
+      <a class='comments'
+         href="/blog/2015/12/05/community-highlights/#disqus_thread"
+         >Comments</a>
+  </div>
+</header>
+  <div class="entry-content clearfix">
+    <p>From time to time we come along things that are worth sharing with fellow Home Assisters. Here a list of some cool stuff from last week:</p>
+<p>First is the public beta of <a href="https://letsencrypt.org/">Let’s Encrypt</a>. Let’s Encrypt is a new certificate authority that is free, automated and open. This means that it will now be very easy to secure your connection to Home Assistant while you are away from home. W1ll1am23 has written up <a href="https://community.home-assistant.io/t/homeassistant-nginx-ssl-proxy-setup/53">a guide how to get started</a>.</p>
+<p>The next thing is a show-off of some of the cool stuff people do with Home Assistant. This is miniconfig talking to Home Assistant using the Amazon Echo!</p>
+<div class="videoWrapper">
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/9QQjklnSQKY" frameborder="0" allowfullscreen=""></iframe>
+</div>
+<p>And last but not least, Midwestern Mac did a <a href="http://www.midwesternmac.com/blogs/jeff-geerling/raspberry-pi-microsd-card">microSD card performance comparison</a> for the Raspberry Pi. If you’re using a Pi, make sure to check it out!</p>
+  </div>
+  </article>
+  <hr>
   <article class="listing">
     <header>
   <h1 class="beta">
@@ -198,7 +270,7 @@
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt/">Report the temperature with ESP8266 to MQTT</a>
+    <a href="/blog/2015/10/11/measure-temperature-with-esp8266-and-report-to-mqtt/">Report the temperature with ESP8266 to MQTT</a>
   </h1>
   <div class="meta clearfix">
     <time datetime="2015-10-12T03:10:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 11, 2015</time>
@@ -207,13 +279,13 @@
     <span>
     <i class="icon-tags"></i>
     <ul class="tags unstyled">
-        <li>ESP8266</li>
         <li>How-To</li>
         <li>MQTT</li>
+        <li>ESP8266</li>
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt/#disqus_thread"
+         href="/blog/2015/10/11/measure-temperature-with-esp8266-and-report-to-mqtt/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -228,14 +300,14 @@ Picture of the final setup (+ 2 LED for decoration)
 <img src="/images/blog/2015-10-esp8266-temp/ha-sensor.png" />
 Home Assistant will keep track of historical values and allow you to integrate it into automation.
 </p>
-      <a class="btn pull-right" href="/blog/2015/10/12/measure-temperature-with-esp8266-and-report-to-mqtt/#read-more">Read on &rarr;</a>
+      <a class="btn pull-right" href="/blog/2015/10/11/measure-temperature-with-esp8266-and-report-to-mqtt/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>
   <article class="listing">
     <header>
   <h1 class="beta">
-    <a href="/blog/2015/10/12/rfxtrx-blinkstick-and-snmp-support/">0.7.5: Blinkstick, SNMP, Telegram</a>
+    <a href="/blog/2015/10/11/rfxtrx-blinkstick-and-snmp-support/">0.7.5: Blinkstick, SNMP, Telegram</a>
   </h1>
   <div class="meta clearfix">
     <time datetime="2015-10-12T01:10:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> October 11, 2015</time>
@@ -248,7 +320,7 @@ Home Assistant will keep track of historical values and allow you to integrate i
     </ul>
   </span>
       <a class='comments'
-         href="/blog/2015/10/12/rfxtrx-blinkstick-and-snmp-support/#disqus_thread"
+         href="/blog/2015/10/11/rfxtrx-blinkstick-and-snmp-support/#disqus_thread"
          >Comments</a>
   </div>
 </header>
@@ -384,67 +456,6 @@ Map in Home Assistant showing two people and three zones (home, school, work)
     <p><img src="/images/supported_brands/glances.png" style="border:none; box-shadow: none; float: right;" height="80" />
 Inspried by a <a href="https://github.com/home-assistant/home-assistant/issues/310">feature requests</a> I started looking into the available options to do monitoring of remote hosts. The feature request is about displaying system information in a similar way than the <a href="/components/sensor.systemmonitor/">systemmonitor</a> sensor does it for the local system. After a while I started to think that it would be a nice addition for a small home network where no full-blown system monitoring setup is present.</p>
       <a class="btn pull-right" href="/blog/2015/09/18/monitoring-with-glances-and-home-assistant/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/09/14/home-assistant-meets-ifttt/">Home Assistant meets IFTTT</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-09-14T00:28:00+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 13, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Paulus Schoutsen</span>
-    <span><i class='icon-time'></i> two minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>How-To</li>
-        <li>Release-Notes</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/09/14/home-assistant-meets-ifttt/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-    <p>Today we announce the release of Home Assistant v0.7.2 which includes brand new support by <a href="https://github.com/sfam">@sfam</a> to integrate with <a href="https://ifttt.com">IFTTT</a>. IFTTT stands for If This, Then That and is a webservice that integrates with almost every possible webservice out there. Adding Home Assistant to this mix means Home Assistant can connect with all via IFTTT.</p>
-<p>It is now possible to disable your irregation system if it is going to be cloudy tomorrow or tweet if your smoke alarm goes off.</p>
-<p class="img">
-  <img src="/images/blog/2015-09-ifttt/splash.png" />
-</p>
-<p>Head over to the <a href="/components/ifttt/">setup instructions</a> to get started with IFTTT. Click the read more button for some example recipes.</p>
-      <a class="btn pull-right" href="/blog/2015/09/14/home-assistant-meets-ifttt/#read-more">Read on &rarr;</a>
-  </div>
-  </article>
-  <hr>
-  <article class="listing">
-    <header>
-  <h1 class="beta">
-    <a href="/blog/2015/09/11/different-ways-to-use-mqtt-with-home-assistant/">Using MQTT with Home Assistant</a>
-  </h1>
-  <div class="meta clearfix">
-    <time datetime="2015-09-11T17:19:38+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> September 11, 2015</time>
-    <span class="byline author vcard"><i class='icon-user'></i> Fabian Affolter</span>
-    <span><i class='icon-time'></i> eight minutes reading time</span>
-    <span>
-    <i class="icon-tags"></i>
-    <ul class="tags unstyled">
-        <li>How-To</li>
-        <li>MQTT</li>
-    </ul>
-  </span>
-      <a class='comments'
-         href="/blog/2015/09/11/different-ways-to-use-mqtt-with-home-assistant/#disqus_thread"
-         >Comments</a>
-  </div>
-</header>
-  <div class="entry-content clearfix">
-<p><img src="/images/supported_brands/mqtt.png" style="border:none; box-shadow: none; float: right;" height="80" /> <a href="https://en.wikipedia.org/wiki/MQTT">MQTT</a> support was added to Home Assistant recently. The <a href="https://home-assistant.io/components/mqtt/">MQTT component</a> will enable you to do all sort of things. Most likely you will use it to communicate with your devices. But Home Assistant doesn’t care where the data is coming from or is limited to real hardware as long as there is MQTT support. This means that it doesn’t matter if the data is coming from a human, a web service, or a device.</p>
-<p>A great example is shown in a <a href="https://home-assistant.io/blog/2015/08/26/laundry-automation-with-moteino-mqtt-and-home-assistant/">Laundry Automation</a> post in this blog.</p>
-<p>This post will give you a small overview of some other possibilities on how to use MQTT with Home Assistant.</p>
-      <a class="btn pull-right" href="/blog/2015/09/11/different-ways-to-use-mqtt-with-home-assistant/#read-more">Read on &rarr;</a>
   </div>
   </article>
   <hr>

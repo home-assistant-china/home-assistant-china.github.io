@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to integrate Linksys Smart Wifi Router into Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/device_tracker.linksys_smart/">
+    <link rel="canonical" href="https://home-assistant.io/components/device_tracker.linksys_smart/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Linksys Smart Wifi Router">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/device_tracker.linksys_smart/">
+    <meta property="og:url" content="https://home-assistant.io/components/device_tracker.linksys_smart/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to integrate Linksys Smart Wifi Router into Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -75,9 +75,14 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">linksys_smart</code> platform offers presence detection by looking at connected devices to a Linksys Smart Wifi based 
-router. It was tested with a LINKSYS WRT3200ACM MU-MIMO Gigabit Wi-Fi Wireless Router.</p>
-<p>To use a Linksys Smart Wifi Router in your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+  <p>The <code class="highlighter-rouge">linksys_smart</code> platform offers presence detection by looking at connected devices to a Linksys Smart Wifi based router.</p>
+<p>Tested routers: 
+   LINKSYS WRT3200ACM MU-MIMO Gigabit Wi-Fi Wireless Router
+   LINKSYS WRT1900ACS Dual-band Wi-Fi Router</p>
+<p class="note">
+For this platform to work correctly, it is necessary to disable the “Access via wireless” feature in the Local Management Access section of the router administration page. If “Access via wireless” is not disabled, a connectivity conflict arises because the Home Assistant integration is trying to pass userid and password, but the router is only expecting a password.
+</p>
+<p>To use a Linksys Smart Wifi Router in your Home Assistant installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
 <span class="s">device_tracker</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">linksys_smart</span>
@@ -145,6 +150,9 @@ router. It was tested with a LINKSYS WRT3200ACM MU-MIMO Gigabit Wi-Fi Wireless R
             <a href='/components/device_tracker.gpslogger/'>GPSLogger</a>
         </li>
         <li>
+            <a href='/components/device_tracker.geofency/'>Geofency</a>
+        </li>
+        <li>
             <a href='/components/device_tracker.huawei_router/'>Huawei Router</a>
         </li>
         <li>
@@ -203,6 +211,9 @@ router. It was tested with a LINKSYS WRT3200ACM MU-MIMO Gigabit Wi-Fi Wireless R
         </li>
         <li>
             <a href='/components/device_tracker.tado/'>Tado</a>
+        </li>
+        <li>
+            <a href='/components/device_tracker.tesla/'>Tesla</a>
         </li>
         <li>
             <a href='/components/device_tracker.thomson/'>Thomson</a>

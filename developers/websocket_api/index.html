@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Home Assistant WebSocket API documentation">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/developers/websocket_api/">
+    <link rel="canonical" href="https://home-assistant.io/developers/websocket_api/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="WebSocket API">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/developers/websocket_api/">
+    <meta property="og:url" content="https://home-assistant.io/developers/websocket_api/">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Home Assistant WebSocket API documentation">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -86,11 +86,14 @@
 <ol>
   <li>Client connects</li>
   <li>Authentication phase starts
-a. If no further authentication necessary for the user: go to 3
-b. Server sends <code class="highlighter-rouge">auth_required</code> message
-c. Client sends <code class="highlighter-rouge">auth</code> message
-d. If <code class="highlighter-rouge">auth</code> message correct: go to 3.
-e. Server sends <code class="highlighter-rouge">auth_invalid</code>. Go to 6.</li>
+    <ul>
+      <li>If no further authentication necessary for the user: go to 3</li>
+      <li>Server sends <code class="highlighter-rouge">auth_required</code> message</li>
+      <li>Client sends <code class="highlighter-rouge">auth</code> message</li>
+      <li>If <code class="highlighter-rouge">auth</code> message correct: go to 3.</li>
+      <li>Server sends <code class="highlighter-rouge">auth_invalid</code>. Go to 6.</li>
+    </ul>
+  </li>
   <li>Send <code class="highlighter-rouge">auth_ok</code> message</li>
   <li>Authentication phase ends.</li>
   <li>Command phase starts.

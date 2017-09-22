@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="MariaDB Server is one of the most popular database servers in the world.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/addons/mariadb/">
+    <link rel="canonical" href="https://home-assistant.io/addons/mariadb/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="MariaDB">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/addons/mariadb/">
+    <meta property="og:url" content="https://home-assistant.io/addons/mariadb/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="MariaDB Server is one of the most popular database servers in the world.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -76,20 +76,20 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>Set up a <a href="https://mariadb.org/">mariadb</a> SQL server. It support multible database, users and permission. If you want only connect from inside use <code class="highlighter-rouge">172.17.0.1</code> as host address.</p>
+  <p>Set up a <a href="https://mariadb.org/">mariadb</a> SQL server. It support multible database, users and permission. If you want only connect from inside use <code class="highlighter-rouge">core-mariadb</code> as host address.</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"databases"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"homeassistant"</span><span class="p">],</span><span class="w">
   </span><span class="nt">"logins"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hass"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.17.0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homeassistant"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"securePassword"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
   </span><span class="nt">"rights"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="nt">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hass"</span><span class="p">,</span><span class="w">
-      </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"172.17.0.1"</span><span class="p">,</span><span class="w">
+      </span><span class="nt">"host"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homeassistant"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"database"</span><span class="p">:</span><span class="w"> </span><span class="s2">"homeassistant"</span><span class="p">,</span><span class="w">
       </span><span class="nt">"grant"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ALL PRIVILEGES ON"</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -119,7 +119,7 @@
 <h2><a class="title-link" name="home-assistant-configuration" href="#home-assistant-configuration"></a> Home Assistant configuration</h2>
 <p>Use the following configuration in Home Assistant to use the database above:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">recorder</span><span class="pi">:</span>
-  <span class="s">db_url</span><span class="pi">:</span> <span class="s">mysql://hass:securePassword@127.0.0.1/homeassistant</span>
+  <span class="s">db_url</span><span class="pi">:</span> <span class="s">mysql://hass:securePassword@core-mariadb/homeassistant</span>
 </code></pre>
 </div>
 </article>

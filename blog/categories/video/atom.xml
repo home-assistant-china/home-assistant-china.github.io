@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Video | Home Assistant 中文网]]></title>
   <link href="http:///blog/categories/video/atom.xml" rel="self"/>
   <link href="http:///"/>
-  <updated>2017-08-30T15:26:51+08:00</updated>
+  <updated>2017-09-22T19:28:10+08:00</updated>
   <id>http:///</id>
   <author>
     <name><![CDATA[Home Assistant China]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[It's been already almost two weeks ago that a few of the Home Assistant developers headed towards Portland for [PyCon 2016] - the conference about everything Python. We were there to learn all the nifty tricks to make our code better but most of all, to talk Home Automation.
 
 <p class='img'>
-  <img src='http:/images/blog/2016-06-pycon/crew.jpg' alt='Home Assistant developers' />
+  <img src='/images/blog/2016-06-pycon/crew.jpg' alt='Home Assistant developers' />
   Couple of Home Assistant devs. Left to right: [Paulus (@balloob)], [Alex (@infamy)], [Ryan (@rmkraus)].
 </p>
 
@@ -45,7 +45,7 @@ We've had such positive reception on our open spaces that [Jonathan Baginski][@j
 After the conference part of PyCon was over we spent one extra day to host a Home Assistant sprint. This allowed us to help people get started with hacking on Home Assistant which lead to some great contributions.
 
 <p class='img'>
-  <img src='http:/images/blog/2016-06-pycon/sprint.jpg' alt='Home Assistant sprint group photo' />
+  <img src='/images/blog/2016-06-pycon/sprint.jpg' alt='Home Assistant sprint group photo' />
   Home Assistant sprint group photo.
 </p>
 
@@ -63,9 +63,9 @@ I've had a really great time at PyCon. It was awesome to meet everyone in person
   
   <entry>
     <title type="html"><![CDATA[Community Highlights]]></title>
-    <link href="http:///blog/2016/06/02/community-highlights/"/>
+    <link href="http:///blog/2016/06/01/community-highlights/"/>
     <updated>2016-06-02T02:34:00+08:00</updated>
-    <id>http:///blog/2016/06/02/community-highlights</id>
+    <id>http:///blog/2016/06/01/community-highlights</id>
     <content type="html"><![CDATA[Our community is amazingly helpful and creative. If you haven't been there yet, make sure to stop by our [chat room] and come hang out with us. In this blog post I want to highlight a few recent awesome projects and videos from the community.
 
 ### {% linkable_title SceneGen - cli for making scenes %}
@@ -103,9 +103,9 @@ Muhammed Kilic has created a video how to make your Home Assistant instance acce
   
   <entry>
     <title type="html"><![CDATA[Raspberry Pi all-in-one installer]]></title>
-    <link href="http:///blog/2016/05/23/get-started-with-all-in-one-installer/"/>
+    <link href="http:///blog/2016/05/22/get-started-with-all-in-one-installer/"/>
     <updated>2016-05-23T00:06:00+08:00</updated>
-    <id>http:///blog/2016/05/23/get-started-with-all-in-one-installer</id>
+    <id>http:///blog/2016/05/22/get-started-with-all-in-one-installer</id>
     <content type="html"><![CDATA[We are always hard at work at the virtual Home Assistant headquarters to make it easier for you to get started with Home Assistant. That's why [@jbags81] recently introduced the [all-in-one installer]. It allows you to get up and running with a complete Home Assistant setup by entering one line of code into your Raspberry Pi running Raspbian Jessie:
 
 ```bash

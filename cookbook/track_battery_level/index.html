@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Basic example how to track the battery level of your mobile devices.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/cookbook/track_battery_level/">
+    <link rel="canonical" href="https://home-assistant.io/cookbook/track_battery_level/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Track your battery level">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/cookbook/track_battery_level/">
+    <meta property="og:url" content="https://home-assistant.io/cookbook/track_battery_level/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Basic example how to track the battery level of your mobile devices.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -71,7 +71,7 @@
           <article class="page">
   <header>
     <h1 class="title indent">
-      Track Your Battery Level
+      Track your battery level
     </h1>
   </header>
   <hr class="divider">
@@ -92,10 +92,10 @@
 </div>
 <p>The <code class="highlighter-rouge">else</code> part is used to have the sensor keep it’s last state if the newest <a href="/components/device_tracker.icloud/">iCloud</a> update doesn’t have any battery state in it (which happens sometimes). Otherwise the sensor will be blank.</p>
 <h3><a class="title-link" name="android-and-ios-devices" href="#android-and-ios-devices"></a> Android and iOS Devices</h3>
-<p>While running the <a href="/components/device_tracker.owntracks/">Owntracks</a> device tracker you can retrieve the battery level with a MQTT sensor.</p>
+<p>While running the <a href="/components/device_tracker.owntracks/">Owntracks</a> device tracker you can retrieve the battery level with a MQTT sensor. Replace username with your MQTT username (for the embedded MQTT it’s simply homeassistant), and deviceid with the set Device ID in Owntracks.</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">mqtt</span>
-    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">owntracks/tablet/tablet"</span>
+    <span class="s">state_topic</span><span class="pi">:</span> <span class="s2">"</span><span class="s">owntracks/username/deviceid"</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Battery</span><span class="nv"> </span><span class="s">Tablet"</span>
     <span class="s">unit_of_measurement</span><span class="pi">:</span> <span class="s2">"</span><span class="s">%"</span>
     <span class="s">value_template</span><span class="pi">:</span> <span class="s1">'</span><span class="s">{{</span><span class="nv"> </span><span class="s">value_json.batt</span><span class="nv"> </span><span class="s">}}'</span>
@@ -115,6 +115,9 @@
     <ul class='divided'>
           <li>
               <a href='/cookbook/automation_for_rainy_days/'>Automation for rainy days</a>
+          </li>
+          <li>
+              <a href='/cookbook/dim_and_brighten_lights/'>Dim (and brighten) lights via a remote</a>
           </li>
           <li>
               <a href='/cookbook/dim_lights_when_playing_media/'>Dim lights when playing media</a>

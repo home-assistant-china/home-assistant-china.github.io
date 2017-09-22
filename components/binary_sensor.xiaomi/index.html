@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to setup the Xiaomi binary sensors within Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/binary_sensor.xiaomi/">
+    <link rel="canonical" href="https://home-assistant.io/components/binary_sensor.xiaomi/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Xiaomi Binary Sensor">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/binary_sensor.xiaomi/">
+    <meta property="og:url" content="https://home-assistant.io/components/binary_sensor.xiaomi/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to setup the Xiaomi binary sensors within Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -78,14 +78,129 @@
   <p><code class="highlighter-rouge">xiaomi</code> 传感器平台允许你在 HA 里使用<a href="http://www.mi.com/">小米</a> 传感器</p>
 <p>使用此组件时，你必须已经设置<a href="/components/xiaomi/">小米多功能网关</a>.</p>
 <h3><a class="title-link" name="type-of-sensors-supported" href="#type-of-sensors-supported"></a> Type of sensors supported</h3>
-<ul>
-  <li>人体传感器</li>
-  <li>门窗感应器</li>
-  <li>烟雾传感器</li>
-  <li>天然气传感器</li>
-  <li>小米无线开关</li>
-  <li>小米魔方控制器</li>
-</ul>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>ZigBee entity</th>
+      <th>Model no.</th>
+      <th>States</th>
+      <th>Event</th>
+      <th>Event key</th>
+      <th>Event values</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>人体传感器 (1st gen)</td>
+      <td>motion</td>
+      <td>RTCGQ01LM</td>
+      <td>on, off</td>
+      <td><code class="highlighter-rouge">motion</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>人体传感器 (2nd gen)</td>
+      <td>sensor_motion.aq2</td>
+      <td>RTCGQ11LM</td>
+      <td>on, off</td>
+      <td><code class="highlighter-rouge">motion</code></td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>门窗感应器 (1st gen)</td>
+      <td>magnet</td>
+      <td>WSDCGQ01LM</td>
+      <td>on, off</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>门窗感应器 (2nd gen)</td>
+      <td>sensor_magnet.aq2</td>
+      <td>MCCGQ11LM</td>
+      <td>on, off</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>烟雾传感器</td>
+      <td>smoke</td>
+      <td>JTYJ-GD-01LM/BW</td>
+      <td>on, off</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>天然气泄漏传感器</td>
+      <td>natgas</td>
+      <td>JTQJ-BF-01LM/BW</td>
+      <td>on, off</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>浸水传感器</td>
+      <td>sensor_wleak.aq1</td>
+      <td>SJCGQ11LM</td>
+      <td>on, off</td>
+      <td> </td>
+      <td> </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>开关 (1st gen)</td>
+      <td>switch</td>
+      <td>WXKG01LM</td>
+      <td>on (thru long_click_press), off</td>
+      <td><code class="highlighter-rouge">click</code></td>
+      <td><code class="highlighter-rouge">click_type</code></td>
+      <td><code class="highlighter-rouge">long_click_press</code>, <code class="highlighter-rouge">long_click_release</code>, <code class="highlighter-rouge">hold</code>, <code class="highlighter-rouge">single</code>, <code class="highlighter-rouge">double</code></td>
+    </tr>
+    <tr>
+      <td>开关 (2nd gen)</td>
+      <td>sensor_switch.aq2</td>
+      <td>WXKG11LM</td>
+      <td>off (always)</td>
+      <td><code class="highlighter-rouge">click</code></td>
+      <td><code class="highlighter-rouge">click_type</code></td>
+      <td><code class="highlighter-rouge">single</code>, <code class="highlighter-rouge">double</code></td>
+    </tr>
+    <tr>
+      <td>Aqara 无线开关 (单控)</td>
+      <td>86sw1</td>
+      <td>WXKG03LM</td>
+      <td>off (always)</td>
+      <td><code class="highlighter-rouge">click</code></td>
+      <td><code class="highlighter-rouge">click_type</code></td>
+      <td><code class="highlighter-rouge">single</code></td>
+    </tr>
+    <tr>
+      <td>Aqara 无线开关 (双控)</td>
+      <td>86sw2</td>
+      <td>WXKG02LM</td>
+      <td>off (always)</td>
+      <td><code class="highlighter-rouge">click</code></td>
+      <td><code class="highlighter-rouge">click_type</code></td>
+      <td><code class="highlighter-rouge">single</code>, <code class="highlighter-rouge">both</code></td>
+    </tr>
+    <tr>
+      <td>小米魔方控制器</td>
+      <td>cube</td>
+      <td>MFKZQ01LM</td>
+      <td>off (always)</td>
+      <td><code class="highlighter-rouge">cube_action</code></td>
+      <td><code class="highlighter-rouge">action_type</code>, <code class="highlighter-rouge">action_value</code> (rotate)</td>
+      <td><code class="highlighter-rouge">flip90</code>, <code class="highlighter-rouge">flip180</code>, <code class="highlighter-rouge">move</code>, <code class="highlighter-rouge">tap_twice</code>, <code class="highlighter-rouge">shake_air</code>, <code class="highlighter-rouge">swing</code>, <code class="highlighter-rouge">alert</code>, <code class="highlighter-rouge">free_fall</code>, <code class="highlighter-rouge">rotate</code> (degrees at action_value)</td>
+    </tr>
+  </tbody>
+</table>
 <h3><a class="title-link" name="automation-examples" href="#automation-examples"></a> Automation examples</h3>
 <p>自动化示例</p>
 <h4><a class="title-link" name="motion" href="#motion"></a> Motion</h4>
@@ -240,8 +355,8 @@
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
     <span class="s">event_type</span><span class="pi">:</span> <span class="s">cube_action</span>
     <span class="s">event_data</span><span class="pi">:</span>
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.cube_15xxxxxxxxxxxx</span>                                       
-      <span class="s">action_type</span><span class="pi">:</span> <span class="s">flip180</span>                               
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.cube_15xxxxxxxxxxxx</span>
+      <span class="s">action_type</span><span class="pi">:</span> <span class="s">flip180</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
       <span class="s">entity_id</span><span class="pi">:</span> <span class="s">light.gateway_light_28xxxxxxxxxx</span>
@@ -249,10 +364,10 @@
         <span class="s">color_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">darkviolet"</span>
 <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Cube event move</span>
   <span class="s">trigger</span><span class="pi">:</span>
-    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>                            
+    <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
     <span class="s">event_type</span><span class="pi">:</span> <span class="s">cube_action</span>
-    <span class="s">event_data</span><span class="pi">:</span>                                                                                                             
-      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.cube_15xxxxxxxxxxxx</span>                                        
+    <span class="s">event_data</span><span class="pi">:</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">binary_sensor.cube_15xxxxxxxxxxxx</span>
       <span class="s">action_type</span><span class="pi">:</span> <span class="s">move</span>
   <span class="s">action</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">light.turn_on</span>
@@ -285,7 +400,7 @@
         <span class="s">color_name</span><span class="pi">:</span> <span class="s2">"</span><span class="s">blue"</span>
 </code></pre>
 </div>
-<h4>#### <a class="title-link" name="aqara-wireless-switch" href="#aqara-wireless-switch"></a> Aqara Wireless Switch</h4>
+<h4><a class="title-link" name="aqara-wireless-switch" href="#aqara-wireless-switch"></a> Aqara Wireless Switch</h4>
 <p>绿米无线开关有分单键和双键版本。和小米无线开关原理一致，但仅支持单击操作。双键版本会增加一个名为<code class="highlighter-rouge">binary_sensor.wall_switch_both_158xxxxxxxxx12</code> 的组件，同时增加支持双键同时按下的新事件<code class="highlighter-rouge">both</code>。</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Decrease brightness of the gateway light</span> <span class="c1">#调低网关灯的亮度</span>
   <span class="s">trigger</span><span class="pi">:</span>
@@ -353,7 +468,7 @@
       <img src='/images/supported_brands/xiaomi.png' />
   </div>
     <div class='section'>
-    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Polling
+    IoT class<sup><a href='/blog/2016/02/12/classifying-the-internet-of-things/#classifiers'><i class="icon-info-sign"></i></a></sup>: Local Push
     </div>
     <div class='section'>
     Introduced in release: 0.50
@@ -405,6 +520,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.axis/'>Axis Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.bayesian/'>Bayesian Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.bbb_gpio/'>BeagleBone Black GPIO Binary Sensor</a>
@@ -522,6 +640,9 @@
         </li>
         <li>
             <a href='/components/binary_sensor.template/'>Template Binary Sensor</a>
+        </li>
+        <li>
+            <a href='/components/binary_sensor.tesla/'>Tesla Binary Sensor</a>
         </li>
         <li>
             <a href='/components/binary_sensor.threshold/'>Threshold Binary Sensor</a>

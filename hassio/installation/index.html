@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions on how-to install Hass.io.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/hassio/installation/">
+    <link rel="canonical" href="https://home-assistant.io/hassio/installation/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Installing Hass.io">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/hassio/installation/">
+    <meta property="og:url" content="https://home-assistant.io/hassio/installation/">
     <meta property="og:type" content="website">
     <meta property="og:description" content="Instructions on how-to install Hass.io.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -89,13 +89,11 @@
   <li>Flash the downloaded image to an SD card using <a href="https://etcher.io/">Etcher</a>.</li>
   <li>Optional - Setup the WiFi or static IP: On the SD-card, edit the <code class="highlighter-rouge">system-connections/resin-sample</code> file and follow the <a href="https://docs.resin.io/deployment/network/2.0.0/">ResinOS howto</a>.</li>
   <li>Insert SD card to Raspberry Pi and turn it on. On first boot, it downloads the latest version of Home Assistant which takes ~20 minutes (slower/faster depending on the platform).</li>
-  <li>You will be able to reach your installation at <a href="http://hassio.local:8123">http://hassio.local:8123</a>.</li>
 </ul>
-<p class="img">
-  <img src="/images/hassio/screenshots/first-start.png" />
-</p>
+<p><img src="/images/hassio/screenshots/first-start.png" style="clear: right; border:none; box-shadow: none; float: right; margin-bottom: 12px;" width="150" /></p>
 <ul>
-  <li>Enable either the <a href="/addons/samba/">Samba add-on</a> or the <a href="/addons/ssh/">SSH add-on</a> to manage your configuration (From the UI choose <strong>Hass.io</strong> which is located in the sidebar).</li>
+  <li>You will be able to reach your installation at <a href="http://hassio.local:8123">http://hassio.local:8123</a>.</li>
+  <li>Enable either the <a href="/addons/samba/">Samba add-on</a> or the <a href="/addons/ssh/">SSH add-on</a> to manage your configuration in <code class="highlighter-rouge">/config/</code> (From the UI choose <strong>Hass.io</strong> which is located in the sidebar).</li>
 </ul>
 <p class="note">
 If you copy over your existing Home Assistant configuration, make sure to enable the Hass.io panel by adding either <code class="highlighter-rouge">discovery:</code> or <code class="highlighter-rouge">hassio:</code> to your configuration.

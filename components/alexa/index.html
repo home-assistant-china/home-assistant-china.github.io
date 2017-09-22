@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Instructions how to connect Alexa/Amazon Echo to Home Assistant.">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/components/alexa/">
+    <link rel="canonical" href="https://home-assistant.io/components/alexa/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Alexa / Amazon Echo">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/components/alexa/">
+    <meta property="og:url" content="https://home-assistant.io/components/alexa/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Instructions how to connect Alexa/Amazon Echo to Home Assistant.">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -88,7 +88,13 @@
   <iframe width="560" height="315" src="https://www.youtube.com/embed/1Ke3mtWd_cQ" frameborder="0" allowfullscreen=""></iframe>
 </div>
 <h3><a class="title-link" name="requirements" href="#requirements"></a> Requirements</h3>
-<p>Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">our blog</a> about how to set up encryption for Home Assistant. If you are unable to get HTTPS up and running, consider using <a href="https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230">this AWS Lambda proxy for Alexa skills</a>.</p>
+<p>Amazon requires the endpoint of a skill to be hosted via SSL. Self-signed certificates are ok because our skills will only run in development mode. Read more on <a href="https://home-assistant.io/blog/2015/12/13/setup-encryption-using-lets-encrypt/">our blog</a> about how to set up encryption for Home Assistant. When running Hass.io, using the <a href="/addons/lets_encrypt/">Let’s Encrypt</a> the and <a href="/addons/duckdns/">Duck DNS</a> add-ons is the easiest method. If you are unable to get HTTPS up and running, consider using <a href="https://community.home-assistant.io/t/aws-lambda-proxy-custom-alexa-skill-when-you-dont-have-https/5230">this AWS Lambda proxy for Alexa skills</a>.</p>
+<p>Additionally, note that at the time of this writing, your Alexa skill endpoint <em>must</em> accept requests over port 443 (Home Assistant default to 8123). There are two ways you can handle this:</p>
+<ol>
+  <li>In your router, forward external 443 to your Home Assistant serving port (defaults to 8123)
+  OR</li>
+  <li>Change your Home Assistant serving port to 443 this is done in the <a href="/components/http/"><code class="highlighter-rouge">http</code></a> section with the the <code class="highlighter-rouge">server_port</code> entry in your <code class="highlighter-rouge">configuration.yaml</code> file</li>
+</ol>
 <p>To get started with Alexa skills:</p>
 <ul>
   <li>Log in to <a href="https://developer.amazon.com">Amazon developer console</a></li>
@@ -102,7 +108,7 @@
       <li>Endpoint:
         <ul>
           <li>https</li>
-          <li>https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD</li>
+          <li><code class="highlighter-rouge">https://YOUR_HOST/api/alexa?api_password=YOUR_API_PASSWORD</code></li>
         </ul>
       </li>
     </ul>
@@ -145,9 +151,13 @@ WhereAreWeIntent where we are
 </ul>
 <h2><a class="title-link" name="configuring-home-assistant" href="#configuring-home-assistant"></a> Configuring Home Assistant</h2>
 <p>When activated, the Alexa component will have Home Assistant’s native intent support handle the incoming intents. If you want to run actions based on intents, use the <a href="/components/intent_script"><code class="highlighter-rouge">intent_script</code></a> component.</p>
+<p>To enable Alex add the following entry to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">alexa</span><span class="pi">:</span>
+</code></pre>
+</div>
 <h3><a class="title-link" name="working-with-scenes" href="#working-with-scenes"></a> Working With Scenes</h3>
 <p>One of the most useful applications of Alexa integrations is to call scenes directly. This is easily achieved with some simple setup on the Home Assistant side and by letting Alexa know which scenes you want to run.</p>
-<p>First we will configure Alexa. In the Amazon Interaction module add this to the intent schema:</p>
+<p>First, we will configure Alexa. In the Amazon Interaction module add this to the intent schema:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nt">"intent"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ActivateSceneIntent"</span><span class="p">,</span><span class="w">
   </span><span class="nt">"slots"</span><span class="p">:</span><span class="w">
@@ -183,7 +193,7 @@ Custom slot type for scene support.
 </code></pre>
 </div>
 <p>Here we are using <a href="/topics/templating/">templates</a> to take the name we gave to Alexa e.g. <code class="highlighter-rouge">downstairs on</code> and replace the space with an underscore so it becomes <code class="highlighter-rouge">downstairs_on</code> as Home Assistant expects.</p>
-<p>Now say <code class="highlighter-rouge">Alexa ask homeassistant to activate &lt;some scene&gt;</code> and Alexa will activate that scene for you.</p>
+<p>Now say <code class="highlighter-rouge">Alexa ask Home Assistant to activate &lt;some scene&gt;</code> and Alexa will activate that scene for you.</p>
 <h3><a class="title-link" name="adding-scripts" href="#adding-scripts"></a> Adding Scripts</h3>
 <p>We can easily extend the above idea to work with scripts as well. As before, add an intent for scripts:</p>
 <div class="language-json highlighter-rouge"><pre class="highlight"><code><span class="p">{</span><span class="w">
@@ -219,7 +229,31 @@ Custom slot type for script support.
       <span class="s">text</span><span class="pi">:</span> <span class="s">OK</span>
 </code></pre>
 </div>
-<p>Now say <code class="highlighter-rouge">Alexa ask homeassistant to run &lt;some script&gt;</code> and Alexa will run that script for you.</p>
+<p>Now say <code class="highlighter-rouge">Alexa ask Home Assistant to run &lt;some script&gt;</code> and Alexa will run that script for you.</p>
+<h3><a class="title-link" name="support-for-launch-requests" href="#support-for-launch-requests"></a> Support for Launch Requests</h3>
+<p>There may be times when you want to respond to a launch request initiated from a command such as “Alexa, Red Alert!”.</p>
+<p>To start, you need to get the skill id:</p>
+<ul>
+  <li>Log into <a href="https://developer.amazon.com">Amazon developer console</a></li>
+  <li>Click the Alexa button at the top of the console</li>
+  <li>Click the Alexa Skills Kit Get Started button
+    <ul>
+      <li>Locate the skill for which you would like Launch Request support</li>
+      <li>Click the “View Skill ID” link and copy the ID</li>
+    </ul>
+  </li>
+</ul>
+<p>The configuration is the same as an intent with the exception being you will use your skill ID instead of the intent name.</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">intent_script</span><span class="pi">:</span>
+  <span class="s">amzn1.ask.skill.08888888-7777-6666-5555-444444444444</span><span class="pi">:</span>
+    <span class="s">action</span><span class="pi">:</span>
+      <span class="s">service</span><span class="pi">:</span> <span class="s">script.turn_on</span>
+      <span class="s">entity_id</span><span class="pi">:</span> <span class="s">script.red_alert</span>
+    <span class="s">speech</span><span class="pi">:</span>
+      <span class="s">type</span><span class="pi">:</span> <span class="s">plain</span>
+      <span class="s">text</span><span class="pi">:</span> <span class="s">OK</span>
+</code></pre>
+</div>
 <h2><a class="title-link" name="giving-alexa-some-personality" href="#giving-alexa-some-personality"></a> Giving Alexa Some Personality</h2>
 <p>In the examples above, we told Alexa to say <code class="highlighter-rouge">OK</code> when she successfully completed the task. This is effective but a little dull! We can again use <a href="/topics/templating/">templates</a> to spice things up a little.</p>
 <p>First create a file called <code class="highlighter-rouge">alexa_confirm.yaml</code> with something like the following in it (go on, be creative!):</p>
@@ -307,7 +341,7 @@ Custom slot type for script support.
       </li>
       <li>Test
         <ul>
-          <li>Having passed all validations to reach this screen you can now click on “&lt; Back to All Skills” as your flash briefing is now available as in “Development” service.</li>
+          <li>Having passed all validations to reach this screen, you can now click on “&lt; Back to All Skills” as your flash briefing is now available as in “Development” service.</li>
         </ul>
       </li>
     </ul>
@@ -337,6 +371,9 @@ Custom slot type for script support.
         </li>
         <li>
             <a href='/components/conversation/'>Conversation</a>
+        </li>
+        <li>
+            <a href='/components/mycroft/'>Mycroft</a>
         </li>
         <li>
             <a href='/components/snips/'>Snips</a>

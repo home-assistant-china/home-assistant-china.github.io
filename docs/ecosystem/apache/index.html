@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Configure Apache to work with Home Assistant as a subdomain">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/ecosystem/apache/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/apache/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Apache Proxy">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/ecosystem/apache/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/apache/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Configure Apache to work with Home Assistant as a subdomain">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -109,7 +109,7 @@ Include conf/extra/hass.conf
 </div>
 <p>If you don’t want HTTPS, you can change <code class="highlighter-rouge">&lt;VirtualHost *:443&gt;</code> to <code class="highlighter-rouge">&lt;VirtualHost *:80&gt;</code> or better consider redirecting all HTTP to HTTPS.</p>
 <p class="note">
-In case you are getting occasional HTTP 504 error messages (“Gateway Timeout”) when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
+In case you are getting occasional HTTP 504 error messages (“Gateway Timeout”) or HTTP 502 messages (“Bad Gateway”) when accessing the Web UI through your proxy, try adding disablereuse=on to both ProxyPass directives:
 </p>
 <div class="language-text highlighter-rouge"><pre class="highlight"><code>&lt;VirtualHost *:443&gt;
   [...]
@@ -243,6 +243,7 @@ In case you are getting occasional HTTP 504 error messages (“Gateway Timeout�
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -328,6 +329,7 @@ In case you are getting occasional HTTP 504 error messages (“Gateway Timeout�
             Remote access
             <ul>
               <li><a class='active' href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>

@@ -10,11 +10,11 @@
     <meta name="author" content="Home Assistant China">
     <meta name="description" content="Basic notes about iOS notifications">
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="http:/docs/ecosystem/ios/notifications/basic/">
+    <link rel="canonical" href="https://home-assistant.io/docs/ecosystem/ios/notifications/basic/">
     <meta property="fb:app_id" content="338291289691179">
     <meta property="og:title" content="Basic Notifications">
     <meta property="og:site_name" content="Home Assistant 中文网">
-    <meta property="og:url" content="http:/docs/ecosystem/ios/notifications/basic/">
+    <meta property="og:url" content="https://home-assistant.io/docs/ecosystem/ios/notifications/basic/">
     <meta property="og:type" content="article">
     <meta property="og:description" content="Basic notes about iOS notifications">
     <meta property="og:image" content="https://home-assistant.io/images/default-social.png">
@@ -76,23 +76,23 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The iOS notify platform accepts the standard <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">message</code> and <code class="highlighter-rouge">target</code> parameters. The iOS notify platform supports targets as services. Assuming that you did not set a <code class="highlighter-rouge">name</code> when configuring the platform you should find all your registered and notification-enabled iOS devices available as notify targets as services with names prefixed “notify.ios_” and then the device name you entered at setup.</p>
-<p>Notes:</p>
+  <p>iOS通知平台接受标准的 <code class="highlighter-rouge">title</code>, <code class="highlighter-rouge">message</code> 和 <code class="highlighter-rouge">target</code> 参数。 iOS通知平台以服务的方式对目标设备提供支持。 假设您在配置平台时没有设置<code class="highlighter-rouge">name</code>，那么您应该可以看到所有已注册和启用通知服务的iOS设备，这些设备都可以服务的方式接受通知。其服务名称的前缀为“notify.ios_”，后面则为设置时所输入的设备名称。</p>
+<p>注释：</p>
 <ul>
   <li>
-    <p><code class="highlighter-rouge">title</code> only displays on Apple Watch and iOS 10 devices.</p>
+    <p><code class="highlighter-rouge">title</code> 仅在Apple Watch和iOS 10设备上显示。</p>
   </li>
   <li>
-    <p><code class="highlighter-rouge">target</code> can be used to specific a single device using its PushID, found in <code class="highlighter-rouge">ios.conf</code>. The preferred way of providing a target is through a target specific notify service.</p>
+    <p><code class="highlighter-rouge">target</code> 可用在 <code class="highlighter-rouge">ios.conf</code> 中的PushID来制定使用某个特定设备。提供目标的首选方式是通过指定特定目标的通知服务。</p>
   </li>
 </ul>
 <p class="img">
   <img src="/images/ios/example.png" />
-  A push notification showing all of the basic options <code class="highlighter-rouge">title</code> and <code class="highlighter-rouge">message</code> as well as <code class="highlighter-rouge">subtitle</code> and <a href="/ecosystem/ios/notifications/actions/">actions</a>.
+  推送通知示例，其显示了包含<code class="highlighter-rouge">主标题（title）</code>，<code class="highlighter-rouge">副标题（subtitle）</code>，<code class="highlighter-rouge">信息（message）</code>和 <a href="/ecosystem/ios/notifications/actions/">交互式通知</a>在内的所有基本选项。
 </p>
-<h3><a class="title-link" name="enhancing-basic-notifications" href="#enhancing-basic-notifications"></a> Enhancing basic notifications</h3>
-<h4>Badge</h4>
-<p>You can set the icon badge in the payload:</p>
+<h3><a class="title-link" name="" href="#"></a> 优化基本通知</h3>
+<h4>徽章</h4>
+<p>您可以在数据体（payload）中设置徽章图标：</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Notify iOS app</span>
     <span class="s">trigger</span><span class="pi">:</span>
@@ -106,8 +106,8 @@
             <span class="s">badge</span><span class="pi">:</span> <span class="s">5</span>
 </code></pre>
 </div>
-<h4>Subtitle</h4>
-<p>iOS 10 supports a subtitle in addition to the title:</p>
+<h4>副标题</h4>
+<p>除主标题外，iOS 10还支持副标题：</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">automation</span>
   <span class="s">- alias</span><span class="pi">:</span> <span class="s">Notify iOS app</span>
     <span class="s">trigger</span><span class="pi">:</span>
@@ -120,8 +120,8 @@
           <span class="s">subtitle</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Subtitle</span><span class="nv"> </span><span class="s">goes</span><span class="nv"> </span><span class="s">here"</span>
 </code></pre>
 </div>
-<h3><a class="title-link" name="sending-notifications-to-multiple-phones" href="#sending-notifications-to-multiple-phones"></a> Sending notifications to multiple phones</h3>
-<p>To send notifications to multiple phones, create a <a href="https://home-assistant.io/components/notify.group/">notification group</a>:</p>
+<h3><a class="title-link" name="" href="#"></a> 向多个手机发送通知</h3>
+<p>要向多个手机发送通知，请创建一个 <a href="https://home-assistant.io/components/notify.group/">群组通知</a>:</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">notify</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">NOTIFIER_NAME</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">group</span>
@@ -130,7 +130,7 @@
       <span class="pi">-</span> <span class="s">service</span><span class="pi">:</span> <span class="s">ios_iphone_two</span>
 </code></pre>
 </div>
-<p>Now, you can send notifications to everyone in the group using:</p>
+<p>现在，您可以使用以下方式向群组中的所有人发送通知：</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code>  <span class="s">automation</span><span class="pi">:</span>
     <span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Notify iOS app</span>
       <span class="s">trigger</span><span class="pi">:</span>
@@ -228,6 +228,7 @@
         <ul>
           <li><a  href='/docs/scripts/service-calls/'>Service Calls </a></li>
           <li><a  href='/docs/scripts/conditions/'>Conditions </a></li>
+          <li><a  href='/docs/scripts/editor/'>Editor </a></li>
         </ul>
       </li>
       <li>
@@ -313,6 +314,7 @@
             Remote access
             <ul>
               <li><a  href='/docs/ecosystem/apache/'>Apache </a></li>
+              <li><a  href='/docs/ecosystem/caddy/'>Caddy Server </a></li>
               <li><a  href='/docs/ecosystem/nginx/'>NGINX </a></li>
               <li><a  href='/docs/ecosystem/nginx_subdomain/'>NGINX with subdomain</a></li>
               <li><a  href='/docs/ecosystem/tor/'>Tor Onion Service </a></li>
