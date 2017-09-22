@@ -11,10 +11,10 @@ redirect_from: /ecosystem/ios/notifications/requesting_location_updates/
 ---
 
 <p class="note warning">
-**Do not rely on this functionality due to the time limits mentioned below.**
+**由于下述时间限制，请不要依赖此功能。**
 </p>
 
-You can force a device to attempt to report its location by sending a special notification.
+您可以通过发送特殊通知来强制设备尝试报告其位置。
 
 ```yaml
 automation
@@ -27,5 +27,4 @@ automation
         message: "request_location_update"
 ```
 
-Assuming the device receives the notification, it will attempt to get a location update within 5 seconds and report it to Home Assistant. This is a little bit hit or miss since Apple imposes a maximum time allowed for the app to work with the notification and location updates sometimes take longer than usual due to factors such as waiting for GPS acquisition.
-
+假设设备收到通知，它将尝试在5秒内获取位置更新并将其报告给Home Assistant。这个有点看运气，因为苹果加强了对应用程序处理通知所用最大时间的限制，而位置更新受诸多因素影响，有时会花费很长时间获取位置，比如在等待GPS信号。

@@ -10,35 +10,35 @@ footer: true
 redirect_from: /ecosystem/ios/location/
 ---
 
-## {% linkable_title Location tracking when outside a Home Assistant zone %}
+## {% linkable_title Home Assistant区外的位置跟踪 %}
 
-Home Assistant for iOS receives _significant location updates_ from iOS. Whenever an update is received, it is sent to Home Assistant. Roughly, an update is received everytime that your device transfers to a new cellular tower, a significant amount of time has passed (usually a couple hours) or a connection state changes and the system notices your location recently changed.
+Home Assistant ios应用从ios接受 _重要位置更新_。每当收到更新时，更新将会被发送到Home Assistant。一般为，每次你的设备切换到新的基站时，过去了很长一段时间(一般为几个小时)时或者设备的链接状态改变与此同时系统注意到你的位置近期发生了变化时。
 
-Apple [defines][apple-location-programming-guide] significant significant-change location updates as:
+苹果对于重要位置更新的[定义][apple-location-programming-guide]为:
 
-> The significant-change location service delivers updates only when there has been a significant change in the device’s location, such as 500 meters or more.
+> 只有在设备位置发生重大变化（例如500米以上）时，重要位置更新服务才会提供更新。
 
-They also say in the [Energy Efficiency Guide][apple-energy-guide]:
+他们同时在[能效指南][apple-energy-guide]中指出:
 
-> Significant-change location updates wake the system and your app once every 15 minutes, at minimum, even if no location changes have occurred.
+> 即使在没有发生位置变更前提下，重要位置更新服务仍然会每15分钟唤醒系统和您的应用程序一次。
 
-Finally, I think this answer from [Stack Overflow][stackoverflow] says it best:
+最后，我认为来自[Stack Overflow][stackoverflow]定义更加准确:
 
-> The significant location change is the least accurate of all the location monitoring types. It only gets its updates when there is a cell tower transition or change. This can mean a varying level of accuracy and updates based on where the user is. City area, more updates with more towers. Out of town, interstate, fewer towers and changes.
+> 重要位置更新是所有位置监控类型中最不准确的。 因为只有当有基站发生更改时，它才能获取更新。 这就意味用户在不同地区时会影响其准确度和更新频率。 在市区基站多时更新频率会更快。 而在基站较少的郊区更新频率则会很慢。
 
-What's the real story on significant-change location updates? Who knows, because Apple keeps it private.
+到底底什么是重要位置更新? 谁知道呢, 苹果对此一向保密.
 
-## {% linkable_title Location tracking in Home Assistant zones %}
+## {% linkable_title Home Assistant区内的位置跟踪 %}
 
-At launch, Home Assistant for iOS sets up geofences for all zones in your Home Assistant configuration. Enter and exit notifications are sent to Home Assistant.
+当Home AssistantiOS应用运行时, 它将在Home Assistant配置中为所有区域设置地理围栏。 当出入该区域时，home assistant将会收到通知。nt.
 
-### Configuration
+### 配置
 
-Add `track_ios: false` to your zone configurations to disable zone location tracking for all connected iOS apps.
+将`track_ios: false`添加到您的区域配置中，以禁用所有已连接iOS应用的区域位置跟踪。
 
 ### iBeacons
 
-As of 1.0.3 the app has basic support for using iBeacons to trigger enter/exit updates. To configure them, add your iBeacon details to your zone like this:
+从1.0.3起，该应用对使用iBeacons来触发进入/退出更新实现了基本支持。 要配置它们，请将您的iBeacon详细信息添加到您的区域，如下所示：
 
 ```yaml
 zone.home:
@@ -48,8 +48,8 @@ zone.home:
     minor: 43814
 ```
 
-Restart Home Assistant and then the iOS app. It will begin then begin using iBeacons _instead of your location_ for enter and exit triggers around your zones. To add an iBeacon to `zone.home` add the above under your `customize`.
+重启Home Assistant和iOS应用程序。 它将开始使用iBeacons _而不是您的位置信息_ 来触发进入和退出您已定义的区域。 要添加一个iBeacon到 `zone.home`请将以上代码添加到你的`customize`中。
 
-[apple-energy-guide]: https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4
-[apple-location-programming-guide]: https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9
+[定义]: https://developer.apple.com/library/content/documentation/Performance/Conceptual/EnergyGuide-iOS/LocationBestPractices.html#//apple_ref/doc/uid/TP40015243-CH24-SW4
+[能效指南]: https://developer.apple.com/library/content/documentation/UserExperience/Conceptual/LocationAwarenessPG/CoreLocation/CoreLocation.html#//apple_ref/doc/uid/TP40009497-CH2-SW9
 [stackoverflow]: http://stackoverflow.com/a/13331625/486182
