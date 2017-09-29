@@ -13,8 +13,7 @@ ha_release: "0.50"
 ha_iot_class: "Local Push"
 ---
 
-
- `xiaomi` 传感器平台允许你在 HA 里使用[小米](http://www.mi.com/) 传感器
+`xiaomi` 传感器平台允许你在 HA 里使用[小米](http://www.mi.com/) 传感器
 
 使用此组件时，你必须已经设置[小米多功能网关](/components/xiaomi/).
 
@@ -121,7 +120,7 @@ light
       data:
         title: Fire alarm!
         message: Fire/Smoke detected!
-    - service: xiaomi.play_ringtone
+    - service: xiaomi_aqara.play_ringtone
       data:
         gw_mac: xxxxxxxxxxxx
         ringtone_id: 2
@@ -177,7 +176,7 @@ light
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
   action:
-    service: xiaomi.play_ringtone
+    service: xiaomi_aqara.play_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
       ringtone_id: 8

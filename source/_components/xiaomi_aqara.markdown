@@ -14,7 +14,7 @@ ha_iot_class: "Local Push"
 ---
 
 
-小米平台 `xiaomi_gw` 允许你在 HA 中接入[小米](http://www.mi.com/en/)的 Zigbee 智能家居设备。支持的设备包括：
+小米平台 `xiaomi aqara` 允许你在 HA 中接入[小米](http://www.mi.com/en/)的 Zigbee 智能家居设备。支持的设备包括：
 
 - 温度湿度传感器（新旧版）
 - 人体运动传感器 （新旧版）
@@ -52,7 +52,7 @@ Follow the setup process using your phone and Mi-Home app. From here you will be
 
 ```yaml
 # 使用单网关前提下，可不填 mac
-xiaomi:
+xiaomi_aqara:
   gateways:
    - mac:
      key: xxxxxxxxxxxxxxxx
@@ -63,7 +63,7 @@ xiaomi:
 
 ```yaml
 # 多个网关必须填入 mac
-xiaomi:
+xiaomi_aqara:
   gateways:
     - mac: xxxxxxxxxxxx
       key: xxxxxxxxxxxxxxxx
@@ -76,7 +76,7 @@ xiaomi:
 
 ```yaml
 # 12 字符 MAC地址可以从网关获取
-xiaomi:
+xiaomi_aqara:
   interface: '192.168.0.1'
   gateways:
     - mac: xxxxxxxxxxxx
@@ -112,7 +112,7 @@ HA 支持网关铃声的两个操作：播放 `xiaomi.play_ringtone` 和停止`x
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: long_click_press
   action:
-    service: xiaomi.play_ringtone
+    service: xiaomi_aqara.play_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
       ringtone_id: 8
@@ -126,7 +126,7 @@ HA 支持网关铃声的两个操作：播放 `xiaomi.play_ringtone` 和停止`x
       entity_id: binary_sensor.switch_158d000xxxxxc2
       click_type: single
   action:
-    service: xiaomi.stop_ringtone
+    service: xiaomi_aqara.stop_ringtone
     data:
       gw_mac: xxxxxxxxxxxx
 ```
@@ -142,73 +142,11 @@ HA 支持网关铃声的两个操作：播放 `xiaomi.play_ringtone` 和停止`x
 
 That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
 - Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832
-- Turn off the firewall on the system where Home Assistant is running 
+- Turn off the firewall on the system where Home Assistant is running.
 - Try to leave the MAC address `mac:` blank. 
-- Try to set `discovery_retry: 10`
-- Try to disable and then enable LAN access
+- Try to set `discovery_retry: 10`.
+- Try to disable and then enable LAN access.
+- Hard reset the gateway: Press the button of the gateway 30 seconds and start again from scratch.
 
-### {% linkable_title Retrieving the Access Token %}
 
-Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone. This token is needed for using various `xiaomi_*` platforms.
-
-Before you begin you need to install `libffi-dev` by running the command below. This is needed for `python-mirobi` to be installed correctly.
-
-```bash
-$ sudo apt-get install libffi-dev
-```
-
-If your Home Assistant installation is running in a [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant), make sure you activate it by running the commands below.
-
-```bash
-$ sudo su -s /bin/bash homeassistant
-$ source /srv/homeassistant/bin/activate
-```
-
-To fetch the token follow these instructions depending on your mobile phone platform.
-
-#### {% linkable_title Windows and Android %}
-
-1. Configure the robot with the Mi-Home app.
-2. Enable developer mode and USB debugging on the Android phone and plug it into the computer.
-3. Get and install the [ADB tool for Windows](https://developer.android.com/studio/releases/platform-tools.html).
-4. Create a backup of the application `com.xiaomi.smarthome`:
-```bash
-$ adb backup -noapk com.xiaomi.smarthome -f backup.ab
-```
-5. If you have this message: "More than one device or emulator", use this command to list all devices:
-```bash
-$ adb devices
-```
-and execute this command:
-```bash
-$ adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab # (with DEVICEID the device id from the previous command)
-```
-6. On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.
-7. Get and install [ADB Backup Extractor](https://sourceforge.net/projects/adbextractor/).
-8. Extract All files from the backup:
-```bash
-$ java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar ""
-```
-9. Unzip the ".tar" file.
-10. Open the SQLite database `miio2.db` with a tool like SQLite Manager extension for FireFox.
-11. Get the token from "devicerecord" table.
-
-#### {% linkable_title Linux and Android (rooted!) %}
-
-1. Configure the light with the Mi-Home app.
-2. Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.
-3. Get ADB f.e. `apt-get install android-tools-adb`
-4. `adb devices` should list your device
-5. `adb root` (does work for development builds only: ones with `ro.debuggable=1`)
-6. `adb shell`
-7. `echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db` returns a list of all registered devices including IP address and token.
-
-#### {% linkable_title macOS and iOS %}
-
-1. Setup iOS device with the Mi-Home app.
-2. Create an unencrypted backup of the device using iTunes.
-3. Install [iBackup Viewer](http://www.imactools.com/iphonebackupviewer/).
-4. Extract this file: **`/raw data/com.xiami.mihome/1234567_mihome.sqlite`** to your computer, where `_1234567_` is any string of numbers.
-5. Open the SQLite database with a tool like SQLite Manager extension for FireFox or DB Browser. You will then see the list of all the devices in your account with their token. The token you need is in the column **`ZToken`** and looks like **`123a1234567b12345c1d123456789e12`**.
-(Location of SQLite files directly on iOS devices **/private/var/mobile/Containers/Data/Application/A80CE9E4-AD2E-4649-8C28-801C96B16BD7/Documents/**)
 
