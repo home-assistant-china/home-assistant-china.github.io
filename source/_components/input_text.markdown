@@ -12,12 +12,12 @@ ha_category: Automation
 ha_release: 0.53
 ---
 
-The `input_text` component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as `automation` triggers as well. 
+`input_text` 组件让用户可以通过前端输入可控设备的具体数值或者定义自动化的条件。输入框中值的改变将会触发设备的『状态改变事件』。此『事件』`automation（自动化）` 的触发条件。
 
 ```yaml
-# Example configuration.yaml entries
+# 例如
 input_text:
-  text1:
+  text1: #[alias]
     name: Text 1
     initial: Some Text
   text2:
@@ -29,11 +29,13 @@ input_text:
     pattern: '[a-fA-F0-9]*'
 ```
 
-Configuration variables:
+变量说明：
 
-- **[alias]** (*Required*): Alias for the text input.
-- **min** (*Optional*): Minimum length for the text value. Default is `0`.
-- **max** (*Optional*): Maximum length for the text value. Default is `100`.
-- **name** (*Optional*): Friendly name of the text input.
-- **initial** (*Optional*): Initial value when Home Assistant starts. Default is empty string.
-- **pattern** (*Optional*): Regex pattern for client side validation. Default is empty string, which is treated same as `.*`.
+- **[alias]** (*必须*): 别名，必须为英文（译者注）。
+- **min** (*可选*): 最短字数。默认为 `0`。
+- **max** (*可选*): 最长字数。 默认为 `100`。
+- **name** (*可选*): 昵称。
+- **initial** (*可选*): 初始值，默认为空。
+- **pattern** (*可选*): 数值的正则表达式，默认为空，在系统中被识别为  `.*`.
+
+
