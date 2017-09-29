@@ -20,9 +20,9 @@ ha_iot_class: "Cloud Polling"
 <p class='note warning'>
 "Community" API key 每月限制调用 10,000 次，因此本平台将调用时间设定为每 10 分钟 1 次以配合此限制。</p>
 
-## {% linkable_title Configuring the Platform %}
+## {% linkable_title Configuring the Platform via Latitude/Longitude %}
 
-使用本平台，将下列命令增添至 `configuration.yaml` 文件：
+使用本平台并通过纬度/经度收集数据，将下列命令增添至 `configuration.yaml` 文件：
 
 ```yaml
 sensor:
@@ -44,6 +44,55 @@ sensor:
 - **latitude** (*可选*): 监测地区纬度；如果没有设定，默认为 `configuration.yaml` 中所设的系统纬度
 - **longitude** (*可选*): 监测地区经度；如果没有设定，默认为 `configuration.yaml` 中所设的系统经度
 - **radius** (*可选*): 监测范围，即监测距离所涉中心点多大范围内城市的数据；默认为 `1000`；单位默认为米
+
+
+## {% linkable_title Configuring the Platform via City/State/Country %}
+
+To enable the platform and gather data via city/state/country, add the
+following lines to your `configuration.yaml` file:
+
+```yaml
+sensor:
+  - platform: airvisual
+    api_key: abc123
+    monitored_conditions:
+      - us
+      - cn
+    city: southend-on-sea
+    state: essex
+    country: uk
+```
+
+Configuration variables:
+
+- **api_key** (*Required*): your AirVisual API key
+- **monitored_conditions** (*Required*): the air quality standard(s) to use
+(`us` for U.S., `cn` for Chinese)
+- **city** (*Optional*): the city to monitor
+- **state** (*Optional*): the state/region to monitor
+- **country** (*Optional*): the country to monitor
+
+To easily determine the proper values for a particular location, use the
+[AirVisual region directory](https://airvisual.com/world). Once you browse to the particular city you want,
+take note of the breadcrumb title, which is of the form
+`country > state/region > city`. Use this information to fill out
+`configuration.yaml`.
+
+For example, Sao Paulo, Brazil shows a breadcrumb title of
+`Brazil > Sao Paulo > Sao Paulo` – thus, the proper configuration would look
+like this:
+
+```yaml
+sensor:
+  - platform: airvisual
+    api_key: abc123
+    monitored_conditions:
+      - us
+      - cn
+    city: sao-paulo
+    state: sao-paulo
+    country: brazil
+```
 
 ## {% linkable_title Sensor Types %}
 
