@@ -79,7 +79,7 @@
 <p>目前支持的控制指令有启动 <code class="highlighter-rouge">turn_on</code>， 暂停 <code class="highlighter-rouge">pause</code>，原地停止 <code class="highlighter-rouge">stop</code>，回到充电桩 <code class="highlighter-rouge">return_to_home</code>，关闭并回到充电桩 <code class="highlighter-rouge">turn_off</code>，定位 <code class="highlighter-rouge">locate</code>，定点打扫 <code class="highlighter-rouge">clean_spot</code>，设定吸力 <code class="highlighter-rouge">set_fanspeed</code> 以及远程控制。</p>
 <p>Please follow the instructions on <a href="/components/xiaomi/#retrieving-the-access-token">Retrieving the Access Token</a> to get the API token to use in the <code class="highlighter-rouge">configuration.yaml</code> file.</p>
 <p>请使用手机和米家 app 根据下述教程从 SQLite 文档中获取机器人的秘钥 token，从而将扫地机接入 HA 平台。</p>
-<p>进行配置前，请确保在对应平台上已经安装<code class="highlighter-rouge">python-mirobi</code> 的依赖库 <code class="highlighter-rouge">libffi-dev</code>：</p>
+<p>进行配置前，请确保在对应平台上已经安装<code class="highlighter-rouge">python-mirobo</code> 的依赖库 <code class="highlighter-rouge">libffi-dev</code>：</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>apt-get install libffi-dev
 </code></pre>
 </div>
@@ -147,8 +147,8 @@
   <li><strong>name</strong> (<em>可选</em>): 机器人昵称</li>
 </ul>
 <h3><a class="title-link" name="platform-services" href="#platform-services"></a> Platform services</h3>
-<p>除了扫地机器人通用的指令 <a href="/components/vacuum#component-services">vacuum component services</a> (<code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">turn_off</code>, <code class="highlighter-rouge">start_pause</code>, <code class="highlighter-rouge">stop</code>, <code class="highlighter-rouge">return_to_home</code>, <code class="highlighter-rouge">locate</code>, <code class="highlighter-rouge">set_fanspeed</code> and <code class="highlighter-rouge">send_command</code>), 小米平台另外还支持一些特殊的指令，包括：
-<code class="highlighter-rouge">xiaomi_remote_control_start</code>, <code class="highlighter-rouge">xiaomi_remote_control_stop</code>, <code class="highlighter-rouge">xiaomi_remote_control_move</code> 和 <code class="highlighter-rouge">xiaomi_remote_control_move_step</code>.</p>
+<p>除了 HA 中所有扫地机器人所能使用的通用指令 <a href="/components/vacuum#component-services">vacuum component services</a> (<code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">turn_off</code>, <code class="highlighter-rouge">start_pause</code>, <code class="highlighter-rouge">stop</code>, <code class="highlighter-rouge">return_to_home</code>, <code class="highlighter-rouge">locate</code>, <code class="highlighter-rouge">set_fanspeed</code> and <code class="highlighter-rouge">send_command</code>)，小米平台另外还支持一些特殊的远程操控指令，包括：
+<code class="highlighter-rouge">xiaomi_remote_control_start</code>, <code class="highlighter-rouge">xiaomi_remote_control_stop</code>, <code class="highlighter-rouge">xiaomi_remote_control_move</code> 和 <code class="highlighter-rouge">xiaomi_remote_control_move_step</code>。</p>
 <h4><a class="title-link" name="service-vacuumxiaomi_remote_control_start" href="#service-vacuumxiaomi_remote_control_start"></a> Service <code class="highlighter-rouge">vacuum/xiaomi_remote_control_start</code></h4>
 <p>使用特殊指令，首先请开启扫地机器人的手动控制模式。开启后你便可以使用<code class="highlighter-rouge">remote_control_move</code>和 <code class="highlighter-rouge">remote_control_stop</code>手动控制指令了。</p>
 <table>

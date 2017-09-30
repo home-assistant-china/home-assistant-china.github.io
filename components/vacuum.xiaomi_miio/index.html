@@ -75,242 +75,244 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi miio</code> vacuum platform allows you to control the state of your <a href="http://www.mi.com/roomrobot/">Xiaomi Mi Robot Vacuum</a>.</p>
-<p>Current supported features are <code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">pause</code>, <code class="highlighter-rouge">stop</code>, <code class="highlighter-rouge">return_to_home</code>, <code class="highlighter-rouge">turn_off</code> (stops goes to dock), <code class="highlighter-rouge">locate</code>, <code class="highlighter-rouge">clean_spot</code>, <code class="highlighter-rouge">set_fanspeed</code> and even remote control your robot.</p>
-<p>Please follow the instructions on <a href="/components/vacuum.xiaomi/#retrieving-the-access-token">Retrieving the Access Token</a> to get the API token to use in the <code class="highlighter-rouge">configuration.yaml</code> file.</p>
-<p>To add a vacuum to your installation, add the following to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entry</span>
-<span class="s">vacuum</span><span class="pi">:</span>
+  <p>小米 WIFI 设备平台 <code class="highlighter-rouge">xiaomi_miio</code> 能让你在 HA 中控制扫地机器人。</p>
+<p>目前支持的控制指令有启动 <code class="highlighter-rouge">turn_on</code>， 暂停 <code class="highlighter-rouge">pause</code>，原地停止 <code class="highlighter-rouge">stop</code>，回到充电桩 <code class="highlighter-rouge">return_to_home</code>，关闭并回到充电桩 <code class="highlighter-rouge">turn_off</code>，定位 <code class="highlighter-rouge">locate</code>，定点打扫 <code class="highlighter-rouge">clean_spot</code>，设定吸力 <code class="highlighter-rouge">set_fanspeed</code> 以及远程控制。</p>
+<p>请先按照 <a href="/components/vacuum.xiaomi/#retrieving-the-access-token">此教程</a> 获取设备 <code class="highlighter-rouge">token</code>，之后在 <code class="highlighter-rouge">configuration.yaml</code> 文件中添加以下配置：</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">vacuum</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi_miio</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.1.2</span>
     <span class="s">token</span><span class="pi">:</span> <span class="s">YOUR_TOKEN</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
+<p>变量说明：</p>
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP of your robot.</li>
-  <li><strong>token</strong> (<em>Required</em>): The API token of your robot.</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name of your robot.</li>
+  <li><strong>host</strong> (<em>必需</em>): 机器人 IP</li>
+  <li><strong>token</strong> (<em>必需</em>): 机器人 token</li>
+  <li><strong>name</strong> (<em>可选</em>): 机器人昵称</li>
 </ul>
 <h3><a class="title-link" name="platform-services" href="#platform-services"></a> Platform services</h3>
-<p>In addition to all <a href="/components/vacuum#component-services"><code class="highlighter-rouge">vacuum</code> component services</a> (<code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">turn_off</code>, <code class="highlighter-rouge">start_pause</code>, <code class="highlighter-rouge">stop</code>, <code class="highlighter-rouge">return_to_home</code>, <code class="highlighter-rouge">locate</code>, <code class="highlighter-rouge">set_fanspeed</code> and <code class="highlighter-rouge">send_command</code>), the <code class="highlighter-rouge">xiaomi</code> platform introduces specific services to access the remote control mode of the botvac.</p>
-<p>These are: <code class="highlighter-rouge">xiaomi_remote_control_start</code>, <code class="highlighter-rouge">xiaomi_remote_control_stop</code>, <code class="highlighter-rouge">xiaomi_remote_control_move</code> and <code class="highlighter-rouge">xiaomi_remote_control_move_step</code>.</p>
+<p>除了 HA 中所有扫地机器人所能使用的通用指令 <a href="/components/vacuum#component-services">vacuum component services</a> (<code class="highlighter-rouge">turn_on</code>, <code class="highlighter-rouge">turn_off</code>, <code class="highlighter-rouge">start_pause</code>, <code class="highlighter-rouge">stop</code>, <code class="highlighter-rouge">return_to_home</code>, <code class="highlighter-rouge">locate</code>, <code class="highlighter-rouge">set_fanspeed</code> and <code class="highlighter-rouge">send_command</code>)，小米平台另外还支持一些特殊的远程操控指令，包括：
+<code class="highlighter-rouge">xiaomi_remote_control_start</code>, <code class="highlighter-rouge">xiaomi_remote_control_stop</code>, <code class="highlighter-rouge">xiaomi_remote_control_move</code> 和 <code class="highlighter-rouge">xiaomi_remote_control_move_step</code>。</p>
 <h4><a class="title-link" name="service-vacuumxiaomi_remote_control_start" href="#service-vacuumxiaomi_remote_control_start"></a> Service <code class="highlighter-rouge">vacuum/xiaomi_remote_control_start</code></h4>
 <p>Start the remote control mode of the vacuum cleaner. You can then move it with <code class="highlighter-rouge">remote_control_move</code>, when done call <code class="highlighter-rouge">remote_control_stop</code>.</p>
 <table>
   <thead>
     <tr>
-      <th>Service data attribute</th>
-      <th>Optional</th>
-      <th>Description</th>
+      <th>属性</th>
+      <th>可选性</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">entity_id</code></td>
-      <td>yes</td>
-      <td>Only act on specific botvac. Else targets all.</td>
+      <td>是</td>
+      <td>指明 ID 仅对部分设备有效，否则全局响应</td>
     </tr>
   </tbody>
 </table>
 <h4><a class="title-link" name="service-vacuumxiaomi_remote_control_stop" href="#service-vacuumxiaomi_remote_control_stop"></a> Service <code class="highlighter-rouge">vacuum/xiaomi_remote_control_stop</code></h4>
-<p>Exit the remote control mode of the vacuum cleaner.</p>
+<p>退出远程控制模式</p>
 <table>
   <thead>
     <tr>
-      <th>Service data attribute</th>
-      <th>Optional</th>
-      <th>Description</th>
+      <th>属性</th>
+      <th>可选性</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">entity_id</code></td>
-      <td>yes</td>
-      <td>Only act on specific botvac. Else targets all.</td>
+      <td>是</td>
+      <td>指明 ID 仅对部分设备有效，否则全局响应</td>
     </tr>
   </tbody>
 </table>
 <h4><a class="title-link" name="service-vacuumxiaomi_remote_control_move" href="#service-vacuumxiaomi_remote_control_move"></a> Service <code class="highlighter-rouge">vacuum/xiaomi_remote_control_move</code></h4>
-<p>Remote control the vacuum cleaner, make sure you first set it in remote control mode with <code class="highlighter-rouge">remote_control_start</code>.</p>
+<p>远程控制扫地机器人，确保操作前已经开启远程控制模式 <code class="highlighter-rouge">remote_control_start</code>。</p>
 <table>
   <thead>
     <tr>
-      <th>Service data attribute</th>
-      <th>Optional</th>
-      <th>Description</th>
+      <th>属性</th>
+      <th>可选性</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">entity_id</code></td>
-      <td>yes</td>
-      <td>Only act on specific botvac. Else targets all.</td>
+      <td>是</td>
+      <td>指明 ID 仅对部分设备有效，否则全局响应</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">velocity</code></td>
-      <td>no</td>
-      <td>Speed, between -0.29 and 0.29.</td>
+      <td>否</td>
+      <td>速度，值区间为 -0.29 至 0.29</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">rotation</code></td>
-      <td>no</td>
-      <td>Rotation, between -179 degrees and 179 degrees.</td>
+      <td>否</td>
+      <td>旋转， 值区间为 -179° 至 179°</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">duration</code></td>
-      <td>no</td>
-      <td>Parameter affecting the duration of the movement.</td>
+      <td>否</td>
+      <td>持续时间</td>
     </tr>
   </tbody>
 </table>
 <h4><a class="title-link" name="service-vacuumxiaomi_remote_control_move_step" href="#service-vacuumxiaomi_remote_control_move_step"></a> Service <code class="highlighter-rouge">vacuum/xiaomi_remote_control_move_step</code></h4>
-<p>Use this call to enter the remote control mode, make one move, and stop and exit the remote control mode.</p>
+<p>使用此指令进入遥控模式，执行一项控制命令，然后退出手动控制模式。</p>
 <table>
   <thead>
     <tr>
-      <th>Service data attribute</th>
-      <th>Optional</th>
-      <th>Description</th>
+      <th>属性</th>
+      <th>可选性</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">entity_id</code></td>
-      <td>yes</td>
-      <td>Only act on specific botvac. Else targets all.</td>
+      <td>是</td>
+      <td>指明 ID 仅对部分设备有效，否则全局响应</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">velocity</code></td>
-      <td>no</td>
-      <td>Speed, between -0.29 and 0.29.</td>
+      <td>否</td>
+      <td>速度，值区间为 -0.29 至 0.29</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">rotation</code></td>
-      <td>no</td>
-      <td>Rotation, between -179 degrees and 179 degrees.</td>
+      <td>否</td>
+      <td>旋转， 值区间为 -179° 至 179°</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">duration</code></td>
-      <td>no</td>
-      <td>Parameter affecting the duration of the movement.</td>
+      <td>否</td>
+      <td>持续时间</td>
     </tr>
   </tbody>
 </table>
 <h3><a class="title-link" name="attributes" href="#attributes"></a> Attributes</h3>
-<p>In addition to all [<code class="highlighter-rouge">vacuum</code> component attributes] (<code class="highlighter-rouge">battery_icon</code>, <code class="highlighter-rouge">cleaned_area</code>, <code class="highlighter-rouge">fan_speed</code>, <code class="highlighter-rouge">fan_speed_list</code>, <code class="highlighter-rouge">status</code>, <code class="highlighter-rouge">params</code>), the <code class="highlighter-rouge">xiaomi</code> platform introduces specific attributes to get information of the botvac.</p>
-<p>These are: <code class="highlighter-rouge">cleaning_time</code>, <code class="highlighter-rouge">do_not_disturb</code>, <code class="highlighter-rouge">main_brush_left</code>, <code class="highlighter-rouge">side_brush_left</code>, <code class="highlighter-rouge">filter_left</code>, <code class="highlighter-rouge">cleaning_count</code>, <code class="highlighter-rouge">total_cleaned_area</code> and <code class="highlighter-rouge">total_cleaning_time</code>.</p>
-<p>The following table shows the units of measurement for the single attributes.</p>
+<p>除了 HA 上所有扫地机器人共有的默认属性 [<code class="highlighter-rouge">vacuum</code> component attributes] (<code class="highlighter-rouge">battery_icon</code>, <code class="highlighter-rouge">cleaned_area</code>, <code class="highlighter-rouge">fan_speed</code>, <code class="highlighter-rouge">fan_speed_list</code>, <code class="highlighter-rouge">status</code>, <code class="highlighter-rouge">params</code>)，小米扫地机器人另外拥有一些特别的属性。</p>
+<p>它们是：最近清洁时间 <code class="highlighter-rouge">cleaning_time</code>、勿扰模式 <code class="highlighter-rouge">do_not_disturb</code>，主刷剩余寿命 <code class="highlighter-rouge">main_brush_left</code>，边刷剩余寿命 <code class="highlighter-rouge">side_brush_left</code>，滤网剩余寿命 <code class="highlighter-rouge">filter_left</code>，清洁通道统计<code class="highlighter-rouge">cleaning_count</code>，清洁区域统计 <code class="highlighter-rouge">total_cleaned_area</code> 以及清洁时间统计 <code class="highlighter-rouge">total_cleaning_time</code>，详见下表：</p>
 <table>
   <thead>
     <tr>
-      <th>Attribute</th>
-      <th>Unit of measurement</th>
-      <th>Description</th>
+      <th>属性</th>
+      <th>单位</th>
+      <th>说明</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><code class="highlighter-rouge">do_not_disturb</code></td>
       <td> </td>
-      <td>DND mode on / off</td>
+      <td>勿扰模式开启关闭状态</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">cleaning_time</code></td>
-      <td>minutes</td>
-      <td>Last / actual cleaning time in minutes</td>
+      <td>minutes 分钟</td>
+      <td>最近清洁时间</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">cleaned_area</code></td>
-      <td>square meter</td>
-      <td>Last / actual cleaned area in square meter</td>
+      <td>square meter 平方米</td>
+      <td>最近清洁区域统计</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">main_brush_left</code></td>
-      <td>hours</td>
-      <td>Hours left until a change of the main brush is needed</td>
+      <td>hours 小时</td>
+      <td>主刷剩余寿命</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">side_brush_left</code></td>
-      <td>hours</td>
-      <td>Hours left until a change of the side brush is needed</td>
+      <td>hours 小时</td>
+      <td>边刷剩余寿命</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">filter_left</code></td>
-      <td>hours</td>
-      <td>Hours left until a change of the filter is needed</td>
+      <td>hours 小时</td>
+      <td>滤网剩余寿命</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">cleaning_count</code></td>
       <td> </td>
-      <td>Number of total cleaning passage</td>
+      <td>总清洁通道数</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">total_cleaned_area</code></td>
-      <td>square meter</td>
-      <td>Total cleaned area in square meter</td>
+      <td>square meter 平方米</td>
+      <td>总清洁范围</td>
     </tr>
     <tr>
       <td><code class="highlighter-rouge">total_cleaning_time</code></td>
-      <td>minutes</td>
-      <td>Total cleaning time in minutes</td>
+      <td>minutes 分钟</td>
+      <td>总清洁时间</td>
     </tr>
   </tbody>
 </table>
 <h3><a class="title-link" name="retrieving-the-access-token" href="#retrieving-the-access-token"></a> Retrieving the Access Token</h3>
 <p class="note">
-This token (32 hexadecimal characters) is required for the Xiaomi Mi Robot Vacuum and Xiaomi Philips Light. The Xiaomi Gateway uses another security method and requires a <code class="highlighter-rouge">key</code> (16 alphanumeric chars) which can be obtained easily via a hidden menu item at the Mi-Home app.
+小米设备必须获取 <code class="highlighter-rouge">token</code> 后才可以接入 HA，网关及子设备需要获取 16 位的 <code class="highlighter-rouge">token</code>，获取过程较容易，直接通过『米家 app』即可。而小米 WIFI 设备需要获取 32 位的 <code class="highlighter-rouge">token</code>，过程比较麻烦，详见下方说明：
 </p>
-<p>Follow the pairing process using your phone and Mi-Home app. You will be able to retrieve the token from a SQLite file inside your phone.</p>
-<p>Before you begin you need to install <code class="highlighter-rouge">libffi-dev</code> and <code class="highlighter-rouge">libssl-dev</code> by running the command below. This is needed for <code class="highlighter-rouge">python-mirobo</code> to be installed correctly.</p>
+<p>请使用手机和米家 app 根据下述教程从 SQLite 文档中获取机器人的秘钥 token，从而将扫地机接入 HA 平台。</p>
+<p>进行配置前，请确保在对应平台上已经安装 <code class="highlighter-rouge">python-mirobo</code> 对应的依赖库：</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo apt-get install libffi-dev libssl-dev
 </code></pre>
 </div>
-<p>If your Home Assistant installation is running in a <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a>, make sure you activate it by running the commands below.</p>
+<p>如果你的 HA 是在虚拟环境 <a href="/docs/installation/virtualenv/#upgrading-home-assistant">Virtualenv</a> 下运行的，在运行下列命令前请确保已切换到虚拟环境：</p>
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>sudo su -s /bin/bash homeassistant
 <span class="gp">$ </span><span class="nb">source</span> /srv/homeassistant/bin/activate
 </code></pre>
 </div>
-<p>To fetch the token follow these instructions depending on your mobile phone platform.</p>
+<p>请根据平台选择获取 token 的方法：</p>
 <h4><a class="title-link" name="windows-and-android" href="#windows-and-android"></a> Windows and Android</h4>
 <ol>
-  <li>Configure the robot with the Mi-Home app.</li>
-  <li>Enable developer mode and USB debugging on the Android phone and plug it into the computer.</li>
-  <li>Get and install the <a href="https://developer.android.com/studio/releases/platform-tools.html">ADB tool for Windows</a>.</li>
-  <li>Create a backup of the application <code class="highlighter-rouge">com.xiaomi.smarthome</code>:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb backup -noapk com.xiaomi.smarthome -f backup.ab
+  <li>通过米家 app 连接扫地机器人；</li>
+  <li>打开手机的开发者模式和 USB 调试模式，将手机连至电脑；</li>
+  <li>获取 ADB 工具：https://developer.android.com/studio/releases/platform-tools.html</li>
+  <li>创建 com.xiaomi.smarthome 的应用备份:</li>
+</ol>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db backup -noapk com.xiaomi.smarthome -f backup.ab
+</code></pre>
+</div>
+<ol>
+  <li>如果你的终端显示如下信息: “有多个设备或模拟器”，使用下列指令显示所有设备：
+    <div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db devices
 </code></pre>
     </div>
+    <p>并执行下列指令：</p>
   </li>
-  <li>If you have this message: “More than one device or emulator”, use this command to list all devices:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb devices
+</ol>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>.<span class="se">\a</span>db -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab <span class="c"># (with DEVICEID the device id from the previous command)</span>
 </code></pre>
-    </div>
-    <p>and execute this command:</p>
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>adb -s DEVICEID backup -noapk com.xiaomi.smarthome -f backup.ab <span class="c"># (with DEVICEID the device id from the previous command)</span>
+</div>
+<ol>
+  <li>在手机上选择确认备份，请勿输入任何密码；</li>
+  <li>获取 ADB 备份提取工具：https://sourceforge.net/projects/adbextractor/</li>
+  <li>提取所有备份文件：</li>
+</ol>
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar <span class="s2">""</span>
 </code></pre>
-    </div>
-  </li>
-  <li>On the phone, you must confirm the backup. DO NOT enter any password and press button to make the backup.</li>
-  <li>Get and install <a href="https://sourceforge.net/projects/adbextractor/">ADB Backup Extractor</a>.</li>
-  <li>Extract All files from the backup:
-    <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="gp">$ </span>java.exe -jar ../android-backup-extractor/abe.jar unpack backup.ab backup.tar <span class="s2">""</span>
-</code></pre>
-    </div>
-  </li>
-  <li>Unzip the “.tar” file.</li>
-  <li>Open the SQLite database <code class="highlighter-rouge">miio2.db</code> with a tool like SQLite Manager extension for FireFox.</li>
-  <li>Get the token from “devicerecord” table.</li>
+</div>
+<ol>
+  <li>解压 “.tar” 文件；</li>
+  <li>使用 SQLite Manager 等类似工具，打开 sqlite 文件 miio2.db；</li>
+  <li>获取 “devicerecord” 数据表，即 token。</li>
 </ol>
 <h4><a class="title-link" name="linux-and-android-rooted" href="#linux-and-android-rooted"></a> Linux and Android (rooted!)</h4>
+<p>此教程建立在 安卓手机已 root 的情况下。</p>
 <ol>
-  <li>Configure the light with the Mi-Home app.</li>
-  <li>Enable developer mode, USB debugging and root permission only for ADB on the Android phone and plug it into the computer.</li>
-  <li>Get ADB f.e. <code class="highlighter-rouge">apt-get install android-tools-adb</code></li>
-  <li><code class="highlighter-rouge">adb devices</code> should list your device</li>
-  <li><code class="highlighter-rouge">adb root</code> (does work for development builds only: ones with <code class="highlighter-rouge">ro.debuggable=1</code>)</li>
+  <li>通过米家 app 连接设备；</li>
+  <li>打开手机的开发者模式和 USB 调试模式，将手机连至电脑；</li>
+  <li>获取 ADB 工具，在终端中输入 <code class="highlighter-rouge">apt-get install android-tools-adb</code></li>
+  <li><code class="highlighter-rouge">adb devices</code> 将会显示你的设备</li>
+  <li><code class="highlighter-rouge">adb root</code> (仅适用于 Linux development builds： <code class="highlighter-rouge">ro.debuggable=1</code>)</li>
   <li><code class="highlighter-rouge">adb shell</code></li>
-  <li><code class="highlighter-rouge">echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db</code> returns a list of all registered devices including IP address and token.</li>
+  <li><code class="highlighter-rouge">echo "select name,localIP,token from devicerecord;" | sqlite3 /data/data/com.xiaomi.smarthome/databases/miio2.db</code> 返回设备 token</li>
 </ol>
 </article>
         </div>

@@ -75,23 +75,21 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">xiaomi_miio</code> platform allows you to control the state of your Xiaomi Philips LED Ball Lamp and Xiaomi Philips LED Ceiling Lamp.</p>
-<p>Currently, the supported features are <code class="highlighter-rouge">on</code>, <code class="highlighter-rouge">off</code>, <code class="highlighter-rouge">set_cct</code> (colortemp) , <code class="highlighter-rouge">set_bright</code> (brightness).</p>
-<p>Please follow the instructions on <a href="/components/vacuum.xiaomi/#retrieving-the-access-token">Retrieving the Access Token</a> to get the API token to use in the <code class="highlighter-rouge">configuration.yaml</code> file.</p>
-<p>To add a Xiaomi Philips Light to your installation, add the following to your configuration.yaml file:</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entries</span>
-<span class="s">light</span><span class="pi">:</span>
+  <p>小米 WIFI 设备平台 <code class="highlighter-rouge">xiaomi_miio</code> 能让你在 HA 中接入米家飞利浦智睿系列灯具，包括吸顶灯和球泡灯。</p>
+<p>目前支持的操作有开 <code class="highlighter-rouge">on</code>，关 <code class="highlighter-rouge">off</code>，色温设置 <code class="highlighter-rouge">set_cct</code> 以及亮度设置 <code class="highlighter-rouge">set_bright</code>。</p>
+<p>请先按照 <a href="/components/vacuum.xiaomi/#retrieving-the-access-token">此教程</a> 获取设备 <code class="highlighter-rouge">token</code>，之后在 <code class="highlighter-rouge">configuration.yaml</code> 文件中添加以下配置：</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">light</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">xiaomi_miio</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Xiaomi Philips Smart LED Ball</span>
     <span class="s">host</span><span class="pi">:</span> <span class="s">192.168.130.67</span>
     <span class="s">token</span><span class="pi">:</span> <span class="s">YOUR_TOKEN</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
+<p>变量说明：</p>
 <ul>
-  <li><strong>host</strong> (<em>Required</em>): The IP of your light.</li>
-  <li><strong>token</strong> (<em>Required</em>): The API token of your light.</li>
-  <li><strong>name</strong> (<em>Optional</em>): The name of your light.</li>
+  <li><strong>host</strong> (<em>必填</em>): 灯具的 ip</li>
+  <li><strong>token</strong> (<em>必填</em>): 灯具的 token</li>
+  <li><strong>name</strong> (<em>可选</em>):  灯具的昵称</li>
 </ul>
 </article>
         </div>

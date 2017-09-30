@@ -81,13 +81,13 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>ZigBee entity</th>
-      <th>Model no.</th>
-      <th>States</th>
-      <th>Event</th>
-      <th>Event key</th>
-      <th>Event values</th>
+      <th>名称</th>
+      <th>组件名称</th>
+      <th>型号</th>
+      <th>状态</th>
+      <th>事件</th>
+      <th>事件代码</th>
+      <th>事件值</th>
     </tr>
   </thead>
   <tbody>
@@ -300,7 +300,7 @@
 </code></pre>
 </div>
 <h4><a class="title-link" name="xiaomi-wireless-button" href="#xiaomi-wireless-button"></a> Xiaomi Wireless Button</h4>
-<p>可触发的事件（有效的控制）有单击 <code class="highlighter-rouge">single</code>，双击 <code class="highlighter-rouge">double</code>，持续按住 <code class="highlighter-rouge">hold</code>，点按后长按 <code class="highlighter-rouge">long_click_press</code>以及长按后松开 <code class="highlighter-rouge">long_click_press</code>。绿米(Aqara) 的方型开关只支持单击及双击。注意判定为双击的 2 次按动时间间隔较长。（译者注：因此容易出现误判）</p>
+<p>无线开关可触发的事件（有效的控制）有单击 <code class="highlighter-rouge">single</code>，双击 <code class="highlighter-rouge">double</code>，持续按住 <code class="highlighter-rouge">hold</code>，点按后长按 <code class="highlighter-rouge">long_click_press</code>以及长按后松开 <code class="highlighter-rouge">long_click_press</code>。绿米(Aqara) 的方型开关只支持单击及双击。注意判定为双击的 2 次按动时间间隔较长。（译者注：因此容易出现误判）</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="pi">-</span> <span class="s">alias</span><span class="pi">:</span> <span class="s">Toggle dining light on single press</span> <span class="c1">#单击亮灯</span>
   <span class="s">trigger</span><span class="pi">:</span>
     <span class="s">platform</span><span class="pi">:</span> <span class="s">event</span>
