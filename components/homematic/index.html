@@ -92,7 +92,6 @@ You can manually rename the created entities by using Home Assistants <a href="h
   <li><strong>hosts</strong> (<em>Required</em>): Configuration for each host to integrate into Home Assistant.</li>
   <li><strong>local_ip</strong> (<em>Optional</em>): IP of device running Home Assistant. Override autodetected value for exotic network setups.</li>
   <li><strong>local_port</strong> (<em>Optional</em>): Port for connection with Home Assistant. By default it is randomly assigned.</li>
-  <li><strong>delay</strong> (<em>Optional</em>): [Float] Delay fetching of current state per device on startup. Used to prevent overloading of the CCU. Defaults to 0.5.</li>
 </ul>
 <p>Configuration variables (host):</p>
 <ul>
@@ -108,7 +107,6 @@ You can manually rename the created entities by using Home Assistants <a href="h
 </ul>
 <h4>Example configuration with multiple protocols and some other options set:</h4>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">homematic</span><span class="pi">:</span>
-  <span class="s">delay</span><span class="pi">:</span> <span class="s">1.0</span>
   <span class="s">hosts</span><span class="pi">:</span>
     <span class="s">rf</span><span class="pi">:</span>
       <span class="s">ip</span><span class="pi">:</span> <span class="s">127.0.0.1</span>
@@ -319,6 +317,9 @@ Using this service provides you direct access to the setValue-method of the prim
             <a href='/components/digital_ocean/'>Digital Ocean</a>
         </li>
         <li>
+            <a href='/components/doorbird/'>DoorBird</a>
+        </li>
+        <li>
             <a href='/components/dyson/'>Dyson</a>
         </li>
         <li>
@@ -427,6 +428,9 @@ Using this service provides you direct access to the setValue-method of the prim
             <a href='/components/spc/'>SPC</a>
         </li>
         <li>
+            <a href='/components/satel_integra/'>Satel Integra Alarm</a>
+        </li>
+        <li>
             <a href='/components/sleepiq/'>SleepIQ</a>
         </li>
         <li>
@@ -469,7 +473,7 @@ Using this service provides you direct access to the setValue-method of the prim
             <a href='/components/wink/'>Wink</a>
         </li>
         <li>
-            <a href='/components/xiaomi/'>Xiaomi Gateway</a>
+            <a href='/components/xiaomi_aqara/'>Xiaomi Gateway</a>
         </li>
         <li>
             <a href='/components/zwave/'>Z-Wave</a>

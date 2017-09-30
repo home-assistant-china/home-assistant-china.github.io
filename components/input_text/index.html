@@ -75,10 +75,10 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">input_text</code> component allows the user to define values that can be controlled via the frontend and can be used within conditions of automation. Changes to the value stored in the text box generate state events. These state events can be utilized as <code class="highlighter-rouge">automation</code> triggers as well.</p>
-<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># Example configuration.yaml entries</span>
+  <p><code class="highlighter-rouge">input_text</code> 组件让用户可以通过前端输入可控设备的具体数值或者定义自动化的条件。输入框中值的改变将会触发设备的『状态改变事件』。此『事件』<code class="highlighter-rouge">automation（自动化）</code> 的触发条件。</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="c1"># 例如</span>
 <span class="s">input_text</span><span class="pi">:</span>
-  <span class="s">text1</span><span class="pi">:</span>
+  <span class="s">text1</span><span class="pi">:</span> <span class="c1">#[alias]</span>
     <span class="s">name</span><span class="pi">:</span> <span class="s">Text 1</span>
     <span class="s">initial</span><span class="pi">:</span> <span class="s">Some Text</span>
   <span class="s">text2</span><span class="pi">:</span>
@@ -90,14 +90,14 @@
     <span class="s">pattern</span><span class="pi">:</span> <span class="s1">'</span><span class="s">[a-fA-F0-9]*'</span>
 </code></pre>
 </div>
-<p>Configuration variables:</p>
+<p>变量说明：</p>
 <ul>
-  <li><strong>[alias]</strong> (<em>Required</em>): Alias for the text input.</li>
-  <li><strong>min</strong> (<em>Optional</em>): Minimum length for the text value. Default is <code class="highlighter-rouge">0</code>.</li>
-  <li><strong>max</strong> (<em>Optional</em>): Maximum length for the text value. Default is <code class="highlighter-rouge">100</code>.</li>
-  <li><strong>name</strong> (<em>Optional</em>): Friendly name of the text input.</li>
-  <li><strong>initial</strong> (<em>Optional</em>): Initial value when Home Assistant starts. Default is empty string.</li>
-  <li><strong>pattern</strong> (<em>Optional</em>): Regex pattern for client side validation. Default is empty string, which is treated same as <code class="highlighter-rouge">.*</code>.</li>
+  <li><strong>[alias]</strong> (<em>必须</em>): 别名，必须为英文（译者注）。</li>
+  <li><strong>min</strong> (<em>可选</em>): 最短字数。默认为 <code class="highlighter-rouge">0</code>。</li>
+  <li><strong>max</strong> (<em>可选</em>): 最长字数。 默认为 <code class="highlighter-rouge">100</code>。</li>
+  <li><strong>name</strong> (<em>可选</em>): 昵称。</li>
+  <li><strong>initial</strong> (<em>可选</em>): 初始值，默认为空。</li>
+  <li><strong>pattern</strong> (<em>可选</em>): 数值的正则表达式，默认为空，在系统中被识别为  <code class="highlighter-rouge">.*</code>.</li>
 </ul>
 </article>
         </div>

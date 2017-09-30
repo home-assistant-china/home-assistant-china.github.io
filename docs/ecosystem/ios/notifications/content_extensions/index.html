@@ -129,6 +129,24 @@
 </div>
 <h1>结合交互式通知</h1>
 <p>如上所示，<code class="highlighter-rouge">category</code>键是用来告诉设备要使用什么类型的扩展内容。您可以在自定义的<a href="/ecosystem/ios/notifications/actions/">交互式通知</a>中使用相同类别的标识符，用以向扩展内容中添加操作。</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">ios</span><span class="pi">:</span>
+  <span class="s">push</span><span class="pi">:</span>
+    <span class="s">categories</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">name</span><span class="pi">:</span> <span class="s">Camera With Actions</span>
+        <span class="s">identifier</span><span class="pi">:</span> <span class="s1">'</span><span class="s">camera'</span>
+        <span class="s">actions</span><span class="pi">:</span>
+          <span class="pi">-</span> <span class="s">identifier</span><span class="pi">:</span> <span class="s1">'</span><span class="s">OPEN_COVER'</span>
+            <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Open</span><span class="nv"> </span><span class="s">Cover'</span>
+            <span class="s">activationMode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">background'</span>
+            <span class="s">authenticationRequired</span><span class="pi">:</span> <span class="s">yes</span>
+            <span class="s">destructive</span><span class="pi">:</span> <span class="s">no</span>
+          <span class="pi">-</span> <span class="s">identifier</span><span class="pi">:</span> <span class="s1">'</span><span class="s">CLOSE_COVER'</span>
+            <span class="s">title</span><span class="pi">:</span> <span class="s1">'</span><span class="s">Close</span><span class="nv"> </span><span class="s">Cover'</span>
+            <span class="s">activationMode</span><span class="pi">:</span> <span class="s1">'</span><span class="s">background'</span>
+            <span class="s">authenticationRequired</span><span class="pi">:</span> <span class="s">yes</span>
+            <span class="s">destructive</span><span class="pi">:</span> <span class="s">yes</span>
+</code></pre>
+</div>
 <h1>故障排除</h1>
 <p>如果您在接收这些特殊通知时遇到问题，请先尝试重启手机。扩展拆件有时在重新启动之前可能无法正确加载。</p>
 </article>

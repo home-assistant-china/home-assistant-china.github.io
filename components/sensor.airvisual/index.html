@@ -75,22 +75,12 @@
     </h1>
   </header>
   <hr class="divider">
-  <p>The <code class="highlighter-rouge">airvisual</code> sensor platform queries the <a href="https://airvisual.com/">AirVisual</a> API for air quality
-data on the nearest city to a latitude and longitude. The resulting information
-creates sensors for the Air Quality Index (AQI), the human-friendly air quality
-level, and the main pollutant of that area. Sensors that conform to either/both
-the <a href="http://www.clm.com/publication.cfm?ID=366">U.S. and Chinese air quality standards</a> can be created.</p>
-<p>This platform requires an AirVisual API key, which can be obtained <a href="https://airvisual.com/api">here</a>. Note
-that the platform was designed using the “Community” package; the “Startup”
-and “Enterprise” package keys should continue to function, but actual results
-may vary (or not work at all).</p>
+  <p><code class="highlighter-rouge">airvisual</code>传感器平台通过使用 <a href="https://airvisual.com/">AirVisual</a> 的 API 向服务器获取制定经纬度地点或城市的空气质量数据。该平台支持的指数有：空气质量指数 (AQI)、空气质量等级及主要污染物。数据可选择使用<a href="http://www.clm.com/publication.cfm?ID=366">美国标准和/或中国标准</a>。</p>
+<p>使用该平台要求已有 AirVisual API key，可知<a href="https://airvisual.com/api">官网</a>获取。 注意：申请时请选择 “Community” 类型，”Startup” 和 “Enterprise” 类的 key 可能在本平台无法工作。</p>
 <p class="note warning">
-The “Community” API key is limited to 10,000 calls per month. In order to leave
-a buffer, the <code class="highlighter-rouge">airvisual</code> platform queries the API every 10 minutes.
-</p>
-<h2><a class="title-link" name="configuring-the-platform" href="#configuring-the-platform"></a> Configuring the Platform</h2>
-<p>To enable this platform, add the following lines to your <code class="highlighter-rouge">configuration.yaml</code>
-file:</p>
+“Community” API key 每月限制调用 10,000 次，因此本平台将调用时间设定为每 10 分钟 1 次以配合此限制。</p>
+<h2><a class="title-link" name="configuring-the-platform-via-latitudelongitude" href="#configuring-the-platform-via-latitudelongitude"></a> Configuring the Platform via Latitude/Longitude</h2>
+<p>使用本平台并通过纬度/经度收集数据，将下列命令增添至 <code class="highlighter-rouge">configuration.yaml</code> 文件：</p>
 <div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
   <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">airvisual</span>
     <span class="s">api_key</span><span class="pi">:</span> <span class="s">abc123</span>
@@ -102,110 +92,145 @@ file:</p>
     <span class="s">radius</span><span class="pi">:</span> <span class="s">500</span>
 </code></pre>
 </div>
+<p>变量说明：</p>
+<ul>
+  <li><strong>api_key</strong> (<em>必须</em>): 你的 AirVisual API key</li>
+  <li><strong>monitored_conditions</strong> (<em>必须</em>): 数据标准
+(<code class="highlighter-rouge">us</code> 为美国， <code class="highlighter-rouge">cn</code> 为中国)</li>
+  <li><strong>latitude</strong> (<em>可选</em>): 监测地区纬度；如果没有设定，默认为 <code class="highlighter-rouge">configuration.yaml</code> 中所设的系统纬度</li>
+  <li><strong>longitude</strong> (<em>可选</em>): 监测地区经度；如果没有设定，默认为 <code class="highlighter-rouge">configuration.yaml</code> 中所设的系统经度</li>
+  <li><strong>radius</strong> (<em>可选</em>): 监测范围，即监测距离所涉中心点多大范围内城市的数据；默认为 <code class="highlighter-rouge">1000</code>；单位默认为米</li>
+</ul>
+<h2><a class="title-link" name="configuring-the-platform-via-citystatecountry" href="#configuring-the-platform-via-citystatecountry"></a> Configuring the Platform via City/State/Country</h2>
+<p>To enable the platform and gather data via city/state/country, add the
+following lines to your <code class="highlighter-rouge">configuration.yaml</code> file:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">airvisual</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">abc123</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">us</span>
+      <span class="pi">-</span> <span class="s">cn</span>
+    <span class="s">city</span><span class="pi">:</span> <span class="s">southend-on-sea</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s">essex</span>
+    <span class="s">country</span><span class="pi">:</span> <span class="s">uk</span>
+</code></pre>
+</div>
 <p>Configuration variables:</p>
 <ul>
   <li><strong>api_key</strong> (<em>Required</em>): your AirVisual API key</li>
   <li><strong>monitored_conditions</strong> (<em>Required</em>): the air quality standard(s) to use
 (<code class="highlighter-rouge">us</code> for U.S., <code class="highlighter-rouge">cn</code> for Chinese)</li>
-  <li><strong>latitude</strong> (<em>Optional</em>): the latitude to monitor; if excluded, the latitude
-defined in <code class="highlighter-rouge">configuration.yaml</code> will be used</li>
-  <li><strong>longitude</strong> (<em>Optional</em>): the longitude to monitor; if excluded, the longitude
-defined in <code class="highlighter-rouge">configuration.yaml</code> will be used</li>
-  <li><strong>radius</strong> (<em>Optional</em>): the radius (in meters) around the latitude/longitude to
-search for the nearest city; defaults to <code class="highlighter-rouge">1000</code></li>
+  <li><strong>city</strong> (<em>Optional</em>): the city to monitor</li>
+  <li><strong>state</strong> (<em>Optional</em>): the state/region to monitor</li>
+  <li><strong>country</strong> (<em>Optional</em>): the country to monitor</li>
 </ul>
+<p>To easily determine the proper values for a particular location, use the
+<a href="https://airvisual.com/world">AirVisual region directory</a>. Once you browse to the particular city you want,
+take note of the breadcrumb title, which is of the form
+<code class="highlighter-rouge">country &gt; state/region &gt; city</code>. Use this information to fill out
+<code class="highlighter-rouge">configuration.yaml</code>.</p>
+<p>For example, Sao Paulo, Brazil shows a breadcrumb title of
+<code class="highlighter-rouge">Brazil &gt; Sao Paulo &gt; Sao Paulo</code> – thus, the proper configuration would look
+like this:</p>
+<div class="language-yaml highlighter-rouge"><pre class="highlight"><code><span class="s">sensor</span><span class="pi">:</span>
+  <span class="pi">-</span> <span class="s">platform</span><span class="pi">:</span> <span class="s">airvisual</span>
+    <span class="s">api_key</span><span class="pi">:</span> <span class="s">abc123</span>
+    <span class="s">monitored_conditions</span><span class="pi">:</span>
+      <span class="pi">-</span> <span class="s">us</span>
+      <span class="pi">-</span> <span class="s">cn</span>
+    <span class="s">city</span><span class="pi">:</span> <span class="s">sao-paulo</span>
+    <span class="s">state</span><span class="pi">:</span> <span class="s">sao-paulo</span>
+    <span class="s">country</span><span class="pi">:</span> <span class="s">brazil</span>
+</code></pre>
+</div>
 <h2><a class="title-link" name="sensor-types" href="#sensor-types"></a> Sensor Types</h2>
-<p>When configured, the platform will create three sensors for each configured
-air quality standard:</p>
-<h3>Air Quality Index</h3>
-<p><strong>Description:</strong> This sensor displays a numeric air quality index (AQI), a metric
-for the overall “health” of the air.</p>
-<p><strong>Example Sensor Name:</strong> <code class="highlighter-rouge">sensor.chinese_air_quality_index</code></p>
-<p><strong>Example Sensor Value:</strong> <code class="highlighter-rouge">32</code></p>
-<p><strong>Explanation:</strong></p>
+<p>平台接入后，将会生成 3 个传感器显示所监测的数据，包括：</p>
+<h3>空气质量指数</h3>
+<p><strong>描述：</strong> 该传感器显示 AQI 数值</p>
+<p><strong>示例传感器 ID：</strong> <code class="highlighter-rouge">sensor.chinese_air_quality_index</code></p>
+<p><strong>示例传感器值：</strong> <code class="highlighter-rouge">32</code></p>
+<p><strong>解释：</strong></p>
 <table>
   <thead>
     <tr>
       <th>AQI</th>
-      <th style="text-align: center">Status</th>
-      <th>Description</th>
+      <th style="text-align: center">等级</th>
+      <th>描述</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>0 - 50</td>
-      <td style="text-align: center"><strong>Good</strong></td>
-      <td>Air quality is considered satisfactory, and air pollution poses little or no risk</td>
+      <td style="text-align: center"><strong>优秀</strong></td>
+      <td>空气质量令人满意，基本无空气污染，各类人群可正常活动。</td>
     </tr>
     <tr>
       <td>51 - 100</td>
-      <td style="text-align: center"><strong>Moderate</strong></td>
-      <td>Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution</td>
+      <td style="text-align: center"><strong>良</strong></td>
+      <td>空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响，建议极少数异常敏感人群应减少户外活动。</td>
     </tr>
     <tr>
       <td>101 - 150</td>
-      <td style="text-align: center"><strong>Unhealthy for Sensitive Groups</strong></td>
-      <td>Members of sensitive groups may experience health effects. The general public is not likely to be affected</td>
+      <td style="text-align: center"><strong>轻度污染</strong></td>
+      <td>易感人群症状有轻度加剧，健康人群出现刺激症状。建议儿童、老年人及心脏病、呼吸系统疾病患者应减少长时间、高强度的户外锻炼。</td>
     </tr>
     <tr>
       <td>151 - 200</td>
-      <td style="text-align: center"><strong>Unhealthy</strong></td>
-      <td>Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects</td>
+      <td style="text-align: center"><strong>中度污染</strong></td>
+      <td>进一步加剧易感人群症状，可能对健康人群心脏、呼吸系统有影响，建议疾病患者避免长时间、高强度的户外锻练，一般人群适量减少户外运动。</td>
     </tr>
     <tr>
       <td>201 - 300</td>
-      <td style="text-align: center"><strong>Very unhealthy</strong></td>
-      <td>Health warnings of emergency conditions. The entire population is more likely to be affected</td>
+      <td style="text-align: center"><strong>重度污染</strong></td>
+      <td>心脏病和肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状，建议儿童、老年人和心脏病、肺病患者应停留在室内，停止户外运动，一般人群减少户外运动。</td>
     </tr>
     <tr>
       <td>301+</td>
-      <td style="text-align: center"><strong>Hazardous</strong></td>
-      <td>Health alert: everyone may experience more serious health effects</td>
+      <td style="text-align: center"><strong>有毒害</strong></td>
+      <td>健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病，建议儿童、老年人和病人应当留在室内，避免体力消耗，一般人群应避免户外活动。</td>
     </tr>
   </tbody>
 </table>
-<h3>Air Polution Level</h3>
-<p><strong>Description:</strong> This sensor displays the associated <code class="highlighter-rouge">Status</code> (from the above
-table) for the current AQI.</p>
-<p><strong>Sample Sensor Name:</strong> <code class="highlighter-rouge">sensor.us_air_pollution_level</code></p>
-<p><strong>Example Sensor Value:</strong> <code class="highlighter-rouge">Moderate</code></p>
-<h3>Main Pollutant</h3>
-<p><strong>Description:</strong> This sensor displays the pollutant whose value is currently
-highest.</p>
-<p><strong>Sample Sensor Name:</strong> <code class="highlighter-rouge">sensor.us_main_pollutant</code></p>
-<p><strong>Example Sensor Value:</strong> <code class="highlighter-rouge">PM2.5</code></p>
+<h3>空气污染等级</h3>
+<p><strong>描述：</strong> 该传感器显示空气污染等级</p>
+<p><strong>示例传感器 ID：</strong> <code class="highlighter-rouge">sensor.us_air_pollution_level</code></p>
+<p><strong>示例传感器值：</strong> <code class="highlighter-rouge">Moderate</code></p>
+<h3>主要污染物</h3>
+<p><strong>描述：</strong> 该传感器显示主要污染物</p>
+<p><strong>示例传感器 ID：</strong> <code class="highlighter-rouge">sensor.us_main_pollutant</code></p>
+<p><strong>示例传感器值：</strong> <code class="highlighter-rouge">PM2.5</code></p>
 <p><strong>Explanation:</strong></p>
 <table>
   <thead>
     <tr>
-      <th>Pollutant</th>
-      <th style="text-align: center">Symbol</th>
-      <th>More Info</th>
+      <th>污染物</th>
+      <th style="text-align: center">符号</th>
+      <th>更多信息</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>Particulate (&lt;= 2.5 μm)</td>
+      <td>可入肺颗粒物 (&lt;= 2.5 μm)</td>
       <td style="text-align: center">PM2.5</td>
       <td><a href="https://www.epa.gov/pm-pollution">EPA: Particulate Matter (PM) Pollution </a></td>
     </tr>
     <tr>
-      <td>Particulate (&lt;= 10 μm)</td>
+      <td>可吸入颗粒物 (&lt;= 10 μm)</td>
       <td style="text-align: center">PM10</td>
       <td><a href="https://www.epa.gov/pm-pollution">EPA: Particulate Matter (PM) Pollution </a></td>
     </tr>
     <tr>
-      <td>Ozone</td>
+      <td>臭氧</td>
       <td style="text-align: center">O</td>
       <td><a href="https://www.epa.gov/ozone-pollution">EPA: Ozone Pollution</a></td>
     </tr>
     <tr>
-      <td>Sulpher Dioxide</td>
+      <td>二氧化硫</td>
       <td style="text-align: center">SO2</td>
       <td><a href="https://www.epa.gov/so2-pollution">EPA: Sulfur Dioxide (SO2) Pollution</a></td>
     </tr>
     <tr>
-      <td>Carbon Monoxide</td>
+      <td>一氧化碳</td>
       <td style="text-align: center">CO</td>
       <td><a href="https://www.epa.gov/co-pollution">EPA: Carbon Monoxide (CO) Pollution in Outdoor Air</a></td>
     </tr>
