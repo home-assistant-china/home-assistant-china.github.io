@@ -13,26 +13,16 @@ ha_release: 0.53
 ha_iot_class: "Cloud Polling"
 ---
 
-The `airvisual` sensor platform queries the [AirVisual](https://airvisual.com/) API for air quality
-data on the nearest city to a latitude and longitude. The resulting information
-creates sensors for the Air Quality Index (AQI), the human-friendly air quality
-level, and the main pollutant of that area. Sensors that conform to either/both
-the [U.S. and Chinese air quality standards](http://www.clm.com/publication.cfm?ID=366) can be created.
+`airvisual`传感器平台通过使用 [AirVisual](https://airvisual.com/) 的 API 向服务器获取制定经纬度地点或城市的空气质量数据。该平台支持的指数有：空气质量指数 (AQI)、空气质量等级及主要污染物。数据可选择使用[美国标准和/或中国标准](http://www.clm.com/publication.cfm?ID=366)。
 
-This platform requires an AirVisual API key, which can be obtained [here](https://airvisual.com/api). Note
-that the platform was designed using the "Community" package; the "Startup"
-and "Enterprise" package keys should continue to function, but actual results
-may vary (or not work at all).
+使用该平台要求已有 AirVisual API key，可知[官网](https://airvisual.com/api)获取。 注意：申请时请选择 "Community" 类型，"Startup" 和 "Enterprise" 类的 key 可能在本平台无法工作。
 
 <p class='note warning'>
-The "Community" API key is limited to 10,000 calls per month. In order to leave
-a buffer, the `airvisual` platform queries the API every 10 minutes.
-</p>
+"Community" API key 每月限制调用 10,000 次，因此本平台将调用时间设定为每 10 分钟 1 次以配合此限制。</p>
 
 ## {% linkable_title Configuring the Platform %}
 
-To enable this platform, add the following lines to your `configuration.yaml`
-file:
+使用本平台，将下列命令增添至 `configuration.yaml` 文件：
 
 ```yaml
 sensor:
@@ -46,67 +36,62 @@ sensor:
     radius: 500
 ```
 
-Configuration variables:
+变量说明：
 
-- **api_key** (*Required*): your AirVisual API key
-- **monitored_conditions** (*Required*): the air quality standard(s) to use
-(`us` for U.S., `cn` for Chinese)
-- **latitude** (*Optional*): the latitude to monitor; if excluded, the latitude
-defined in `configuration.yaml` will be used
-- **longitude** (*Optional*): the longitude to monitor; if excluded, the longitude
-defined in `configuration.yaml` will be used
-- **radius** (*Optional*): the radius (in meters) around the latitude/longitude to
-search for the nearest city; defaults to `1000`
+- **api_key** (*必须*): 你的 AirVisual API key
+- **monitored_conditions** (*必须*): 数据标准
+(`us` 为美国， `cn` 为中国)
+- **latitude** (*可选*): 监测地区纬度；如果没有设定，默认为 `configuration.yaml` 中所设的系统纬度
+- **longitude** (*可选*): 监测地区经度；如果没有设定，默认为 `configuration.yaml` 中所设的系统经度
+- **radius** (*可选*): 监测范围，即监测距离所涉中心点多大范围内城市的数据；默认为 `1000`；单位默认为米
 
 ## {% linkable_title Sensor Types %}
 
-When configured, the platform will create three sensors for each configured
-air quality standard:
+平台接入后，将会生成 3 个传感器显示所监测的数据，包括：
 
-### Air Quality Index
+### 空气质量指数
 
-**Description:** This sensor displays a numeric air quality index (AQI), a metric
-for the overall "health" of the air.
+**描述：** 该传感器显示 AQI 数值
 
-**Example Sensor Name:** `sensor.chinese_air_quality_index`
+**示例传感器 ID：** `sensor.chinese_air_quality_index`
 
-**Example Sensor Value:** `32`
+**示例传感器值：** `32`
+
+**解释：**
+
+AQI | 等级 | 描述
+------- | :----------------: | ----------
+0 - 50  | **优秀** | 空气质量令人满意，基本无空气污染，各类人群可正常活动。
+51 - 100  | **良** | 空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响，建议极少数异常敏感人群应减少户外活动。
+101 - 150 | **轻度污染** | 易感人群症状有轻度加剧，健康人群出现刺激症状。建议儿童、老年人及心脏病、呼吸系统疾病患者应减少长时间、高强度的户外锻炼。
+151 - 200 | **中度污染** | 进一步加剧易感人群症状，可能对健康人群心脏、呼吸系统有影响，建议疾病患者避免长时间、高强度的户外锻练，一般人群适量减少户外运动。
+201 - 300 | **重度污染** | 心脏病和肺病患者症状显著加剧，运动耐受力降低，健康人群普遍出现症状，建议儿童、老年人和心脏病、肺病患者应停留在室内，停止户外运动，一般人群减少户外运动。
+301+ | **有毒害** | 健康人群运动耐受力降低，有明显强烈症状，提前出现某些疾病，建议儿童、老年人和病人应当留在室内，避免体力消耗，一般人群应避免户外活动。
+
+### 空气污染等级
+
+**描述：** 该传感器显示空气污染等级
+
+**示例传感器 ID：** `sensor.us_air_pollution_level`
+
+**示例传感器值：** `Moderate`
+
+### 主要污染物
+
+**描述：** 该传感器显示主要污染物
+
+**示例传感器 ID：** `sensor.us_main_pollutant`
+
+**示例传感器值：** `PM2.5`
 
 **Explanation:**
 
-AQI | Status | Description
+污染物 | 符号 | 更多信息
 ------- | :----------------: | ----------
-0 - 50  | **Good** | Air quality is considered satisfactory, and air pollution poses little or no risk
-51 - 100  | **Moderate** | Air quality is acceptable; however, for some pollutants there may be a moderate health concern for a very small number of people who are unusually sensitive to air pollution
-101 - 150 | **Unhealthy for Sensitive Groups** | Members of sensitive groups may experience health effects. The general public is not likely to be affected
-151 - 200 | **Unhealthy** | Everyone may begin to experience health effects; members of sensitive groups may experience more serious health effects
-201 - 300 | **Very unhealthy** | Health warnings of emergency conditions. The entire population is more likely to be affected
-301+ | **Hazardous** | Health alert: everyone may experience more serious health effects
+可入肺颗粒物 (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
+可吸入颗粒物 (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
+臭氧 | O | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)
+二氧化硫 | SO2 | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)
+一氧化碳 | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution)
 
-### Air Polution Level
 
-**Description:** This sensor displays the associated `Status` (from the above
-table) for the current AQI.
-
-**Sample Sensor Name:** `sensor.us_air_pollution_level`
-
-**Example Sensor Value:** `Moderate`
-
-### Main Pollutant
-
-**Description:** This sensor displays the pollutant whose value is currently
-highest.
-
-**Sample Sensor Name:** `sensor.us_main_pollutant`
-
-**Example Sensor Value:** `PM2.5`
-
-**Explanation:**
-
-Pollutant | Symbol | More Info
-------- | :----------------: | ----------
-Particulate (<= 2.5 μm) | PM2.5 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
-Particulate (<= 10 μm) | PM10 | [EPA: Particulate Matter (PM) Pollution ](https://www.epa.gov/pm-pollution)
-Ozone | O | [EPA: Ozone Pollution](https://www.epa.gov/ozone-pollution)
-Sulpher Dioxide | SO2 | [EPA: Sulfur Dioxide (SO2) Pollution](https://www.epa.gov/so2-pollution)
-Carbon Monoxide | CO | [EPA: Carbon Monoxide (CO) Pollution in Outdoor Air](https://www.epa.gov/co-pollution)
