@@ -43,7 +43,7 @@ ha_iot_class: "Local Push"
 
 Follow the setup process using your phone and Mi-Home app. From here you will be able to retrieve the key from within the app following [this tutorial](https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832)
 
-### {% linkable_title 单个网关 %}
+### {% linkable_单个网关 %}
 请查看该[章节](/xiaomi/#retrieving-the-access-token)以获取API token。
 
 （译者注：请在米家 app 中与网关配对，之后进入网关页，点选右上角“……” —— 关于 —— 空白处点多下 —— 局域网通信协议 —— 打开并获取密码）
@@ -141,7 +141,6 @@ HA 支持网关铃声的两个操作：播放 `xiaomi.play_ringtone` 和停止`x
 ```
 
 That means that Home Assistant is not getting any response from your Xiaomi gateway. Might be a local network problem or your firewall.
-
 - Make sure you have enabled LAN access: https://community.home-assistant.io/t/beta-xiaomi-gateway-integration/8213/1832
 - Turn off the firewall on the system where Home Assistant is running.
 - Try to leave the MAC address `mac:` blank. 

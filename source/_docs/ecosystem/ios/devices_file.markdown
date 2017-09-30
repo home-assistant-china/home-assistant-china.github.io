@@ -9,4 +9,4 @@ sharing: true
 footer: true
 ---
 
-`ios.conf`文件包含所有已注册iOS设备的最近的状态。删除该文件将不会禁用任何设备，当下次有新设备连接或重新连接现有设备时，该文件将重新被创建。
+The `ios.conf` file contains the most recent state of all registered iOS devices. Deleting this file will not disable the devices and the file will be recreated the next time a new device is connected or an existing one reconnects.
