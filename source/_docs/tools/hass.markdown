@@ -35,6 +35,12 @@ optional arguments:
                         后台运行文件PID file 所在文件夹
   --log-rotate-days LOG_ROTATE_DAYS
                         允许日志回滚和特定日期跳转
+
+                        Enables daily log rotation and keeps up to the
+                        specified days
+  --log-file LOG_FILE   Log file to write to. If not set, CONFIG/home-
+                        assistant.log is used
+
   --runner              On restart exit with code 100
   --script ...          执行命令
   --daemon              后台运行 HA

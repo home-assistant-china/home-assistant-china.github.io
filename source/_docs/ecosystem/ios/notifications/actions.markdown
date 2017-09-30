@@ -71,7 +71,7 @@ ios:
   push:
     categories:
       - name: Alarm
-        identifier: 'ALARM'
+        identifier: 'alarm'
         actions:
           - identifier: 'SOUND_ALARM'
             title: 'Sound Alarm'
@@ -106,7 +106,7 @@ automation:
             badge: 5
             sound: <SOUND FILE HERE>
             category: "ALARM" # 需要匹配在ios配置中所使用的顶级标识符
-          action_data: # 在action_data中传递的任何内容都会被回传给Home Assistant。
+            action_data: # 在action_data中传递的任何内容都会被回传给Home Assistant。
             entity_id: light.test
             my_custom_data: foo_bar
 ```
@@ -142,3 +142,5 @@ automation:
 
 * 只有当`behavior`设置为`textInput`时，`textInput`才会存在。
 * `actionData`是一个字典，其包括原始通知中`push`字典中`action_data`字典中所用的传递参数
+
+

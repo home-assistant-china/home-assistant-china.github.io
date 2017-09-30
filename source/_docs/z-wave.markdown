@@ -14,6 +14,8 @@ redirect_from: /getting-started/z-wave/
 
 There is currently support for climate, covers, lights, locks, sensors, switches, and thermostats. All will be picked up automatically after configuring this platform.
 
+Before configuring the Z-Wave setup, please take a moment and read [this article](https://drzwave.blog/2017/01/20/seven-habits-of-highly-effective-z-wave-networks-for-consumers/) to understand the most common pitfalls of Z-Wave networks. 
+
 ### {% linkable_title Installation %}
 
 As of version 0.45, Home Assistant automatically installs python-openzwave from PyPI as needed.
@@ -82,6 +84,10 @@ $ ls /dev/cu.usbmodem*
 
 <p class='note'>
 Depending on what's plugged into your USB ports, the name found above may change. You can lock in a name, such as `/dev/zwave`, by following [these instructions](http://hintshop.ludvig.co.nz/show/persistent-names-usb-serial-devices/).
+</p>
+
+<p class='note'>
+After installing and configuring Z-Wave, Home Assistant will try to install required Python Z-Wave libraries during startup (if they are not already installed). This process might take anywhere between 5 to 25 minutes depending upon various factors. Please be patient, and let it run! This happens only once and the subsequent restarts will have no impact in performance.
 </p>
 
 ### {% linkable_title Adding Devices %}

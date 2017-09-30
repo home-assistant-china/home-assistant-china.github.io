@@ -78,6 +78,27 @@ data:
 
 如上所示，`category`键是用来告诉设备要使用什么类型的扩展内容。您可以在自定义的[交互式通知](/ecosystem/ios/notifications/actions/)中使用相同类别的标识符，用以向扩展内容中添加操作。
 
+```yaml
+ios:
+  push:
+    categories:
+      - name: Camera With Actions
+        identifier: 'camera'
+        actions:
+          - identifier: 'OPEN_COVER'
+            title: 'Open Cover'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: no
+          - identifier: 'CLOSE_COVER'
+            title: 'Close Cover'
+            activationMode: 'background'
+            authenticationRequired: yes
+            destructive: yes
+```
+
 # 故障排除
 
  如果您在接收这些特殊通知时遇到问题，请先尝试重启手机。扩展拆件有时在重新启动之前可能无法正确加载。
+
+
