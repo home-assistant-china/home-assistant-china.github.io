@@ -10,17 +10,17 @@ footer: true
 redirect_from: /ecosystem/ios/integration/
 ---
 
-Home Assistant for iOS supports opening from other apps via URL.
+Home Assistant通过URL打开其他应用程序已实现对iOS设备的支持。
 
-Query parameters are passed as a dictionary in the call.
+调用时查询参数以字典的方式被传入。
 
-## Call service
-Example: `homeassistant://call_service/device_tracker.see?entity_id=device_tracker.entity`
+## 调用服务
+示例: `homeassistant://call_service/device_tracker.see?entity_id=device_tracker.entity`
 
-## Fire event
-You can create an [event trigger](https://home-assistant.io/docs/automation/trigger/#event-trigger) and fire the event.
+## 触发事件
+您可以创建一个[事件触发器](https://home-assistant.io/docs/automation/trigger/#event-trigger) 然后触发该事件
 
-Example: `homeassistant://fire_event/custom_event?entity_id=MY_CUSTOM_EVENT`
+示例: `homeassistant://fire_event/custom_event?entity_id=MY_CUSTOM_EVENT`
 
-## Send one shot location
-Example: `homeassistant://send_location/`
+## 发送位置
+示例: `homeassistant://send_location/`
