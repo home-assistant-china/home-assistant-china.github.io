@@ -22,7 +22,7 @@ ha_release: 0.48
 请使用手机和米家 app 根据下述教程从 SQLite 文档中获取机器人的秘钥 `token`，从而将扫地机接入 HA 平台。
 
 <p class='note warning'>
-如果你的 HA 是在虚拟环境 [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant)下运行的，在运行下列命令前请确保已切换到虚拟环境。</p>
+如果你的 HA 是在虚拟环境 [Virtualenv](/docs/installation/virtualenv/#upgrading-home-assistant) 下运行的，在运行下列命令前请确保已切换到虚拟环境。</p>
 
 ```bash 
 $ sudo su -s /bin/bash homeassistant

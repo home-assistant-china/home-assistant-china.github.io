@@ -13,8 +13,6 @@ ha_release: "0.50"
 ha_iot_class: "Local Push"
 ---
 
-此组件允许你在 HA 中使用小米的开关。
-
-使用此组件前请先设置好[小米多功能网关](/components/xiaomi/)平台。
+此组件允许你在 HA 中使用小米的开关，使用此组件前请先设置好 [小米多功能网关](/components/xiaomi/) 平台。
 
 

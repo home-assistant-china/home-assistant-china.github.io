@@ -13,16 +13,13 @@ ha_version: 0.53
 ha_iot_class: "Local Polling"
 ---
 
-The `xiaomi_miio` platform allows you to control the state of your Xiaomi Philips LED Ball Lamp and Xiaomi Philips LED Ceiling Lamp.
+小米 WIFI 设备平台 `xiaomi_miio` 能让你在 HA 中接入米家飞利浦智睿系列灯具，包括吸顶灯和球泡灯。
 
-Currently, the supported features are `on`, `off`, `set_cct` (colortemp) , `set_bright` (brightness).
+目前支持的操作有开 `on`，关 `off`，色温设置 `set_cct` 以及亮度设置 `set_bright`。
 
-Please follow the instructions on [Retrieving the Access Token](/components/vacuum.xiaomi/#retrieving-the-access-token) to get the API token to use in the `configuration.yaml` file.
-
-To add a Xiaomi Philips Light to your installation, add the following to your configuration.yaml file:
+请先按照 [此教程](/components/vacuum.xiaomi/#retrieving-the-access-token) 获取设备 `token`，之后在 `configuration.yaml` 文件中添加以下配置：
 
 ```yaml
-# Example configuration.yaml entries
 light:
   - platform: xiaomi_miio
     name: Xiaomi Philips Smart LED Ball
@@ -30,7 +27,9 @@ light:
     token: YOUR_TOKEN
 ```
 
-Configuration variables:
-- **host** (*Required*): The IP of your light.
-- **token** (*Required*): The API token of your light.
-- **name** (*Optional*): The name of your light.
+变量说明：
+- **host** (*必填*): 灯具的 ip
+- **token** (*必填*): 灯具的 token
+- **name** (*可选*):  灯具的昵称
+
+

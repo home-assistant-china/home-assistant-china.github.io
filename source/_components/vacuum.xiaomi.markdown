@@ -21,7 +21,7 @@ Please follow the instructions on [Retrieving the Access Token](/components/xiao
 
 请使用手机和米家 app 根据下述教程从 SQLite 文档中获取机器人的秘钥 token，从而将扫地机接入 HA 平台。
 
-进行配置前，请确保在对应平台上已经安装`python-mirobi` 的依赖库 `libffi-dev`：
+进行配置前，请确保在对应平台上已经安装`python-mirobo` 的依赖库 `libffi-dev`：
 
 ```bash
 apt-get install libffi-dev
@@ -92,8 +92,8 @@ vacuum:
 
 ### {% linkable_title Platform services %}
 
-除了扫地机器人通用的指令 [vacuum component services](/components/vacuum#component-services) (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fanspeed` and `send_command`), 小米平台另外还支持一些特殊的指令，包括：
-`xiaomi_remote_control_start`, `xiaomi_remote_control_stop`, `xiaomi_remote_control_move` 和 `xiaomi_remote_control_move_step`.
+除了 HA 中所有扫地机器人所能使用的通用指令 [vacuum component services](/components/vacuum#component-services) (`turn_on`, `turn_off`, `start_pause`, `stop`, `return_to_home`, `locate`, `set_fanspeed` and `send_command`)，小米平台另外还支持一些特殊的远程操控指令，包括：
+`xiaomi_remote_control_start`, `xiaomi_remote_control_stop`, `xiaomi_remote_control_move` 和 `xiaomi_remote_control_move_step`。
 
 #### {% linkable_title Service `vacuum/xiaomi_remote_control_start` %}
 
