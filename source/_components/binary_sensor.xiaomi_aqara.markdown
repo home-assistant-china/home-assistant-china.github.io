@@ -20,7 +20,7 @@ ha_iot_class: "Local Push"
 
 ### {% linkable_title Type of sensors supported %}
 
-| Name                              | ZigBee entity       | Model no.            | States                            | Event          | Event key                               | Event values                                                                                                             |
+| 名称                              | 组件名称       | 型号            | 状态                            | 事件          | 事件代码                               | 事件值                                                                                                             |
 |-----------------------------------|---------------------|----------------------|----------------------------------------------------|-----------------------------------------|--------------------------------------------------------------------------------------------------------------------------|
 | 人体传感器 (1st gen)           | motion              | RTCGQ01LM            | on, off                           | `motion`       |                                         |                                                                                                                          |
 | 人体传感器 (2nd gen)           | sensor_motion.aq2   | RTCGQ11LM            | on, off                           | `motion`       |                                         |                                                                                                                          |
@@ -145,7 +145,7 @@ light
 
 #### {% linkable_title Xiaomi Wireless Button %}
 
-可触发的事件（有效的控制）有单击 `single`，双击 `double`，持续按住 `hold`，点按后长按 `long_click_press`以及长按后松开 `long_click_press`。绿米(Aqara) 的方型开关只支持单击及双击。注意判定为双击的 2 次按动时间间隔较长。（译者注：因此容易出现误判）
+无线开关可触发的事件（有效的控制）有单击 `single`，双击 `double`，持续按住 `hold`，点按后长按 `long_click_press`以及长按后松开 `long_click_press`。绿米(Aqara) 的方型开关只支持单击及双击。注意判定为双击的 2 次按动时间间隔较长。（译者注：因此容易出现误判）
 
 ```yaml
 - alias: Toggle dining light on single press #单击亮灯
